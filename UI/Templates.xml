@@ -1,0 +1,60 @@
+<Ui>
+    <Button name="SoulshapeListButtonTemplate" motionScriptsWhileDisabled="true" virtual="true">
+        <Size x="208" y="46"/>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture atlas="PetList-ButtonBackground" parentKey="background"/>
+            </Layer>
+            <Layer level="BORDER">
+                <Texture parentKey="icon">
+                    <Size x="38" y="38"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="-42" y="0"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="ARTWORK" textureSubLevel="-1">
+                <Texture parentKey="iconBorder" file="Interface\Common\WhiteIconFrame" hidden="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeKey="$parent.icon"/>
+                        <Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT" relativeKey="$parent.icon"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+                <FontString parentKey="name" inherits="GameFontNormal" justifyH="LEFT">
+                    <Size x="208" y="25"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeKey="$parent.icon" x="10" y="-5"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+            <Layer level="OVERLAY" textureSubLevel="1">
+                <Texture parentKey="selectedTexture" atlas="PetList-ButtonSelect" hidden="true"/>
+            </Layer>
+        </Layers>
+        <Frames>
+            <Button parentKey="DragButton" motionScriptsWhileDisabled="true">
+                <Size x="40" y="40"/>
+                <Anchors>
+                    <Anchor point="CENTER" relativeKey="$parent.icon" x="0" y="0"/>
+                </Anchors>
+                <HighlightTexture name="$parentHighlight" file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
+                <Scripts>
+                    <OnLoad>
+                        self:RegisterForClicks("LeftButtonUp");
+                    </OnLoad>
+                </Scripts>
+            </Button>
+        </Frames>
+        <HighlightTexture atlas="PetList-ButtonHighlight"/>
+        <Scripts>
+            <OnLoad>
+                self:RegisterForClicks("LeftButtonUp");
+            </OnLoad>
+            <OnClick>
+                SoulshapeCollectionPanel:OnButtonClick(self, button);
+            </OnClick>
+        </Scripts>
+    </Button>
+</Ui>

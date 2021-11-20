@@ -1,0 +1,20 @@
+## Interface: 90105
+## Version: @project-version@
+## Title: Soulshape Journal |A:sanctumupgrades-nightfae-32x32:16:16|a
+## Notes: Displays Nightfae shoulshapes as a collection journal
+## Notes-frFR: Affiche les formes d'âme des Faë nocturnes dans un journal de collection
+## Author: Christophe Michel
+## X-Website: https://github.com/christopheml/SoulshapeJournal/
+
+Libs\LibStub\LibStub.lua
+Libs\AceLocale-3.0\AceLocale-3.0.xml
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\SecureTabs-2.0\SecureTabs-2.0.lua
+
+Localization\enUS.lua
+Localization\frFR.lua
+
+Database\SoulshapeDatabase.lua
+UI\Templates.xml
+UI\SoulshapeJournal.lua
+Core.lua
