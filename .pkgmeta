@@ -2,3 +2,12 @@ package-as: SoulshapeJournal
 
 ignore:
     *.txt
+
+embedded-libraries:
+  - SecureTabs-2.0
+  - LibStub
+  - Ace3
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
