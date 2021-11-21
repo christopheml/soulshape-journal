@@ -22,10 +22,9 @@ SOFTWARE.
 ]]
 
 local ADDON_NAME, SC = ...
-local SoulshapeCollection = LibStub("AceAddon-3.0"):NewAddon(SC, ADDON_NAME, "AceConsole-3.0", "AceEvent-3.0")
+local SoulshapeJournal = LibStub("AceAddon-3.0"):NewAddon(SC, ADDON_NAME, "AceConsole-3.0")
 
-
-function SoulshapeCollection:OnInitialize()
+function SoulshapeJournal:OnInitialize()
     self.saved = LibStub("AceDB-3.0"):New("SoulshapeJournalDB", {
         char = {
             collectedUntrackable = {
@@ -36,23 +35,13 @@ function SoulshapeCollection:OnInitialize()
     })
 end
 
-function SoulshapeCollection:OnEnable()
+function SoulshapeJournal:OnEnable()
     self:CreateDatabase()
 
-    -- Register event quest complete to update collection
-    self:RegisterEvent("QUEST_TURNED_IN")
-    
     -- Fixes an issue when our addon loads after Blizzard_Collections
     if not CollectionsJournal then
         LoadAddOn("Blizzard_Collections")
     end 
 
     self:CreateCollectionPanel()
-    self:RegisterChatCommand("model", function(input)
-        CharacterModelFrame:SetDisplayInfo(input)
-    end)
-end
-
-function SoulshapeCollection:QUEST_TURNED_IN(questID)
-    self.collected[questID] = true
 end

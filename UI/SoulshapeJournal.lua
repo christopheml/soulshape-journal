@@ -153,12 +153,12 @@ end
 
 function CollectionPanelMixin:UpdateCount()
     local collected = 0
-    for _, soulshape in ipairs(SC.Soulshapes) do
+    for _, soulshape in ipairs(SC.Database.soulshapes) do
         if soulshape.collected then
             collected = collected + 1
         end
     end
-    self.Count:SetText(collected .. "/" .. #SC.Soulshapes)
+    self.Count:SetText(collected .. "/" .. SC.Database:Count())
 end
 
 function CollectionPanelMixin:CreateTab()
@@ -181,17 +181,17 @@ end
 
 function CollectionPanelMixin:OnButtonClick(button)
     self.selectedSoulshape = button.soulshape
-    self:Update()
+    self:UpdateSoulshapeDisplay()
+    self.ScrollFrame:UpdateButtons()
 end
 
 function CollectionPanelMixin:AddUntrackableToCollection(addButton)
     local soulshape = addButton:GetParent().soulshape
     if soulshape.untrackable then
         SC.saved.char.collectedUntrackable[soulshape.untrackable] = true
-        -- FIXME refresh display
+        self:Update()
     end
 end
-
 
 function CollectionPanelMixin:CreateScrollFrame()
 
@@ -213,7 +213,6 @@ function CollectionPanelMixin:CreateScrollFrame()
     end
 
     function ScrollFrameMixin:UpdateButtons()
-        local items = SC.Soulshapes
         local buttons = HybridScrollFrame_GetButtons(self)
         local offset = HybridScrollFrame_GetOffset(self)
         local buttonHeight;
@@ -224,8 +223,8 @@ function CollectionPanelMixin:CreateScrollFrame()
     
             buttonHeight = button:GetHeight()
     
-            if itemIndex <= #items then
-                local item = items[itemIndex]
+            if itemIndex <= #self.items then
+                local item = self.items[itemIndex]
                 button.name:SetText(item.name)
                 button.icon:SetTexture(item.icon)
                 button.soulshape = item
@@ -255,13 +254,13 @@ function CollectionPanelMixin:CreateScrollFrame()
             end
         end
     
-        HybridScrollFrame_Update(self, #items * buttonHeight, self:GetHeight())
+        HybridScrollFrame_Update(self, #self.items * buttonHeight, self:GetHeight())
     end
 
     local scrollFrame = Mixin(CreateFrame("ScrollFrame", "$parentScrollFrame", self, "HybridScrollFrameTemplate"), ScrollFrameMixin)
     scrollFrame:SetPoint("TOPLEFT", self.LeftInset, "TOPLEFT", 3, -5)
     scrollFrame:SetPoint("BOTTOMRIGHT", self.LeftInset, "BOTTOMRIGHT", -3, 5)
-    scrollFrame.items = SC.Soulshapes
+    scrollFrame.items = SC.Database.soulshapes
 
     local scrollBar = CreateFrame("Slider", "$parentScrollBar", scrollFrame, "HybridScrollBarTemplate")
     scrollBar:SetPoint("TOPLEFT", self.LeftInset, "TOPRIGHT", 1, -16)
@@ -277,6 +276,7 @@ function CollectionPanelMixin:CreateScrollFrame()
 end
 
 function CollectionPanelMixin:Update()
+    SC.Database:Update()
     self.ScrollFrame:UpdateButtons()
     self:UpdateSoulshapeDisplay()
     self:UpdateCount()

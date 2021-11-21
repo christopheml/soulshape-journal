@@ -34,6 +34,33 @@ local DatabaseFactory = {
     formatters = {},
 }
 
+local DatabaseMixin = {}
+
+function DatabaseMixin:Sort()
+    -- For the moment default to natural order on names
+    table.sort(soulshapes, function(left, right)
+        return left.name < right.name
+    end)
+end
+
+function DatabaseMixin:Update()
+    for _, soulshape in ipairs(self.soulshapes) do
+        soulshape.collected = soulshape.collected or self:IsCollected(soulshape)
+    end
+end
+
+function DatabaseMixin:Count()
+    return #self.soulshapes
+end
+
+function DatabaseMixin:IsCollected(soulshape)
+    if soulshape.questID then
+        return C_QuestLog.IsQuestFlaggedCompleted(soulshape.questID)
+    else
+        return soulshape.untrackable and SC.saved.char.collectedUntrackable[soulshape.untrackable]
+    end
+end
+
 function DatabaseFactory.formatters.cost(cost)
     if not isarray(cost) then
         cost = {cost}
@@ -75,14 +102,6 @@ end
 
 function DatabaseFactory.formatters.campaignQuest(quest)
     return "|A:quest-campaign-available:12:12|a" .. quest
-end
-
-function DatabaseFactory:IsCollected(soulshape)
-    if soulshape.questID then
-        return C_QuestLog.IsQuestFlaggedCompleted(soulshape.questID)
-    else
-        return soulshape.untrackable and SC.saved.char.collectedUntrackable[soulshape.untrackable]
-    end
 end
 
 function DatabaseFactory:Label(name)
@@ -159,7 +178,6 @@ function DatabaseFactory:CreateGuideString(soulshape)
 end
 
 function DatabaseFactory:CreateDatabase()
-    
     local soulshapes =  {
         {
             name = L["Alpaca Soul"],
@@ -706,19 +724,15 @@ function DatabaseFactory:CreateDatabase()
         }
     }
 
-    -- Processes shoulshape table to expand the name and localize text fields
+    -- Generate source and guide fields for soulshapes
     for _, soulshape in ipairs(soulshapes) do
-        local questID = soulshape.questID
         soulshape.source = self:CreateSourceString(soulshape)
-        soulshape.collected = soulshape.collected or self:IsCollected(soulshape)
         soulshape.guide = self:CreateGuideString(soulshape)
     end
     
-    table.sort(soulshapes, function(left, right)
-        return left.name < right.name
-    end)
-
-    SC.Soulshapes = soulshapes
+    SC.Database = CreateFromMixins({ 
+        soulshapes = soulshapes,
+    }, DatabaseMixin)
 end
 
 SC.CreateDatabase = function()
