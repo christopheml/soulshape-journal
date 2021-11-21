@@ -143,6 +143,14 @@ function CollectionPanelMixin:UpdateSoulshapeDisplay()
     end 
 end
 
+function CollectionPanelMixin:ShowUntrackableTooltip(addButton)
+    local soulshape = addButton:GetParent().soulshape
+    GameTooltip:SetOwner(addButton, "ANCHOR_RIGHT")
+    GameTooltip:AddLine(string.format("|A:services-icon-warning:16:16|a |cFFFFFFFF%s|r", L["UNTRACKABLE_TOOLTIP_TITLE"]))
+    GameTooltip:AddLine(string.format(L["UNTRACKABLE_TOOLTIP_CLICK_ME"], NIGHT_FAE_BLUE_COLOR:WrapTextInColorCode(soulshape.name)))
+    GameTooltip:Show()
+end
+
 function CollectionPanelMixin:UpdateCount()
     local collected = 0
     for _, soulshape in ipairs(SC.Soulshapes) do
@@ -175,6 +183,15 @@ function CollectionPanelMixin:OnButtonClick(button)
     self.selectedSoulshape = button.soulshape
     self:Update()
 end
+
+function CollectionPanelMixin:AddUntrackableToCollection(addButton)
+    local soulshape = addButton:GetParent().soulshape
+    if soulshape.untrackable then
+        SC.saved.char.collectedUntrackable[soulshape.untrackable] = true
+        -- FIXME refresh display
+    end
+end
+
 
 function CollectionPanelMixin:CreateScrollFrame()
 
@@ -223,6 +240,8 @@ function CollectionPanelMixin:CreateScrollFrame()
                     button.icon:SetDesaturated(true)
                     button.name:SetFontObject("GameFontDisable")
                 end
+
+                button.untrackableAddButton:SetShown(not item.collected and item.untrackable)
 
                 if panel.selectedSoulshape == item then
                     button.selected = true;

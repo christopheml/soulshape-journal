@@ -28,6 +28,8 @@ local L = LibStub("AceLocale-3.0"):NewLocale(ADDON, "frFR", false)
 -- UI elements
 L["TAB_TITLE"] = "Formes d’âme"
 L["COUNT_LABEL"] = "Total"
+L["UNTRACKABLE_TOOLTIP_TITLE"] = "Cette forme d’âme ne peut pas être détectée automatiquement"
+L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Cliquez pour marquer %s comme débloquée si vous l'avez déjà."
 
 -- Labels
 L["Loot"] = "Butin"

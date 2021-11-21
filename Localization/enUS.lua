@@ -28,6 +28,8 @@ local L = LibStub("AceLocale-3.0"):NewLocale(ADDON, "enUS", true)
 -- UI elements
 L["TAB_TITLE"] = "Soulshapes"
 L["COUNT_LABEL"] = "Total"
+L["UNTRACKABLE_TOOLTIP_TITLE"] = "This soulshape can't be automatically detected"
+L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Click to mark %s as collected if you already have it."
 
 -- Labels
 L["Loot"] = true

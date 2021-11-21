@@ -80,8 +80,9 @@ end
 function DatabaseFactory:IsCollected(soulshape)
     if soulshape.questID then
         return C_QuestLog.IsQuestFlaggedCompleted(soulshape.questID)
+    else
+        return soulshape.untrackable and SC.saved.char.collectedUntrackable[soulshape.untrackable]
     end
-    return false 
 end
 
 function DatabaseFactory:Label(name)
@@ -212,7 +213,7 @@ function DatabaseFactory:CreateDatabase()
             guide = L["Cat Soul (Well Fed) Guide"],
             icon = 656577,
             model = 100636,
-            untracked = true,
+            untrackable = "catwellfed",
         },
         {
             name = L["Chicken Soul"],
@@ -247,7 +248,7 @@ function DatabaseFactory:CreateDatabase()
             guide = L["Corgi Soul Guide"],
             icon = 1339013,
             model = 100634,
-            untracked = true,
+            untrackable = "corgi",
         },
         {
             name = L["Crane Soul"],

@@ -26,7 +26,14 @@ local SoulshapeCollection = LibStub("AceAddon-3.0"):NewAddon(SC, ADDON_NAME, "Ac
 
 
 function SoulshapeCollection:OnInitialize()
-    self.collected = {}
+    self.saved = LibStub("AceDB-3.0"):New("SoulshapeJournalDB", {
+        char = {
+            collectedUntrackable = {
+                ["corgi"] = false,
+                ["catwellfed"] = false,
+            },
+        },
+    })
 end
 
 function SoulshapeCollection:OnEnable()
