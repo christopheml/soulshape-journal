@@ -25,6 +25,8 @@ local ADDON_NAME, SC = ...
 
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 
+local NIGHT_FAE = Enum.CovenantType["NightFae"]
+
 local CollectionPanelMixin = {
     selectedSoulshape = nil
 }
@@ -46,6 +48,20 @@ function CollectionPanelMixin:CreateCount()
     countLabel:SetPoint("RIGHT", countNumber, "LEFT", -3, 0)
 
     self.Count = countNumber
+end
+
+function CollectionPanelMixin:CreateCovenantWarning()
+    local warningFrame = CreateFrame("Frame", nil, self)
+    -- This positioning is super ugly, but it does the job, don't do this at home
+    warningFrame:SetPoint("TOPRIGHT", self, "TOPRIGHT", -10, -28)
+    warningFrame:SetSize(395, 30)
+    local warningLabel = warningFrame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+    warningLabel:SetText(L["WARNING_NOT_NIGHT_FAE"])
+    warningLabel:SetJustifyH("LEFT")
+    warningLabel:SetAllPoints()
+    warningLabel:Hide()
+
+    self.CovenantWarning = warningLabel
 end
 
 function CollectionPanelMixin:CreateInsets()
@@ -153,6 +169,11 @@ end
 
 function CollectionPanelMixin:UpdateCount()
     self.Count:SetText(SC.Database:CountCollected() .. "/" .. SC.Database:CountTotal())
+end
+
+function CollectionPanelMixin:UpdateCovenantWarning()
+    local covenant = C_Covenants.GetActiveCovenantID()
+    self.CovenantWarning:SetShown(covenant ~= NIGHT_FAE)
 end
 
 function CollectionPanelMixin:CreateTab()
@@ -268,11 +289,13 @@ function CollectionPanelMixin:CreateScrollFrame()
     self.ScrollFrame = scrollFrame
 end
 
+-- Called when journal is shown
 function CollectionPanelMixin:Update()
     SC.Database:Update()
     self.ScrollFrame:UpdateButtons()
     self:UpdateSoulshapeDisplay()
     self:UpdateCount()
+    self:UpdateCovenantWarning()
 end
 
 function SC:CreateCollectionPanel()
@@ -284,6 +307,7 @@ function SC:CreateCollectionPanel()
     
     panel:CreateInsets()
     panel:CreateCount()
+    panel:CreateCovenantWarning()
     panel:CreateScrollFrame()
     panel:CreateTab()
     panel:CreateModelView()
