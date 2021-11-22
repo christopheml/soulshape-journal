@@ -152,13 +152,7 @@ function CollectionPanelMixin:ShowUntrackableTooltip(addButton)
 end
 
 function CollectionPanelMixin:UpdateCount()
-    local collected = 0
-    for _, soulshape in ipairs(SC.Database.soulshapes) do
-        if soulshape.collected then
-            collected = collected + 1
-        end
-    end
-    self.Count:SetText(collected .. "/" .. SC.Database:Count())
+    self.Count:SetText(SC.Database:CountCollected() .. "/" .. SC.Database:CountTotal())
 end
 
 function CollectionPanelMixin:CreateTab()
@@ -187,8 +181,7 @@ end
 
 function CollectionPanelMixin:AddUntrackableToCollection(addButton)
     local soulshape = addButton:GetParent().soulshape
-    if soulshape.untrackable then
-        SC.saved.char.collectedUntrackable[soulshape.untrackable] = true
+    if SC.Database:AddUntrackable(soulshape) then
         self:Update()
     end
 end

@@ -49,8 +49,26 @@ function DatabaseMixin:Update()
     end
 end
 
-function DatabaseMixin:Count()
+function DatabaseMixin:CountTotal()
     return #self.soulshapes
+end
+
+function DatabaseMixin:CountCollected()
+    local collected = 0
+    for _, soulshape in ipairs(self.soulshapes) do
+        if self:IsCollected(soulshape) then
+            collected = collected + 1
+        end
+    end
+    return collected
+end
+
+function DatabaseMixin:AddUntrackable(soulshape)
+    if soulshape.untrackable then
+        SC.saved.char.collectedUntrackable[soulshape.untrackable] = true
+        return true -- collection updated, update panel
+    end
+    return false -- nothing done, no need to update panel
 end
 
 function DatabaseMixin:IsCollected(soulshape)
