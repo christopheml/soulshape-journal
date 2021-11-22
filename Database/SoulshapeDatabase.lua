@@ -25,9 +25,12 @@ local ADDON_NAME, SC = ...
 
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME, true)
 
- function isarray(t)
-    return type(t) == "table" and #t > 0
- end
+-- upvalues for frequent API calls
+local isQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted 
+
+function isarray(t)
+   return type(t) == "table" and #t > 0
+end
 
 local DatabaseFactory = {
     DEFAULT_SOULSHAPE_ICON = 3586268,
@@ -56,7 +59,7 @@ end
 function DatabaseMixin:CountCollected()
     local collected = 0
     for _, soulshape in ipairs(self.soulshapes) do
-        if self:IsCollected(soulshape) then
+        if soulshape.collected then
             collected = collected + 1
         end
     end
@@ -66,14 +69,14 @@ end
 function DatabaseMixin:AddUntrackable(soulshape)
     if soulshape.untrackable then
         SC.saved.char.collectedUntrackable[soulshape.untrackable] = true
-        return true -- collection updated, update panel
+        return true
     end
-    return false -- nothing done, no need to update panel
+    return false
 end
 
 function DatabaseMixin:IsCollected(soulshape)
     if soulshape.questID then
-        return C_QuestLog.IsQuestFlaggedCompleted(soulshape.questID)
+        return isQuestCompleted(soulshape.questID)
     else
         return soulshape.untrackable and SC.saved.char.collectedUntrackable[soulshape.untrackable]
     end

@@ -51,12 +51,3 @@ This addon couldn't have been made without the help of the following people:
 * RenataKane for the [Wowhead Soulshape Guide](https://fr.wowhead.com/guides/soulshapes-night-fae-covenant) that was the starting point for the information included in this addon.
 * The people of [WowAce](https://www.wowace.com/) and [Ace3](https://www.wowace.com/projects/ace3) for the great scaffolding code.
 * foxlit for the [Townlong Yak](https://www.townlong-yak.com/) tools.
-
-## Planned refactorings
-
-These are not really relevant if you're simply planning on using the addon, they're a list of technical things I'd like to explore and/or change in an upcoming version.
-
-* Rename SoulshapeCollectionPanel to ShoulshapeJournal and generally harmonize UI names with existing Blizzard Journals.
-* Convert some of the UI to XML templates where appropriate.
-* Rename questID in the database to something better.
-* Load more information from the game to reduce the amount of translation needed.
