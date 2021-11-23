@@ -309,6 +309,21 @@ function DatabaseFactory:CreateDatabase()
             model = 96519,
         },
         {
+            name = L["Cricket Soul"],
+            vendor = {
+                name = L["Spindlenose"],
+                region = L["Ardenweald"],
+                coordinates = { x=59.6, y=52.8 },
+                cost = {
+                    { id=1813, amount=15000 },
+                    { id=1885, amount=25 },
+                },
+            },
+            questID = 64990,
+            icon = 646325,
+            model = 103069,
+        },
+        {
             name = L["Direhorn Soul"],
             loot = L["The Grand Menagerie"],
             region = L["Tazavesh, the Veiled Market"],

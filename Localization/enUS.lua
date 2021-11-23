@@ -156,6 +156,7 @@ L["Corgi Soul"] = true
 L["Corgi Soul Guide"] = "Sparkle is a corgi soul walking around the Heart of the Forest. /pet him and you'll receive the soulshape immediately (no quest turn-in needed)"
 
 L["Crane Soul"] = true
+L["Cricket Soul"] = true
 L["Direhorn Soul"] = true
 L["Eagle Soul"] = true
 L["Equine Soul"] = true

@@ -155,6 +155,7 @@ L["Corgi Soul"] = "Âme de corgi"
 L["Corgi Soul Guide"] = "Sparkel est une âme de corgi qui tourne dans le Cœur de la forêt. Faites-lui /cajoler et vous recevez directement la forme d'âme (pas de quête à rendre)."
 
 L["Crane Soul"] = "Âme de grue"
+L["Cricket Soul"] = "Âme de criquet"
 L["Direhorn Soul"] = "Âme de navrecorne"
 L["Eagle Soul"] = "Âme d’aigle"
 L["Equine Soul"] = "Âme d’étalon"
