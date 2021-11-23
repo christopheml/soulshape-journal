@@ -41,7 +41,7 @@ local DatabaseMixin = {}
 
 function DatabaseMixin:Sort()
     -- For the moment default to natural order on names
-    table.sort(soulshapes, function(left, right)
+    table.sort(self.soulshapes, function(left, right)
         return left.name < right.name
     end)
 end
@@ -758,4 +758,5 @@ end
 
 SC.CreateDatabase = function()
     DatabaseFactory:CreateDatabase()
+    SC.Database:Sort()
 end
