@@ -1,7 +1,8 @@
 package-as: SoulshapeJournal
 
 ignore:
-    *.txt
+    - *.txt
+    - CHANGELOG.md
 
 embedded-libraries:
   - SecureTabs-2.0
