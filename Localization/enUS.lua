@@ -121,6 +121,7 @@ L["Mushroom Network"] = true
 L["Marasmius"] = true
 L["Paragon reward."] = true
 L["Soulshape"] = true
+L["Pilgrim's Bounty"] = true
 
 L["Normal or Heroic"] = true
 L["Heroic"] = true
@@ -235,6 +236,10 @@ L["Stag Soul"] = true
 L["Stag Soul Guide"] = "Can be randomly offered as a reward from any Night Fae daily in Korthia."
 
 L["Tiger Soul"] = true
+
+L["Turkey Soul"] = true
+L["Turkey Soul Guide"] = "Go to a faction capital, and find a Pilgrim’s Bounty table.\nEat every food until you have the 5 food buffs, then continue eating food and switching seats every time until you get the soulshape."
+
 L["Ursine Soul"] = true
 L["Veilwing Soul"] = true
 

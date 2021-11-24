@@ -703,6 +703,14 @@ function DatabaseFactory:CreateDatabase()
             model = 96521,
         },
         {
+            name = L["Turkey Soul"],
+            worldEvent = L["Pilgrim's Bounty"],
+            guide = L["Turkey Soul Guide"],
+            questID = 65467,
+            icon = 250626,
+            model = 105220,
+        },
+        {
             name = L["Ursine Soul"],
             faction = { name=L["Marasmius"], level=5 },
             vendor = {

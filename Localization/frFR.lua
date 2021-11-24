@@ -121,6 +121,7 @@ L["Mushroom Network"] = "Réseau de champignons"
 L["Marasmius"] = true
 L["Paragon reward."] = "Récompense de parangon."
 L["Soulshape"] = "Forme d’âme"
+L["Pilgrim's Bounty"] = "Les Bienfaits du pèlerin"
 
 L["Normal or Heroic"] = "Normal ou héroïque"
 L["Heroic"] = "Héroïque"
@@ -235,6 +236,10 @@ L["Stag Soul"] = "Âme de cerf"
 L["Stag Soul Guide"] = "Peut-être aléatoirement offert en récompense de n'importe quelle quête journalière des Faë nocturnes à Korthia."
 
 L["Tiger Soul"] = "Âme de tigre"
+
+L["Turkey Soul"] = "Âme de dinde"
+L["Turkey Soul Guide"] = "Allez dans une capitale et trouvez une table des Bienfaits du pèlerin.\nMangez de chaque nourriture jusqu'à avoir les 5 buffs différents, puis continuer à manger et changer de siège à chaque fois. jusqu'à obtenir la forme d'âme."
+
 L["Ursine Soul"] = "Âme d’ours"
 L["Veilwing Soul"] = "Âme d’aile-voilée"
 

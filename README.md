@@ -4,8 +4,7 @@ Adds a tab in the Collections Journal to track your soulshape collection.
 
 ## Features
 
-* Displays most known soulshapes currenty available for players in 9.1.5
-    * Known missing soulshapes: Turkey.
+* Displays all known soulshapes currenty available for players in 9.1.5
 * Tracks almost every collected soulshape on any character (others can be tracked manually).
 * Detailed information on where and how to find every soulshape.
 
@@ -51,3 +50,4 @@ This addon couldn't have been made without the help of the following people:
 * RenataKane for the [Wowhead Soulshape Guide](https://fr.wowhead.com/guides/soulshapes-night-fae-covenant) that was the starting point for the information included in this addon.
 * The people of [WowAce](https://www.wowace.com/) and [Ace3](https://www.wowace.com/projects/ace3) for the great scaffolding code.
 * foxlit for the [Townlong Yak](https://www.townlong-yak.com/) tools.
+* PigeonD at the *WoW Secret Finding & Collectionù Discord for the Turkey Soul model info.
