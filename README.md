@@ -4,7 +4,8 @@ Adds a tab in the Collections Journal to track your soulshape collection.
 
 ## Features
 
-* Displays all known soulshapes currenty available for players in 9.1.5.
+* Displays most known soulshapes currenty available for players in 9.1.5
+    * Known missing soulshapes: Turkey.
 * Tracks almost every collected soulshape on any character (others can be tracked manually).
 * Detailed information on where and how to find every soulshape.
 
@@ -12,7 +13,6 @@ Adds a tab in the Collections Journal to track your soulshape collection.
 
 * About panel, with thanks, acknowledgments and misc information.
 * Search bar and filter drop down.
-* Display a warning when the user isn't a member of the Night fae.
 * Add information about the Spectral Feed back into the guides.
 
 ## Known Issues
