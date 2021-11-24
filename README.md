@@ -18,6 +18,22 @@ Adds a tab in the Collections Journal to track your soulshape collection.
 
 * Coordinates should always display decimal digits.
 
+## Installation
+
+### Manual installation from Github
+
+* Click [Releases](/releases/) and from the latest release, click the `SoulshapeJournal-x.y.zip` link to download the zip file.
+* Unzip the zip file into your retail Addons directory.
+* Reload your UI if you were in-game.
+
+### Using Ajour
+
+Click "Install from an URL", paste `https://github.com/christopheml/soulshape-journal` and follow instructions. Ajour should pickup up updates when they're published.
+
+### Using Curse/Overwolf
+
+Soulshape Journal hasn't been published on Curseforge yet, expect it in a few days.
+
 ## Licensing
 
 The project is released under the [MIT License](LICENSE.txt).
