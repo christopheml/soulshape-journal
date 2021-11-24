@@ -22,7 +22,7 @@ Adds a tab in the Collections Journal to track your soulshape collection.
 
 ### Manual installation from Github
 
-* Click [Releases](/releases/) and from the latest release, click the `SoulshapeJournal-x.y.zip` link to download the zip file.
+* Click [Releases](https://github.com/christopheml/soulshape-journal/releases/) and from the latest release, click the `SoulshapeJournal-x.y.zip` link to download the zip file.
 * Unzip the zip file into your retail Addons directory.
 * Reload your UI if you were in-game.
 
