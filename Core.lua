@@ -44,4 +44,19 @@ function SoulshapeJournal:OnEnable()
     end 
 
     self:CreateCollectionPanel()
+
+
+    -- DEBUG COMMANDS
+    self:RegisterChatCommand("sj_kit", function(input)
+        if input == "+" then
+            SC.lastID = SC.lastID + 1
+        elseif input == "-" then
+            SC.lastID = SC.lastID - 1
+        else
+            SC.lastID = tonumber(input)
+        end
+        SC:Print("CreatureDisplayInfoID = " .. (SC.lastID or "<nil>"))
+        CharacterModelFrame:SetDisplayInfo(SC.lastID)
+    end)
+
 end
