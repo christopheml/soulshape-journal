@@ -36,6 +36,7 @@ L["WARNING_NOT_NIGHT_FAE"] = "Vous n'êtes pas membre des Faë nocturnes, vous n
 L["Loot"] = "Butin"
 L["Quest"] = "Quête"
 L["Campaign"] = "Campagne"
+L["World Event"] = "Événement mondial"
 L["World Quest"] = "Expédition"
 L["NPC"] = "PNJ"
 L["Region"] = "Région"
