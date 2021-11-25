@@ -272,6 +272,7 @@ function CollectionPanelMixin:CreateScrollFrame()
                     button.name:SetFontObject("GameFontDisable")
                 end
 
+                button.critterIcon:SetShown(item.critter)
                 button.untrackableAddButton:SetShown(not item.collected and item.untrackable)
 
                 if panel.selectedSoulshape == item then

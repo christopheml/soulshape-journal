@@ -32,6 +32,15 @@
             <Layer level="OVERLAY" textureSubLevel="1">
                 <Texture parentKey="selectedTexture" atlas="PetList-ButtonSelect" hidden="true"/>
             </Layer>
+            <Layer level="ARTWORK" textureSubLevel="0">
+                <Texture parentKey="critterIcon" file="Interface\PetBattles\PetIcon-Critter" hidden="true">
+                    <Anchors>
+                        <Anchor point="BOTTOMRIGHT" x="-1" y="1"/>
+                    </Anchors>
+                    <Size x="90" y="44"/>
+                    <TexCoords left="0.00781250" right="0.71093750" top="0.74609375" bottom="0.91796875"/>
+                </Texture>
+            </Layer>
         </Layers>
         <Frames>
             <Button parentKey="untrackableAddButton" motionScriptsWhileDisabled="true" hidden="true">
