@@ -206,7 +206,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 65010,
             icon = 2061352,
             model = 103074,
-            scale = 3,
+            scale = 3.5,
         },
         {
             name = L["Ardenmoth Soul"],
@@ -216,6 +216,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62422,
             icon = 3255388,
             model = 96511,
+            modelSceneID = 34,
         },
         {
             name = L["Boar Soul"],
@@ -224,7 +225,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 65025,
             icon = 1044799,
             model = 103082,
-            scale = 2,
+            scale = 3,
         },
         {
             name = L["Bunny Soul"],
@@ -234,6 +235,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64984,
             icon = 2399274,
             model = 102364,
+            scale = 4,
         },
         {
             name = L["Cat Soul"],
@@ -252,6 +254,7 @@ function DatabaseFactory:CreateDatabase()
             guide = L["Cat Soul (Well Fed) Guide"],
             icon = 656577,
             model = 100636,
+            scale = 4,
             untrackable = "catwellfed",
         },
         {
@@ -263,6 +266,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64941,
             icon = 2027864,
             model = 102363,
+            scale = 4,
         },
         {
             name = L["Cloud Serpent Soul"],
@@ -271,6 +275,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 65024,
             icon = 1247267,
             model = 103080,
+            scale = 6,
         },
         {
             name = L["Cobra Soul"],
@@ -279,6 +284,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64651,
             icon = 2399271,
             model = 96525,
+            scale = 4,
         },
         {
             name = L["Corgi Soul"],
@@ -287,6 +293,7 @@ function DatabaseFactory:CreateDatabase()
             guide = L["Corgi Soul Guide"],
             icon = 1339013,
             model = 100634,
+            scale = 4,
             untrackable = "corgi",
         },
         {
@@ -307,6 +314,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62424,
             icon = 605484,
             model = 96519,
+            scale = 4,
         },
         {
             name = L["Cricket Soul"],
@@ -322,6 +330,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64990,
             icon = 646325,
             model = 103069,
+            scale = 4,
         },
         {
             name = L["Direhorn Soul"],
@@ -330,6 +339,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 63607,
             icon = 791593,
             model = 100626,
+            scale = 5,
         },
         {
             name = L["Eagle Soul"],
@@ -342,6 +352,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 65021,
             icon = 132172,
             model = 103076,
+            modelSceneID = 34,
         },
         {
             name = L["Equine Soul"],
@@ -351,6 +362,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62428,
             icon = 2153980,
             model = 96517,
+            scale = 4.5,
         },
         {
             name = L["Frog Soul"],
@@ -360,6 +372,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64994,
             icon = 2399262,
             model = 100638,
+            scale = 4,
         },
         {
             name = L["Goat Soul"],
@@ -378,6 +391,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62426,
             icon = 537515,
             model = 96539,
+            scale = 5.5,
         },
         {
             name = L["Gulper Soul"],
@@ -400,7 +414,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 63608,
             icon = 1044490,
             model = 100627,
-            scale = 2.2,
+            scale = 3.4,
         },
         {
             name = L["Hippogryph Soul"],
@@ -410,6 +424,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62427,
             icon = 1455896,
             model = 96538,
+            scale = 4.5,
         },
         {
             name = L["Hyena Soul"],
@@ -418,6 +433,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64650,
             icon = 132190,
             model = 96524,
+            scale = 4,
         },
         {
             name = L["Jormungar Soul"],
@@ -426,6 +442,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 65023,
             icon = 1531518,
             model = 103079,
+            scale = 5,
         },
         {
             name = L["Kodo Soul"],
@@ -434,6 +451,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 63609,
             icon = 132243,
             model = 100629,
+            scale = 5,
         },
         {
             name = L["Leonine Soul"],
@@ -450,6 +468,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62429,
             icon = 464140,
             model = 96520,
+            scale = 5.5,
         },
         {
             name = L["Lupine Soul"],
@@ -466,6 +485,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62438,
             icon = 464162,
             model = 96534,
+            scale = 5,
         },
         {
             name = L["Mammoth Soul"],
@@ -498,6 +518,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64959,
             icon = 645906,
             model = 100637,
+            scale = 4,
         },
         {
             name = L["Owl Soul"],
@@ -506,6 +527,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 65026,
             icon = 1387709,
             model = 103083,
+            modelSceneID = 34,
         },
         {
             name = L["Owlcat Soul"],
@@ -515,6 +537,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62432,
             icon = 132192,
             model = 96529,
+            scale = 5.5,
         },
         {
             name = L["Porcupine Soul"],
@@ -536,7 +559,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64992,
             icon = 656176,
             model = 103070,
-            scale = 6,
+            scale = 6.5,
         },
         {
             name = L["Ram Soul"],
@@ -561,6 +584,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62433,
             icon = 838683,
             model = 96531,
+            scale = 5,
         },
         {
             name = L["Rat Soul"],
@@ -577,6 +601,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64985,
             icon = 647701,
             model = 100639,
+            scale = 5,
         },
         {
             name = L["Runestag Soul"],
@@ -604,7 +629,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64993,
             icon = 2027844,
             model = 97505,
-            scale = 2,
+            scale = 3,
         },
         {
             name = L["Saurolisk Soul"],
@@ -613,6 +638,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 63605,
             icon = 2027929,
             model = 100624,
+            scale = 5,
         },
         {
             name = L["Shadowstalker Soul"],
@@ -622,6 +648,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62431,
             icon = 2475038,
             model = 97492,
+            scale = 5.5,
         },
         {
             name = L["Shoveltusk Soul"],
@@ -630,6 +657,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 63604,
             icon = 134060,
             model = 100623,
+            scale = 4,
         },
         {
             name = L["Shrieker Soul"],
@@ -639,6 +667,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62436,
             icon = 952507,
             model = 96518,
+            scale = 5,
         },
         {
             name = L["Snake Soul"],
@@ -648,6 +677,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 64988,
             icon = 2399227,
             model = 103068,
+            scale = 4,
         },
         {
             name = L["Snapper Soul"],
@@ -660,6 +690,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62420,
             icon = 1339043,
             model = 96527,
+            scale = 4,
         },
         {
             name = L["Spider Soul"],
@@ -672,6 +703,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 63606,
             icon = 2027946,
             model = 100625,
+            scale = 4,
         },
         {
             name = L["Sporebat Soul"],
@@ -701,6 +733,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62437,
             icon = 620832,
             model = 96521,
+            scale = 5.5,
         },
         {
             name = L["Turkey Soul"],
@@ -709,6 +742,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 65467,
             icon = 250626,
             model = 105220,
+            scale = 3,
         },
         {
             name = L["Ursine Soul"],
@@ -721,6 +755,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62423,
             icon = 132183,
             model = 96532,
+            scale = 4.5,
         },
         {
             name = L["Veilwing Soul"],
@@ -730,6 +765,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62425,
             icon = 303867,
             model = 96535,
+            scale = 5.5,
         },
         {
             name = L["Vulpine Soul"],
@@ -737,6 +773,7 @@ function DatabaseFactory:CreateDatabase()
             guide = L["Vulpine Soul Guide"],
             icon = 3586268,
             model = 93949,
+            scale = 5,
             collected = true,
         },
         {
@@ -748,6 +785,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62439,
             icon = 1279719,
             model = 96537,
+            scale = 5.5,
         },
         {
             name = L["Wyvern Soul"],
@@ -756,6 +794,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 62440,
             icon = 537531,
             model = 96540,
+            scale = 5.5,
         },
         {
             name = L["Yak Soul"],
@@ -765,6 +804,7 @@ function DatabaseFactory:CreateDatabase()
             questID = 63603,
             icon = 900317,
             model = 100622,
+            scale = 4,
         }
     }
 

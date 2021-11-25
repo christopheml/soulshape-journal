@@ -149,30 +149,32 @@ function CollectionPanelMixin:CreateModelView()
 end
 
 function CollectionPanelMixin:UpdateSoulshapeDisplay()
+    function showModel(creatureDisplayID, scale, modelSceneID)
+        local scene = self.SoulshapeDisplay.ModelScene
+        
+        scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_DISCARD, true)
+        local actor = scene:GetActorByTag("unwrapped")
+        if actor then
+            actor:SetModelByCreatureDisplayID(creatureDisplayID)
+            if scale then
+                actor:SetRequestedScale(scale)
+            end
+        end
+        local camera = scene:GetActiveCamera()
+        scene:Show()
+    end
+
     local soulshape = self.selectedSoulshape
     if soulshape then
         self.Name:SetText(soulshape.name)
         self.Source:SetText(soulshape.source)
         self.Guide:SetText(soulshape.guide)
-
-        local scene = self.SoulshapeDisplay.ModelScene
-        if soulshape.model then
-            local modelSceneID = 4
-            scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_MAINTAIN, true)
-            local actor = scene:GetActorByTag("unwrapped")
-            if actor then
-                actor:SetModelByCreatureDisplayID(soulshape.model)
-                if soulshape.scale then
-                    actor:SetRequestedScale(soulshape.scale)
-                end
-            end
-            local camera = scene:GetActiveCamera()
-            scene:Show()
-        else
-            C_ModelInfo.ClearActiveModelScene(scene)
-            scene:Hide()
-        end
-    end 
+        showModel(soulshape.model, soulshape.scale, soulshape.modelSceneID or 44)
+    else
+        -- default display
+        self.Name:SetText("Soulshape Journal")
+        showModel(101678, 6, 4)
+    end
 end
 
 function CollectionPanelMixin:ShowUntrackableTooltip(addButton)
