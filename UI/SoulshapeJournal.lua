@@ -96,7 +96,23 @@ function CollectionPanelMixin:CreateModelView()
     soulshapeInfo:SetPoint("TOPLEFT", 20, -20)
     soulshapeInfo:SetPoint("BOTTOMRIGHT", -20, 20)
 
-    local infoName = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
+    -- FIXME: extract this
+    local bannerLeft = soulshapeInfo:CreateTexture(nil, "LOW")
+    bannerLeft:SetPoint("TOPLEFT", 0, 5)
+    bannerLeft:SetAtlas("UI-Frame-NightFae-TitleLeft", false)
+    bannerLeft:SetSize(100, 42)
+
+    local bannerRight = soulshapeInfo:CreateTexture(nil, "LOW")
+    bannerRight:SetPoint("TOPRIGHT", soulshapeInfo, "TOPRIGHT", 0, 5)
+    bannerRight:SetAtlas("UI-Frame-NightFae-TitleRight", false)
+    bannerRight:SetSize(100, 42)
+
+    local bannerMid = soulshapeInfo:CreateTexture(nil, "LOW")
+    bannerMid:SetPoint("TOPLEFT", bannerLeft, "TOPRIGHT")
+    bannerMid:SetPoint("BOTTOMRIGHT", bannerRight, "BOTTOMLEFT")
+    bannerMid:SetAtlas("_UI-Frame-NightFae-TitleMiddle", false)
+
+    local infoName = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge2")
     infoName:SetPoint("TOPLEFT", 0, 0)
     infoName:SetPoint("TOPRIGHT", 0, 0)
     infoName:SetSize(0, 35)
