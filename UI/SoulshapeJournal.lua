@@ -119,7 +119,7 @@ function CollectionPanelMixin:CreateModelView()
     infoName:SetJustifyH("CENTER")
     self.Name = infoName
 
-    local infoSource = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    local infoSource = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlightMedium")
     infoSource:SetJustifyH("LEFT")
     infoSource:SetPoint("TOPLEFT", infoName, "BOTTOMLEFT", 20, -10)
     infoSource:SetPoint("TOPRIGHT", infoName, "BOTTOMRIGHT", -20, -10)

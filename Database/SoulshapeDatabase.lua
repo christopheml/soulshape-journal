@@ -128,7 +128,7 @@ end
 function DatabaseFactory:Label(name)
     if GetLocale() == "frFR" then
         -- French typography requires a space after colons
-        return format("|cffffd100%s: |r ", name)
+        return format("|cffffd100%s :|r ", name)
     else
         return format("|cffffd100%s:|r ", name)
     end
