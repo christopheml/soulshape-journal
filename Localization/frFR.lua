@@ -24,6 +24,7 @@ SOFTWARE.
 local ADDON, _ = ...
 
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON, "frFR", false)
+if not L then return end
 
 -- UI elements
 L["TAB_TITLE"] = "Formes d’âme"
