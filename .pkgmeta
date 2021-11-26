@@ -1,8 +1,9 @@
 package-as: SoulshapeJournal
 
 ignore:
+    - Debug.lua
     - *.txt
-    - CHANGELOG.md
+    - *.md
 
 embedded-libraries:
   - SecureTabs-2.0

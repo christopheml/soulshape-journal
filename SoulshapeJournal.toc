@@ -20,3 +20,9 @@ Database\SoulshapeDatabase.lua
 UI\Templates.xml
 UI\SoulshapeJournal.lua
 Core.lua
+
+
+#@debug@
+# Debug module, should not be shipped and packaged
+Debug.lua
+#@end-debug@
