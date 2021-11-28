@@ -1,6 +1,8 @@
+![Soulshape Journal](.media/logo.png)
+
 # Soulshape Journal
 
-Adds a tab in the Collections Journal to track your soulshape collection and provides instructions to unlock new ones.
+Adds a tab in the Collections Journal to track your soulshape collection and provides instructions to unlock new ones ([see what it looks like](.media/screenshot1.jpg))
 
 ## Features
 
@@ -17,22 +19,23 @@ Adds a tab in the Collections Journal to track your soulshape collection and pro
 ## Known Issues
 
 * Coordinates should always display decimal digits.
+* Details about the Spectral Feed item are missing.
 
 ## Installation
+
+### Using Curse/Overwolf
+
+Soulshape Journal has been [added to Curseforge](https://www.curseforge.com/wow/addons/soulshape-journal) and should be available from your Curse/Overwolf client.
+
+### Using Ajour
+
+Click "Install from an URL", paste `https://github.com/christopheml/soulshape-journal` and follow instructions. Ajour should pickup up updates when they're published.
 
 ### Manual installation from Github
 
 * Click [Releases](https://github.com/christopheml/soulshape-journal/releases/) and from the latest release, click the `SoulshapeJournal-x.y.zip` link to download the zip file.
 * Unzip the zip file into your retail Addons directory.
 * Reload your UI if you were in-game.
-
-### Using Ajour
-
-Click "Install from an URL", paste `https://github.com/christopheml/soulshape-journal` and follow instructions. Ajour should pickup up updates when they're published.
-
-### Using Curse/Overwolf
-
-Soulshape Journal hasn't been published on Curseforge yet, expect it in a few days.
 
 ## Licensing
 
@@ -61,9 +64,9 @@ Your translation must be provided under a license compatible with the [MIT Licen
 
 This addon couldn't have been made without the help of the following people: 
 
-* @Marlamin for helping me identifying all the soulshape 3D models with [Wow Tools](https://wow.tools/).
-* @jaliborc for the [SecureTabs](https://github.com/Jaliborc/SecureTabs-2.0) lib that saved me a lot of time plugging the UI into the Collections Journal.
+* Marlamin for helping me identifying all the soulshape 3D models with [Wow Tools](https://wow.tools/).
+* jaliborc for the [SecureTabs](https://github.com/Jaliborc/SecureTabs-2.0) lib that saved me a lot of time plugging the UI into the Collections Journal.
 * RenataKane for the [Wowhead Soulshape Guide](https://fr.wowhead.com/guides/soulshapes-night-fae-covenant) that was the starting point for the information included in this addon.
 * The people of [WowAce](https://www.wowace.com/) and [Ace3](https://www.wowace.com/projects/ace3) for the great scaffolding code.
 * foxlit for the [Townlong Yak](https://www.townlong-yak.com/) tools.
-* PigeonD at the *WoW Secret Finding & Collectionù Discord for the Turkey Soul model info.
+* PigeonD at the *WoW Secret Finding & Collection* Discord for the Turkey Soul model info.
