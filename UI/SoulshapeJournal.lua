@@ -237,16 +237,13 @@ local function CreateSearchBox(panel)
     editBox:SetSize(145, 20)
     editBox:SetPoint("TOPLEFT", panel.LeftInset, 15, -9)
     editBox.letters = 40
-    editBox:SetScript("OnTextChanged", function(self, userInput)
-        if (userInput) then
-            SearchBoxTemplate_OnTextChanged(self)
-            SC.Database:SetTextFilter(self:GetText())
-            panel.ScrollFrame:UpdateButtons()
-        end
+    editBox:SetScript("OnTextChanged", function(self)
+        SearchBoxTemplate_OnTextChanged(self)
+        SC.Database:SetTextFilter(self:GetText())
+        panel.ScrollFrame:UpdateButtons()
     end)
     editBox:SetScript("OnHide", function(self)
         self:SetText("")
-        SC.Database:ResetTextFilter()
     end)
 end
 

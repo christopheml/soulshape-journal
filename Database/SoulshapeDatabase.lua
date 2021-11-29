@@ -97,10 +97,6 @@ function DatabaseMixin:SetTextFilter(textFilter)
     self.textFilter = textFilter
 end
 
-function DatabaseMixin:ResetTextFilter()
-    self.textFilter = nil
-end
-
 function DatabaseMixin:SetFilter(filter, value)
     self.activeFilters[filter] = value
 end
