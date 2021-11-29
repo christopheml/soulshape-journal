@@ -5,6 +5,7 @@
 ## Notes-frFR: Affiche les formes d'âme des Faë nocturnes dans un journal de collection
 ## Author: Christophe Michel
 ## X-Website: https://github.com/christopheml/SoulshapeJournal/
+## X-Curse-Project-ID: 550045
 ## SavedVariables: SoulshapeJournalDB
 
 Libs\LibStub\LibStub.lua
