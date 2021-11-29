@@ -32,7 +32,23 @@ local function isarray(t)
    return type(t) == "table" and #t > 0
 end
 
-local DatabaseMixin = {}
+local DatabaseMixin = {
+
+    Filters = {
+
+        COLLECTED = function(soulshape)
+            return soulshape.collected
+        end,
+
+        NOT_COLLECTED = function(soulshape)
+            return not soulshape.collected
+        end,
+
+    },
+
+    activeFilters = {},
+
+}
 
 function DatabaseMixin:Sort()
     -- For the moment default to natural order on names
@@ -85,14 +101,46 @@ function DatabaseMixin:ResetTextFilter()
     self.textFilter = nil
 end
 
+function DatabaseMixin:SetFilter(filter, value)
+    self.activeFilters[filter] = value
+end
+
+function DatabaseMixin:HasFilter(filter)
+    return self.activeFilters[filter] or false
+end
+
+function DatabaseMixin:HasAtLeastOneFilter()
+    for k, v in pairs(self.activeFilters) do
+        if v then
+            return true
+        end
+    end
+    return false
+end
+
 function DatabaseMixin:GetFilteredItems()
-    if self.textFilter == nil or self.textFilter == "" then
+    if (self.textFilter == nil or self.textFilter == "") and not self:HasAtLeastOneFilter() then
+        -- No filter active, do nothing
         return self.soulshapes
     end
 
     local filteredItems = {}
     for i, item in ipairs(self.soulshapes) do
-        if string.find(item.name, self.textFilter, 1, true) then
+        local isShown = false
+
+        -- Dropdown filters
+        for filter, enabled in pairs(self.activeFilters) do
+            if enabled then
+                isShown = isShown or filter(item)
+            end
+        end
+
+        -- Text filter
+        if self.textFilter and self.textFilter ~= "" then
+            isShown = isShown and string.find(item.name, self.textFilter, 1, true)
+        end
+
+        if isShown then
             tinsert(filteredItems, item)
         end
     end
@@ -848,6 +896,10 @@ local function CreateDatabase()
     SC.Database = CreateFromMixins({ 
         soulshapes = soulshapes,
     }, DatabaseMixin)
+
+    -- Default filters
+    SC.Database:SetFilter(SC.Database.Filters.COLLECTED, true)
+    SC.Database:SetFilter(SC.Database.Filters.NOT_COLLECTED, true)
 end
 
 SC.CreateDatabase = function()

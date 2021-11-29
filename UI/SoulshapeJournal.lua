@@ -268,6 +268,56 @@ local function CreateTab(panel)
     panel.Tab = tab
 end
 
+local function InitializeFilterDropDown(self, level)
+    local info = UIDropDownMenu_CreateInfo();
+    info.keepShownOnClick = true;
+
+    if level == 1 then
+        local FILTER_COLLECTED = SC.Database.Filters.COLLECTED
+        info.text = COLLECTED
+        info.func = function(_, _, _, value)
+            SC.Database:SetFilter(FILTER_COLLECTED, value)
+            SC.Panel.ScrollFrame:UpdateButtons()
+        end
+        info.checked = SC.Database:HasFilter(FILTER_COLLECTED)
+        info.isNotRadio = true
+        UIDropDownMenu_AddButton(info, level)
+
+        local FILTER_NOT_COLLECTED = SC.Database.Filters.NOT_COLLECTED
+        info.text = NOT_COLLECTED
+        info.func = function(_, _, _, value)
+            SC.Database:SetFilter(FILTER_NOT_COLLECTED, value)
+            SC.Panel.ScrollFrame:UpdateButtons()
+        end
+        info.checked = SC.Database:HasFilter(FILTER_NOT_COLLECTED)
+        info.isNotRadio = true
+        UIDropDownMenu_AddButton(info, level)
+    end
+end
+
+local function CreateFilterDropDown(panel)
+    local dropDownMenu = CreateFrame("FRAME", nil, panel, "UIDropDownMenuTemplate")
+    UIDropDownMenu_Initialize(dropDownMenu, InitializeFilterDropDown, "MENU")
+
+
+    local dropDownButton = CreateFrame("DropDownToggleButton", nil, panel, "UIMenuButtonStretchTemplate")
+    dropDownButton:SetText(FILTER)
+    dropDownButton:SetSize(93, 22)
+    dropDownButton:SetPoint("TOPRIGHT", panel.LeftInset, -5, -9)
+
+    local arrow = dropDownButton:CreateTexture(nil, "ARTWORK")
+    arrow:SetTexture("Interface\\ChatFrame\\ChatFrameExpandArrow")
+    arrow:SetSize(10, 12)
+    arrow:SetPoint("RIGHT", dropDownButton, "RIGHT", -5, 0)
+
+    dropDownButton:SetScript("OnMouseDown", function(sender, mouseButton)
+        UIMenuButtonStretchMixin.OnMouseDown(sender, button)
+        PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
+        ToggleDropDownMenu(1, nil, dropDownMenu, dropDownButton, 74, 15)
+    end)
+
+end
+
 function CollectionPanelMixin:UpdateSoulshapeDisplay()
     function showModel(creatureDisplayID, scale, modelSceneID)
         local scene = self.SoulshapeDisplay.ModelScene
@@ -349,6 +399,7 @@ function SC:CreateCollectionPanel()
     CreateScrollFrame(panel)
     CreateModelView(panel)
     CreateSearchBox(panel)
+    CreateFilterDropDown(panel)
     CreateTab(panel)
 
     panel:SetScript("OnShow", function(self)
