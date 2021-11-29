@@ -231,17 +231,38 @@ function CollectionPanelMixin:CreateScrollFrame()
 
     local ScrollFrameMixin = {}
 
+    function ScrollFrameMixin:GetFilteredItems()
+        local originalItems = self.items
+        
+        if panel.searchString == nil or panel.searchString == "" then
+            -- avoid traversing the list if no filtering
+            return originalItems
+        end
+
+        local filteredItems = {}
+        for i, item in ipairs(originalItems) do
+            if string.find(item.name, panel.searchString, 1, true) then
+                tinsert(filteredItems, item)
+            end
+        end
+        return filteredItems
+    end
+
+    function ScrollFrameMixin:ResetButton(button)
+        button.name:SetText("")
+        button.icon:SetTexture(GetSpellTexture(310143))
+        button.critterIcon:Hide()
+        button.untrackableAddButton:Hide()
+        button.selectedTexture:Hide()
+        button.selected = false
+        button:SetEnabled(false)
+        button.icon:SetAlpha(0.25)
+        button.icon:SetDesaturated(true)
+        button.name:SetFontObject("GameFontDisable")
+    end
+
     function ScrollFrameMixin:CreateButtons()
         HybridScrollFrame_CreateButtons(self, "SoulshapeListButtonTemplate", 44, 0)
-        local buttons = HybridScrollFrame_GetButtons(self)
-        
-        for index = 1, #buttons do
-            local button = buttons[index]
-            button.index = index
-            button.name:SetText("")
-			button.icon:SetTexture(GetSpellTexture(310143))
-            button.soulshape = item
-        end
     end
 
     function ScrollFrameMixin:UpdateButtons()
@@ -249,14 +270,16 @@ function CollectionPanelMixin:CreateScrollFrame()
         local offset = HybridScrollFrame_GetOffset(self)
         local buttonHeight;
 
+        local filteredItems = self:GetFilteredItems()
+        
         for index = 1, #buttons do
             local button = buttons[index]
             local itemIndex = index + offset
     
             buttonHeight = button:GetHeight()
     
-            if itemIndex <= #self.items then
-                local item = self.items[itemIndex]
+            if itemIndex <= #filteredItems then
+                local item = filteredItems[itemIndex]
                 button.name:SetText(item.name)
                 button.icon:SetTexture(item.icon)
                 button.soulshape = item
@@ -275,23 +298,20 @@ function CollectionPanelMixin:CreateScrollFrame()
                 button.critterIcon:SetShown(item.critter)
                 button.untrackableAddButton:SetShown(not item.collected and item.untrackable)
 
-                if panel.selectedSoulshape == item then
-                    button.selected = true;
-                    button.selectedTexture:Show();
-                else
-                    button.selected = false;
-                    button.selectedTexture:Hide();
-                end
+                button.selected = panel.selectedSoulshape == item
+                button.selectedTexture:SetShown(button.selected)
 
                 button:SetEnabled(true)
+            else 
+                self:ResetButton(button)
             end
         end
     
-        HybridScrollFrame_Update(self, #self.items * buttonHeight, self:GetHeight())
+        HybridScrollFrame_Update(self, #filteredItems * buttonHeight, self:GetHeight())
     end
 
     local scrollFrame = Mixin(CreateFrame("ScrollFrame", "$parentScrollFrame", self, "HybridScrollFrameTemplate"), ScrollFrameMixin)
-    scrollFrame:SetPoint("TOPLEFT", self.LeftInset, "TOPLEFT", 3, -5)
+    scrollFrame:SetPoint("TOPLEFT", self.LeftInset, "TOPLEFT", 3, -36)
     scrollFrame:SetPoint("BOTTOMRIGHT", self.LeftInset, "BOTTOMRIGHT", -3, 5)
     scrollFrame.items = SC.Database.soulshapes
 
@@ -306,6 +326,21 @@ function CollectionPanelMixin:CreateScrollFrame()
     scrollFrame.update = scrollFrame.UpdateButtons
 
     self.ScrollFrame = scrollFrame
+end
+
+local createSearchBox = function(panel)
+    local editBox = CreateFrame("EditBox", nil, panel, "SearchBoxTemplate")
+    editBox:SetSize(145, 20)
+    editBox:SetPoint("TOPLEFT", panel.LeftInset, 15, -9)
+    editBox.letters = 40
+    editBox:SetScript("OnTextChanged", function(self)
+        SearchBoxTemplate_OnTextChanged(self)
+        panel.searchString = self:GetText()
+        panel.ScrollFrame:UpdateButtons()
+    end)
+    editBox:SetScript("OnHide", function(self)
+        self:SetText("")
+    end)
 end
 
 -- Called when journal is shown
@@ -330,6 +365,7 @@ function SC:CreateCollectionPanel()
     panel:CreateScrollFrame()
     panel:CreateTab()
     panel:CreateModelView()
+    createSearchBox(panel)
 
     panel:SetScript("OnShow", function(self)
         self:Update()
