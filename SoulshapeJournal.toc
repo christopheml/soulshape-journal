@@ -17,6 +17,7 @@ Libs\SecureTabs-2.0\SecureTabs-2.0.lua
 
 Localization\enUS.lua
 Localization\frFR.lua
+Localization\ruRU.lua
 
 Database\SoulshapeDatabase.lua
 UI\Templates.xml
