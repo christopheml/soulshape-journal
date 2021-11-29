@@ -9,12 +9,7 @@ Adds a tab in the Collections Journal to track your soulshape collection and pro
 * Displays all known soulshapes currently available for players in 9.1.5 with their 3D model.
 * Automatically tracks almost every collected soulshape on any character (others can be tracked manually).
 * Detailed information on where and how to find every soulshape.
-
-## Upcoming Features
-
-* About panel, with thanks, acknowledgments and misc information.
-* Search bar and filter drop down.
-* Add information about the Spectral Feed back into the guides.
+* Searchable and filterable list.
 
 ## Known Issues
 
@@ -51,8 +46,9 @@ Before you create an issue about a bug, make sure it's not already in the Known 
 
 Available translations:
 
-* :us:/:uk: English by @christopheml
-* :fr: French by @christopheml
+* :us:/:uk: English by Christophe Michel
+* :fr: French  by Christophe Michel
+* :ru: Russian by ZamestoTV
 
 If you want to contribute a new translation, please open a pull-request with the new translation added. 
 
