@@ -82,6 +82,28 @@ function DatabaseMixin:IsCollected(soulshape)
     end
 end
 
+function DatabaseMixin:SetTextFilter(textFilter)
+    self.textFilter = textFilter
+end
+
+function DatabaseMixin:ResetTextFilter()
+    self.textFilter = nil
+end
+
+function DatabaseMixin:GetFilteredItems()
+    if self.textFilter == nil or self.textFilter == "" then
+        return self.soulshapes
+    end
+
+    local filteredItems = {}
+    for i, item in ipairs(self.soulshapes) do
+        if string.find(item.name, self.textFilter, 1, true) then
+            tinsert(filteredItems, item)
+        end
+    end
+    return filteredItems
+end
+
 function DatabaseFactory.formatters.cost(cost)
     if not isarray(cost) then
         cost = {cost}

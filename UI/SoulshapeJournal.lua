@@ -231,23 +231,6 @@ function CollectionPanelMixin:CreateScrollFrame()
 
     local ScrollFrameMixin = {}
 
-    function ScrollFrameMixin:GetFilteredItems()
-        local originalItems = self.items
-        
-        if panel.searchString == nil or panel.searchString == "" then
-            -- avoid traversing the list if no filtering
-            return originalItems
-        end
-
-        local filteredItems = {}
-        for i, item in ipairs(originalItems) do
-            if string.find(item.name, panel.searchString, 1, true) then
-                tinsert(filteredItems, item)
-            end
-        end
-        return filteredItems
-    end
-
     function ScrollFrameMixin:ResetButton(button)
         button.name:SetText("")
         button.icon:SetTexture(GetSpellTexture(310143))
@@ -270,7 +253,7 @@ function CollectionPanelMixin:CreateScrollFrame()
         local offset = HybridScrollFrame_GetOffset(self)
         local buttonHeight;
 
-        local filteredItems = self:GetFilteredItems()
+        local filteredItems = SC.Database:GetFilteredItems()
         
         for index = 1, #buttons do
             local button = buttons[index]
@@ -333,13 +316,16 @@ local createSearchBox = function(panel)
     editBox:SetSize(145, 20)
     editBox:SetPoint("TOPLEFT", panel.LeftInset, 15, -9)
     editBox.letters = 40
-    editBox:SetScript("OnTextChanged", function(self)
-        SearchBoxTemplate_OnTextChanged(self)
-        panel.searchString = self:GetText()
-        panel.ScrollFrame:UpdateButtons()
+    editBox:SetScript("OnTextChanged", function(self, userInput)
+        if (userInput) then
+            SearchBoxTemplate_OnTextChanged(self)
+            SC.Database:SetTextFilter(self:GetText())
+            panel.ScrollFrame:UpdateButtons()
+        end
     end)
     editBox:SetScript("OnHide", function(self)
         self:SetText("")
+        SC.Database:ResetTextFilter()
     end)
 end
 
