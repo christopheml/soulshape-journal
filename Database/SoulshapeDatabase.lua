@@ -28,14 +28,9 @@ local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME, true)
 -- upvalues for frequent API calls
 local isQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted 
 
-function isarray(t)
+local function isarray(t)
    return type(t) == "table" and #t > 0
 end
-
-local DatabaseFactory = {
-    DEFAULT_SOULSHAPE_ICON = 3586268,
-    formatters = {},
-}
 
 local DatabaseMixin = {}
 
@@ -104,7 +99,7 @@ function DatabaseMixin:GetFilteredItems()
     return filteredItems
 end
 
-function DatabaseFactory.formatters.cost(cost)
+local function CostFormatter(cost)
     if not isarray(cost) then
         cost = {cost}
     end
@@ -123,11 +118,11 @@ function DatabaseFactory.formatters.cost(cost)
     return table.concat(rendered, " ")
 end
 
-function DatabaseFactory.formatters.coordinates(coordinates)
+local function CoordinatesFormatter(coordinates)
     return coordinates.x .. ", " .. coordinates.y
 end
 
-function DatabaseFactory.formatters.faction(faction)
+local function FactionFormatter(faction)
     local name
     if faction.id then
         name, _ = GetFactionInfoByID(faction.id)
@@ -143,11 +138,11 @@ function DatabaseFactory.formatters.faction(faction)
     end
 end
 
-function DatabaseFactory.formatters.campaignQuest(quest)
+local function CampaignQuestFormatter(quest)
     return "|A:quest-campaign-available:12:12|a" .. quest
 end
 
-function DatabaseFactory:Label(name)
+local function Label(name)
     if GetLocale() == "frFR" then
         -- French typography requires a space after colons
         return format("|cffffd100%s :|r ", name)
@@ -156,11 +151,11 @@ function DatabaseFactory:Label(name)
     end
 end
 
-function DatabaseFactory:Item(icon, name, rarity)
+local function Item(icon, name, rarity)
     return format("|T%d:0|t%s", icon, rarity:WrapTextInColorCode(name))
 end
 
-function DatabaseFactory:CreateSourceString(soulshape)
+local function CreateSourceString(soulshape)
     local source = {}
 
     function addMultiLine(value, renderer)
@@ -180,38 +175,38 @@ function DatabaseFactory:CreateSourceString(soulshape)
             if transformation then
                 value = transformation(value)
             end
-            tinsert(source, self:Label(label) .. value)
+            tinsert(source, Label(label) .. value)
         end
     end
 
     function renderVendor(vendor)
         addLine(L["Vendor"], vendor.name)
         addLine(L["Region"], vendor.region)
-        addLine(L["Coordinates"], vendor.coordinates, self.formatters.coordinates)
-        addLine(L["Cost"], vendor.cost, self.formatters.cost)
+        addLine(L["Coordinates"], vendor.coordinates, CoordinatesFormatter)
+        addLine(L["Cost"], vendor.cost, CostFormatter)
     end
     
     addLine(L["Loot"], soulshape.loot)
     addLine(L["Quest"], soulshape.quest)
-    addLine(L["Quest"], soulshape.campaignQuest, self.formatters.campaignQuest)
+    addLine(L["Quest"], soulshape.campaignQuest, CampaignQuestFormatter)
     addLine(L["Campaign"], soulshape.campaign)
     addLine(L["World Event"], soulshape.worldEvent)
     addLine(L["World Quest"], soulshape.worldQuest)
     addLine(L["NPC"], soulshape.npc)
     addLine(L["Profession"], soulshape.profession)
     addLine(L["Region"], soulshape.region)
-    addLine(L["Cost"], soulshape.cost, self.formatters.cost)
-    addLine(L["Faction"], soulshape.faction, self.formatters.faction)
+    addLine(L["Cost"], soulshape.cost, CostFormatter)
+    addLine(L["Faction"], soulshape.faction, FactionFormatter)
     addMultiLine(soulshape.vendor, renderVendor)
     addLine(L["Covenant Feature"], soulshape.covenantFeature)
     addLine(L["Difficulty"], soulshape.difficulty)
-    addLine(L["Coordinates"], soulshape.coordinates, self.formatters.coordinates)
+    addLine(L["Coordinates"], soulshape.coordinates, CoordinatesFormatter)
     addLine(L["Renown"], soulshape.renown)
     addLine(L["Spell"], soulshape.spell)
     return table.concat(source, "\n")
 end
 
-function DatabaseFactory:CreateGuideString(soulshape)
+local function CreateGuideString(soulshape)
     local guide = soulshape.guide
     if type(guide) == "table" and guide.text and guide.args and isarray(guide.args) then
         return string.format(guide.text, unpack(guide.args))
@@ -220,7 +215,7 @@ function DatabaseFactory:CreateGuideString(soulshape)
     end
 end
 
-function DatabaseFactory:CreateDatabase()
+local function CreateDatabase()
     local soulshapes =  {
         {
             name = L["Alpaca Soul"],
@@ -405,7 +400,7 @@ function DatabaseFactory:CreateDatabase()
         },
         {
             name = L["Goat Soul"],
-            loot = self:Item(3753378, L["Bounty of the Grove Wardens"], RARE_BLUE_COLOR),
+            loot = Item(3753378, L["Bounty of the Grove Wardens"], RARE_BLUE_COLOR),
             region = L["Ardenweald"],
             guide = BOUNTY_BOARD_LOCKED_TITLE,
             questID = 65008,
@@ -428,7 +423,7 @@ function DatabaseFactory:CreateDatabase()
             covenantFeature = L["Queen's Conservatory"],
             guide = {
                 text = L["Gulper Soul Guide"],
-                args = {self:Item(960671, L["Wildseed Root Grain"], EPIC_PURPLE_COLOR)},
+                args = {Item(960671, L["Wildseed Root Grain"], EPIC_PURPLE_COLOR)},
             },
             questID = 62421,
             icon = 2481372,
@@ -437,7 +432,7 @@ function DatabaseFactory:CreateDatabase()
         },
         {
             name = L["Hippo Soul"],
-            loot = self:Item(3753378, L["War Chest of the Wild Hunt"], RARE_BLUE_COLOR),
+            loot = Item(3753378, L["War Chest of the Wild Hunt"], RARE_BLUE_COLOR),
             region = L["The Maw"],
             guide = L["Hippo Soul Guide"],
             questID = 63608,
@@ -518,7 +513,7 @@ function DatabaseFactory:CreateDatabase()
         },
         {
             name = L["Mammoth Soul"],
-            loot = self:Item(3753378, L["Wild Hunt Supplies"], RARE_BLUE_COLOR),
+            loot = Item(3753378, L["Wild Hunt Supplies"], RARE_BLUE_COLOR),
             faction = { id=2465, level=8 },
             guide = L["Paragon reward."],
             questID = 63610,
@@ -571,7 +566,7 @@ function DatabaseFactory:CreateDatabase()
         },
         {
             name = L["Porcupine Soul"],
-            loot = self:Item(3753378, L["Wild Hunt Supplies"], RARE_BLUE_COLOR),
+            loot = Item(3753378, L["Wild Hunt Supplies"], RARE_BLUE_COLOR),
             faction = { id=2465, level=8 },
             guide = L["Paragon reward."],
             critter = true,
@@ -625,8 +620,8 @@ function DatabaseFactory:CreateDatabase()
                 region = L["Tazavesh, the Veiled Market"],
                 cost = {
                     { gold=750 },
-                    { custom=self:Item(1542861, L["Synvir Lockbox"], UNCOMMON_GREEN_COLOR), amount=2 },
-                    { custom=self:Item(1542849, L["Stygian Lockbox"], UNCOMMON_GREEN_COLOR), amount=2 },
+                    { custom=Item(1542861, L["Synvir Lockbox"], UNCOMMON_GREEN_COLOR), amount=2 },
+                    { custom=Item(1542849, L["Stygian Lockbox"], UNCOMMON_GREEN_COLOR), amount=2 },
                 },
             },
             guide = L["Rat Soul Guide"],
@@ -706,7 +701,7 @@ function DatabaseFactory:CreateDatabase()
         },
         {
             name = L["Snake Soul"],
-            loot = self:Item(3753378, L["Bounty of the Grove Wardens"], RARE_BLUE_COLOR),
+            loot = Item(3753378, L["Bounty of the Grove Wardens"], RARE_BLUE_COLOR),
             region = L["Ardenweald"],
             guide = BOUNTY_BOARD_LOCKED_TITLE,
             critter = true,
@@ -721,7 +716,7 @@ function DatabaseFactory:CreateDatabase()
             covenantFeature = L["Queen's Conservatory"],
             guide = {
                 text = L["Gulper Soul Guide"], -- not a typo, same as Gulper
-                args = {self:Item(960671, L["Wildseed Root Grain"], EPIC_PURPLE_COLOR)},
+                args = {Item(960671, L["Wildseed Root Grain"], EPIC_PURPLE_COLOR)},
             },
             questID = 62420,
             icon = 1339043,
@@ -734,7 +729,7 @@ function DatabaseFactory:CreateDatabase()
             region = L["Korthia"],
             guide = {
                 text = L["Spider Soul Guide"],
-                args = {self:Item(528693, L["Repaired Riftkey"], UNCOMMON_GREEN_COLOR)},
+                args = {Item(528693, L["Repaired Riftkey"], UNCOMMON_GREEN_COLOR)},
             },
             questID = 63606,
             icon = 2027946,
@@ -846,8 +841,8 @@ function DatabaseFactory:CreateDatabase()
 
     -- Generate source and guide fields for soulshapes
     for _, soulshape in ipairs(soulshapes) do
-        soulshape.source = self:CreateSourceString(soulshape)
-        soulshape.guide = self:CreateGuideString(soulshape)
+        soulshape.source = CreateSourceString(soulshape)
+        soulshape.guide = CreateGuideString(soulshape)
     end
     
     SC.Database = CreateFromMixins({ 
@@ -856,6 +851,6 @@ function DatabaseFactory:CreateDatabase()
 end
 
 SC.CreateDatabase = function()
-    DatabaseFactory:CreateDatabase()
+    CreateDatabase()
     SC.Database:Sort()
 end

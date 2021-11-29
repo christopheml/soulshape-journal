@@ -31,8 +31,22 @@ local CollectionPanelMixin = {
     selectedSoulshape = nil
 }
 
-function CollectionPanelMixin:CreateCount()
-    local countFrame = CreateFrame("Frame", "$parentCount", self, "InsetFrameTemplate3")
+local function CreateInsets(panel)
+    local leftInset = CreateFrame("Frame", "$parentLeftInset", panel, "InsetFrameTemplate")
+    leftInset:SetSize(260, 496)
+    leftInset:SetPoint("TOPLEFT", 4, -60)
+    leftInset:SetPoint("BOTTOMLEFT", 4, 5)
+
+    local rightInset = CreateFrame("Frame", "$parentRightInset", panel, "InsetFrameTemplate")
+    rightInset:SetPoint("TOPLEFT", leftInset, "TOPRIGHT", 23, 0)
+    rightInset:SetPoint("BOTTOMRIGHT", -6, 5)
+
+    panel.LeftInset = leftInset
+    panel.RightInset = rightInset
+end
+
+local function CreateCount(panel)
+    local countFrame = CreateFrame("Frame", "$parentCount", panel, "InsetFrameTemplate3")
     countFrame:SetSize(130, 20)
     countFrame:SetPoint("TOPLEFT", 70, -35)
 
@@ -47,13 +61,13 @@ function CollectionPanelMixin:CreateCount()
     countLabel:SetPoint("LEFT", 10, 0)
     countLabel:SetPoint("RIGHT", countNumber, "LEFT", -3, 0)
 
-    self.Count = countNumber
+    panel.Count = countNumber
 end
 
-function CollectionPanelMixin:CreateCovenantWarning()
-    local warningFrame = CreateFrame("Frame", nil, self)
+local function CreateCovenantWarning(panel)
+    local warningFrame = CreateFrame("Frame", nil, panel)
     -- This positioning is super ugly, but it does the job, don't do this at home
-    warningFrame:SetPoint("TOPRIGHT", self, "TOPRIGHT", -10, -28)
+    warningFrame:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -10, -28)
     warningFrame:SetSize(395, 30)
     local warningLabel = warningFrame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
     warningLabel:SetText(L["WARNING_NOT_NIGHT_FAE"])
@@ -61,173 +75,10 @@ function CollectionPanelMixin:CreateCovenantWarning()
     warningLabel:SetAllPoints()
     warningLabel:Hide()
 
-    self.CovenantWarning = warningLabel
+    panel.CovenantWarning = warningLabel
 end
 
-function CollectionPanelMixin:CreateInsets()
-    local leftInset = CreateFrame("Frame", "$parentLeftInset", self, "InsetFrameTemplate")
-    leftInset:SetSize(260, 496)
-    leftInset:SetPoint("TOPLEFT", 4, -60)
-    leftInset:SetPoint("BOTTOMLEFT", 4, 5)
-
-    local rightInset = CreateFrame("Frame", "$parentRightInset", self, "InsetFrameTemplate")
-    rightInset:SetPoint("TOPLEFT", leftInset, "TOPRIGHT", 23, 0)
-    rightInset:SetPoint("BOTTOMRIGHT", -6, 5)
-
-    self.LeftInset = leftInset
-    self.RightInset = rightInset
-end
-
-function CollectionPanelMixin:CreateModelView()
-    local soulshapeDisplay = CreateFrame("Frame", nil, self)
-    soulshapeDisplay:SetPoint("TOPLEFT", self.RightInset, "TOPLEFT", 3, -3)
-    soulshapeDisplay:SetPoint("BOTTOMRIGHT", self.RightInset, "BOTTOMRIGHT", -3, 3)
-
-    local background = soulshapeDisplay:CreateTexture(nil, "BACKGROUND")
-    background:SetAllPoints()
-    background:SetTexture("Interface/CovenantChoice/CovenantChoiceOfferingsNightFae")
-    background:SetTexCoord(0.0434117648, 0.3608851102, 0.427734375, 0.8486328125)
-    
-    local shadow = CreateFrame("Frame", nil, soulshapeDisplay, "ShadowOverlayTemplate")
-    shadow:Lower()
-    shadow:SetAllPoints()
-
-    local soulshapeInfo = CreateFrame("Frame", nil, soulshapeDisplay)
-    soulshapeInfo:SetPoint("TOPLEFT", 20, -20)
-    soulshapeInfo:SetPoint("BOTTOMRIGHT", -20, 20)
-
-    -- FIXME: extract this
-    local bannerLeft = soulshapeInfo:CreateTexture(nil, "LOW")
-    bannerLeft:SetPoint("TOPLEFT", 0, 5)
-    bannerLeft:SetAtlas("UI-Frame-NightFae-TitleLeft", false)
-    bannerLeft:SetSize(100, 42)
-
-    local bannerRight = soulshapeInfo:CreateTexture(nil, "LOW")
-    bannerRight:SetPoint("TOPRIGHT", soulshapeInfo, "TOPRIGHT", 0, 5)
-    bannerRight:SetAtlas("UI-Frame-NightFae-TitleRight", false)
-    bannerRight:SetSize(100, 42)
-
-    local bannerMid = soulshapeInfo:CreateTexture(nil, "LOW")
-    bannerMid:SetPoint("TOPLEFT", bannerLeft, "TOPRIGHT")
-    bannerMid:SetPoint("BOTTOMRIGHT", bannerRight, "BOTTOMLEFT")
-    bannerMid:SetAtlas("_UI-Frame-NightFae-TitleMiddle", false)
-
-    local infoName = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge2")
-    infoName:SetPoint("TOPLEFT", 0, 0)
-    infoName:SetPoint("TOPRIGHT", 0, 0)
-    infoName:SetSize(0, 35)
-    infoName:SetJustifyH("CENTER")
-    self.Name = infoName
-
-    local infoSource = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlightMedium")
-    infoSource:SetJustifyH("LEFT")
-    infoSource:SetPoint("TOPLEFT", infoName, "BOTTOMLEFT", 20, -10)
-    infoSource:SetPoint("TOPRIGHT", infoName, "BOTTOMRIGHT", -20, -10)
-    infoSource:SetWordWrap(true)
-    self.Source = infoSource
-
-    local infoGuide = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-    infoGuide:SetJustifyH("LEFT")
-    infoGuide:SetPoint("TOPLEFT", infoSource, "BOTTOMLEFT", 0, -5)
-    infoGuide:SetPoint("TOPRIGHT", infoSource, "BOTTOMRIGHT", 0, -5)
-    infoGuide:SetWordWrap(true)
-    self.Guide = infoGuide
-
-    local modelScene = CreateFrame("ModelScene", nil, soulshapeDisplay, "WrappedAndUnwrappedModelScene")
-    modelScene:Lower()
-    modelScene:SetPoint("TOPLEFT", 0, -80)
-    modelScene:SetPoint("BOTTOMRIGHT", 0, 40)
-    modelScene.RotateLeftButton = CreateFrame("Button", nil, modelScene, "RotateOrbitCameraLeftButtonTemplate")
-    modelScene.RotateLeftButton:SetPoint("TOPRIGHT", modelScene, "BOTTOM", -5, 20)
-    modelScene.RotateRightButton = CreateFrame("Button", nil, modelScene, "RotateOrbitCameraRightButtonTemplate")
-    modelScene.RotateRightButton:SetPoint("TOPLEFT", modelScene, "BOTTOM", 5, 20)
-    modelScene:Hide()
-
-    soulshapeDisplay.ModelScene = modelScene
-
-    self.SoulshapeDisplay = soulshapeDisplay
-end
-
-function CollectionPanelMixin:UpdateSoulshapeDisplay()
-    function showModel(creatureDisplayID, scale, modelSceneID)
-        local scene = self.SoulshapeDisplay.ModelScene
-        
-        scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_DISCARD, true)
-        local actor = scene:GetActorByTag("unwrapped")
-        if actor then
-            actor:SetModelByCreatureDisplayID(creatureDisplayID)
-            if scale then
-                actor:SetRequestedScale(scale)
-            end
-        end
-        local camera = scene:GetActiveCamera()
-        scene:Show()
-    end
-
-    local soulshape = self.selectedSoulshape
-    if soulshape then
-        self.Name:SetText(soulshape.name)
-        self.Source:SetText(soulshape.source)
-        self.Guide:SetText(soulshape.guide)
-        showModel(soulshape.model, soulshape.scale, soulshape.modelSceneID or 44)
-    else
-        -- default display
-        self.Name:SetText("Soulshape Journal")
-        showModel(101678, 6, 4)
-    end
-end
-
-function CollectionPanelMixin:ShowUntrackableTooltip(addButton)
-    local soulshape = addButton:GetParent().soulshape
-    GameTooltip:SetOwner(addButton, "ANCHOR_RIGHT")
-    GameTooltip:AddLine(string.format("|A:services-icon-warning:16:16|a |cFFFFFFFF%s|r", L["UNTRACKABLE_TOOLTIP_TITLE"]))
-    GameTooltip:AddLine(string.format(L["UNTRACKABLE_TOOLTIP_CLICK_ME"], NIGHT_FAE_BLUE_COLOR:WrapTextInColorCode(soulshape.name)))
-    GameTooltip:Show()
-end
-
-function CollectionPanelMixin:UpdateCount()
-    self.Count:SetText(SC.Database:CountCollected() .. "/" .. SC.Database:CountTotal())
-end
-
-function CollectionPanelMixin:UpdateCovenantWarning()
-    local covenant = C_Covenants.GetActiveCovenantID()
-    self.CovenantWarning:SetShown(covenant ~= NIGHT_FAE)
-end
-
-function CollectionPanelMixin:CreateTab()
-    local tab = LibStub('SecureTabs-2.0'):Add(CollectionsJournal)
-    tab:SetText(L["TAB_TITLE"])
-    tab.frame = self
-
-    tab.OnSelect = function()
-        if _G["RematchJournal"] then
-            -- Rematch isn't aware that we exist and won't hide iteself correctly when
-            -- we show up. We'll circumvent this by telling the UI we're selecting the 
-            -- first real tab of the CollectionsJournal immediately before switching to
-            -- ours, which causes Rematch to hide itself.
-            CollectionsJournal_SetTab(CollectionsJournal, CollectionsJournalTab1:GetID())
-        end
-    end
-
-    self.Tab = tab
-end
-
-function CollectionPanelMixin:OnButtonClick(button)
-    self.selectedSoulshape = button.soulshape
-    self:UpdateSoulshapeDisplay()
-    self.ScrollFrame:UpdateButtons()
-end
-
-function CollectionPanelMixin:AddUntrackableToCollection(addButton)
-    local soulshape = addButton:GetParent().soulshape
-    if SC.Database:AddUntrackable(soulshape) then
-        self:Update()
-    end
-end
-
-function CollectionPanelMixin:CreateScrollFrame()
-
-    local panel = self
+local function CreateScrollFrame(panel)
 
     local ScrollFrameMixin = {}
 
@@ -293,14 +144,14 @@ function CollectionPanelMixin:CreateScrollFrame()
         HybridScrollFrame_Update(self, #filteredItems * buttonHeight, self:GetHeight())
     end
 
-    local scrollFrame = Mixin(CreateFrame("ScrollFrame", "$parentScrollFrame", self, "HybridScrollFrameTemplate"), ScrollFrameMixin)
-    scrollFrame:SetPoint("TOPLEFT", self.LeftInset, "TOPLEFT", 3, -36)
-    scrollFrame:SetPoint("BOTTOMRIGHT", self.LeftInset, "BOTTOMRIGHT", -3, 5)
+    local scrollFrame = Mixin(CreateFrame("ScrollFrame", "$parentScrollFrame", panel, "HybridScrollFrameTemplate"), ScrollFrameMixin)
+    scrollFrame:SetPoint("TOPLEFT", panel.LeftInset, "TOPLEFT", 3, -36)
+    scrollFrame:SetPoint("BOTTOMRIGHT", panel.LeftInset, "BOTTOMRIGHT", -3, 5)
     scrollFrame.items = SC.Database.soulshapes
 
     local scrollBar = CreateFrame("Slider", "$parentScrollBar", scrollFrame, "HybridScrollBarTemplate")
-    scrollBar:SetPoint("TOPLEFT", self.LeftInset, "TOPRIGHT", 1, -16)
-    scrollBar:SetPoint("BOTTOMLEFT", self.LeftInset, "BOTTOMRIGHT", 1, 16)
+    scrollBar:SetPoint("TOPLEFT", panel.LeftInset, "TOPRIGHT", 1, -16)
+    scrollBar:SetPoint("BOTTOMLEFT", panel.LeftInset, "BOTTOMRIGHT", 1, 16)
     scrollBar.doNotHide = true
 
     scrollFrame.ScrollBar = scrollBar
@@ -308,10 +159,80 @@ function CollectionPanelMixin:CreateScrollFrame()
     scrollFrame:CreateButtons()
     scrollFrame.update = scrollFrame.UpdateButtons
 
-    self.ScrollFrame = scrollFrame
+    panel.ScrollFrame = scrollFrame
 end
 
-local createSearchBox = function(panel)
+local function CreateModelView(panel)
+    local soulshapeDisplay = CreateFrame("Frame", nil, panel)
+    soulshapeDisplay:SetPoint("TOPLEFT", panel.RightInset, "TOPLEFT", 3, -3)
+    soulshapeDisplay:SetPoint("BOTTOMRIGHT", panel.RightInset, "BOTTOMRIGHT", -3, 3)
+
+    local background = soulshapeDisplay:CreateTexture(nil, "BACKGROUND")
+    background:SetAllPoints()
+    background:SetTexture("Interface/CovenantChoice/CovenantChoiceOfferingsNightFae")
+    background:SetTexCoord(0.0434117648, 0.3608851102, 0.427734375, 0.8486328125)
+    
+    local shadow = CreateFrame("Frame", nil, soulshapeDisplay, "ShadowOverlayTemplate")
+    shadow:Lower()
+    shadow:SetAllPoints()
+
+    local soulshapeInfo = CreateFrame("Frame", nil, soulshapeDisplay)
+    soulshapeInfo:SetPoint("TOPLEFT", 20, -20)
+    soulshapeInfo:SetPoint("BOTTOMRIGHT", -20, 20)
+
+    -- FIXME: extract this
+    local bannerLeft = soulshapeInfo:CreateTexture(nil, "LOW")
+    bannerLeft:SetPoint("TOPLEFT", 0, 5)
+    bannerLeft:SetAtlas("UI-Frame-NightFae-TitleLeft", false)
+    bannerLeft:SetSize(100, 42)
+
+    local bannerRight = soulshapeInfo:CreateTexture(nil, "LOW")
+    bannerRight:SetPoint("TOPRIGHT", soulshapeInfo, "TOPRIGHT", 0, 5)
+    bannerRight:SetAtlas("UI-Frame-NightFae-TitleRight", false)
+    bannerRight:SetSize(100, 42)
+
+    local bannerMid = soulshapeInfo:CreateTexture(nil, "LOW")
+    bannerMid:SetPoint("TOPLEFT", bannerLeft, "TOPRIGHT")
+    bannerMid:SetPoint("BOTTOMRIGHT", bannerRight, "BOTTOMLEFT")
+    bannerMid:SetAtlas("_UI-Frame-NightFae-TitleMiddle", false)
+
+    local infoName = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge2")
+    infoName:SetPoint("TOPLEFT", 0, 0)
+    infoName:SetPoint("TOPRIGHT", 0, 0)
+    infoName:SetSize(0, 35)
+    infoName:SetJustifyH("CENTER")
+    panel.Name = infoName
+
+    local infoSource = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontHighlightMedium")
+    infoSource:SetJustifyH("LEFT")
+    infoSource:SetPoint("TOPLEFT", infoName, "BOTTOMLEFT", 20, -10)
+    infoSource:SetPoint("TOPRIGHT", infoName, "BOTTOMRIGHT", -20, -10)
+    infoSource:SetWordWrap(true)
+    panel.Source = infoSource
+
+    local infoGuide = soulshapeInfo:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+    infoGuide:SetJustifyH("LEFT")
+    infoGuide:SetPoint("TOPLEFT", infoSource, "BOTTOMLEFT", 0, -5)
+    infoGuide:SetPoint("TOPRIGHT", infoSource, "BOTTOMRIGHT", 0, -5)
+    infoGuide:SetWordWrap(true)
+    panel.Guide = infoGuide
+
+    local modelScene = CreateFrame("ModelScene", nil, soulshapeDisplay, "WrappedAndUnwrappedModelScene")
+    modelScene:Lower()
+    modelScene:SetPoint("TOPLEFT", 0, -80)
+    modelScene:SetPoint("BOTTOMRIGHT", 0, 40)
+    modelScene.RotateLeftButton = CreateFrame("Button", nil, modelScene, "RotateOrbitCameraLeftButtonTemplate")
+    modelScene.RotateLeftButton:SetPoint("TOPRIGHT", modelScene, "BOTTOM", -5, 20)
+    modelScene.RotateRightButton = CreateFrame("Button", nil, modelScene, "RotateOrbitCameraRightButtonTemplate")
+    modelScene.RotateRightButton:SetPoint("TOPLEFT", modelScene, "BOTTOM", 5, 20)
+    modelScene:Hide()
+
+    soulshapeDisplay.ModelScene = modelScene
+
+    panel.SoulshapeDisplay = soulshapeDisplay
+end
+
+local function CreateSearchBox(panel)
     local editBox = CreateFrame("EditBox", nil, panel, "SearchBoxTemplate")
     editBox:SetSize(145, 20)
     editBox:SetPoint("TOPLEFT", panel.LeftInset, 15, -9)
@@ -327,6 +248,83 @@ local createSearchBox = function(panel)
         self:SetText("")
         SC.Database:ResetTextFilter()
     end)
+end
+
+local function CreateTab(panel)
+    local tab = LibStub('SecureTabs-2.0'):Add(CollectionsJournal)
+    tab:SetText(L["TAB_TITLE"])
+    tab.frame = panel
+
+    tab.OnSelect = function()
+        if _G["RematchJournal"] then
+            -- Rematch isn't aware that we exist and won't hide iteself correctly when
+            -- we show up. We'll circumvent this by telling the UI we're selecting the 
+            -- first real tab of the CollectionsJournal immediately before switching to
+            -- ours, which causes Rematch to hide itself.
+            CollectionsJournal_SetTab(CollectionsJournal, CollectionsJournalTab1:GetID())
+        end
+    end
+
+    panel.Tab = tab
+end
+
+function CollectionPanelMixin:UpdateSoulshapeDisplay()
+    function showModel(creatureDisplayID, scale, modelSceneID)
+        local scene = self.SoulshapeDisplay.ModelScene
+        
+        scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_DISCARD, true)
+        local actor = scene:GetActorByTag("unwrapped")
+        if actor then
+            actor:SetModelByCreatureDisplayID(creatureDisplayID)
+            if scale then
+                actor:SetRequestedScale(scale)
+            end
+        end
+        local camera = scene:GetActiveCamera()
+        scene:Show()
+    end
+
+    local soulshape = self.selectedSoulshape
+    if soulshape then
+        self.Name:SetText(soulshape.name)
+        self.Source:SetText(soulshape.source)
+        self.Guide:SetText(soulshape.guide)
+        showModel(soulshape.model, soulshape.scale, soulshape.modelSceneID or 44)
+    else
+        -- default display
+        self.Name:SetText("Soulshape Journal")
+        showModel(101678, 6, 4)
+    end
+end
+
+function CollectionPanelMixin:ShowUntrackableTooltip(addButton)
+    local soulshape = addButton:GetParent().soulshape
+    GameTooltip:SetOwner(addButton, "ANCHOR_RIGHT")
+    GameTooltip:AddLine(string.format("|A:services-icon-warning:16:16|a |cFFFFFFFF%s|r", L["UNTRACKABLE_TOOLTIP_TITLE"]))
+    GameTooltip:AddLine(string.format(L["UNTRACKABLE_TOOLTIP_CLICK_ME"], NIGHT_FAE_BLUE_COLOR:WrapTextInColorCode(soulshape.name)))
+    GameTooltip:Show()
+end
+
+function CollectionPanelMixin:UpdateCount()
+    self.Count:SetText(SC.Database:CountCollected() .. "/" .. SC.Database:CountTotal())
+end
+
+function CollectionPanelMixin:UpdateCovenantWarning()
+    local covenant = C_Covenants.GetActiveCovenantID()
+    self.CovenantWarning:SetShown(covenant ~= NIGHT_FAE)
+end
+
+function CollectionPanelMixin:OnButtonClick(button)
+    self.selectedSoulshape = button.soulshape
+    self:UpdateSoulshapeDisplay()
+    self.ScrollFrame:UpdateButtons()
+end
+
+function CollectionPanelMixin:AddUntrackableToCollection(addButton)
+    local soulshape = addButton:GetParent().soulshape
+    if SC.Database:AddUntrackable(soulshape) then
+        self:Update()
+    end
 end
 
 -- Called when journal is shown
@@ -345,13 +343,13 @@ function SC:CreateCollectionPanel()
     panel:SetPortraitToAsset(GetSpellTexture(310143))
     panel:SetTitle(L["TAB_TITLE"])
     
-    panel:CreateInsets()
-    panel:CreateCount()
-    panel:CreateCovenantWarning()
-    panel:CreateScrollFrame()
-    panel:CreateTab()
-    panel:CreateModelView()
-    createSearchBox(panel)
+    CreateInsets(panel)
+    CreateCount(panel)
+    CreateCovenantWarning(panel)
+    CreateScrollFrame(panel)
+    CreateModelView(panel)
+    CreateSearchBox(panel)
+    CreateTab(panel)
 
     panel:SetScript("OnShow", function(self)
         self:Update()
