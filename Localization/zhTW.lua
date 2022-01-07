@@ -172,7 +172,7 @@ L["Gryphon Soul"] = "獅鷲獸靈魂"
 L["Gryphon Soul Guide"] = "亂鬥、競技場、隨機戰場、積分戰場獲勝時機率取得。"
 
 L["Gulper Soul"] = "大嘴蟾靈魂"
-L["Gulper Soul Guide"] = "不羈魂靈 + 一個野性種子根粒%s"
+L["Gulper Soul Guide"] = "不羈魂靈 + 一個%s"
 
 L["Hippo Soul"] = "河馬靈魂"
 L["Hippo Soul Guide"] = "暗夜妖精進攻戰的獎勵"
@@ -180,7 +180,7 @@ L["Hippo Soul Guide"] = "暗夜妖精進攻戰的獎勵"
 L["Hippogryph Soul"] = "角鷹獸靈魂"
 
 L["Hyena Soul"] = "土狼靈魂"
-L["Hyena Soul Guide"] = "任何層數的鑰匙均可能掉落。"
+L["Hyena Soul Guide"] = "完成任何層數的鑰匙後機率掉落。"
 
 L["Jormungar Soul"] = "蟄猛巨蟲靈魂"
 L["Jormungar Soul Guide"] = "任何巫妖王之怒時光漫遊地城的尾王掉落。"
@@ -208,7 +208,7 @@ L["Ram Soul"] = "大角羊靈魂"
 L["Raptor Soul"] = "迅猛龍靈魂"
 
 L["Rat Soul"] = "老鼠靈魂"
-L["Rat Soul Guide"] = "當他發送悄悄話時，以表情指令/yes或/nod回應他以查看他的商品。"
+L["Rat Soul Guide"] = "當他發送悄悄話時，以表情指令/yes或/nod回應他以獲取查看與購買商品的權利。"
 
 L["Runestag Soul"] = "符文雄鹿靈魂"
 L["Runestag Soul Guide"] = "出生點在亞登曠野的東北方。"
