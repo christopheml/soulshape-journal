@@ -316,10 +316,10 @@ local function CreateDatabase()
             coordinates = { x=54.9, y=45.1 },
             guide = L["Cat Soul (Well Fed) Guide"],
             critter = true,
+            questID = 64982,
             icon = 656577,
             model = 100636,
             scale = 4,
-            untrackable = "catwellfed",
         },
         {
             name = L["Chicken Soul"],
