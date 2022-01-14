@@ -11,5 +11,5 @@ embedded-libraries:
   - Ace3
 
 manual-changelog:
-  filename: CHANGELOG.md
+  filename: CHANGELOG-last.md
   markup-type: markdown
