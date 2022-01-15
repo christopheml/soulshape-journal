@@ -136,7 +136,7 @@ L["Boar Soul"] = true
 L["Boar Soul Guide"] = "Can drop from the last boss of any Warlords Draenor Timewalking dungeon."
 
 L["Bunny Soul"] = true
-L["Bunny Soul Guide"] = "Occasional reward from pet battle world quests in the area."
+L["Bunny Soul Guide"] = "Occasional reward from pet battle world quests."
 
 L["Cat Soul"] = true
 L["Cat Soul Guide"] = "A cat soul can spawn on top of the trunk of the tallest Ardenwealed trees (Dreamsong Fenn, Glitterfall Basin, Tirna Vaal, Hibernal Hollow or Claw's Edge). Use /soothe on it to get the soulshape."

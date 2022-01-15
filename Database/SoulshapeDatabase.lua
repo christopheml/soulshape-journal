@@ -26,7 +26,7 @@ local ADDON_NAME, SC = ...
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME, true)
 
 -- upvalues for frequent API calls
-local isQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted 
+local isQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted
 
 local function isarray(t)
    return type(t) == "table" and #t > 0
@@ -229,7 +229,7 @@ local function CreateSourceString(soulshape)
         addLine(L["Coordinates"], vendor.coordinates, CoordinatesFormatter)
         addLine(L["Cost"], vendor.cost, CostFormatter)
     end
-    
+
     addLine(L["Loot"], soulshape.loot)
     addLine(L["Quest"], soulshape.quest)
     addLine(L["Quest"], soulshape.campaignQuest, CampaignQuestFormatter)
@@ -291,7 +291,7 @@ local function CreateDatabase()
         {
             name = L["Bunny Soul"],
             worldQuest = L["Pet Battle"],
-            region = L["Ardenweald"],
+            region = L["Shadowlands"],
             guide = L["Bunny Soul Guide"],
             critter = true,
             questID = 64984,
@@ -888,8 +888,8 @@ local function CreateDatabase()
         soulshape.source = CreateSourceString(soulshape)
         soulshape.guide = CreateGuideString(soulshape)
     end
-    
-    SC.Database = CreateFromMixins({ 
+
+    SC.Database = CreateFromMixins({
         soulshapes = soulshapes,
     }, DatabaseMixin)
 

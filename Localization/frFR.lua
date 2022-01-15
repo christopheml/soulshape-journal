@@ -137,7 +137,7 @@ L["Boar Soul"] = "Âme de sanglier"
 L["Boar Soul Guide"] = "Peut-être obtenu sur le dernier boss de n’importe quel donjon des Marcheurs du temps de Warlords of Draenor."
 
 L["Bunny Soul"] = "Âme de lapin"
-L["Bunny Soul Guide"] = "Récompense occasionnelle des expéditions de combat de mascottes de la zone."
+L["Bunny Soul Guide"] = "Récompense occasionnelle des expéditions de combat de mascottes."
 
 L["Cat Soul"] = "Âme de chat"
 L["Cat Soul Guide"] = "Une âme de chat peut apparaître au sommet d'un des plus hauts arbres de Sylvarden (Palun Chanterêve, Bassin Tombe-Lueur, Tirna Vaal, Creux Hibernal ou Bord-de-Griffe). Utilisez /apaise sur lui pour obtenir la forme d'âme."
