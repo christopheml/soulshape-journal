@@ -814,6 +814,7 @@ local function CreateDatabase()
             name = L["Turkey Soul"],
             worldEvent = L["Pilgrim's Bounty"],
             guide = L["Turkey Soul Guide"],
+            critter = true,
             questID = 65467,
             icon = 250626,
             model = 105220,
