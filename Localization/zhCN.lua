@@ -180,7 +180,7 @@ L["Hippo Soul Guide"] = "法夜突袭奖励。"
 L["Hippogryph Soul"] = "角鹰兽之魂"
 
 L["Hyena Soul"] = "土狼之魂"
-L["Hyena Soul Guide"] = "任意钥匙等级掉落。"
+L["Hyena Soul Guide"] = "任意钥石等级掉落。"
 
 L["Jormungar Soul"] = "冰虫之魂"
 L["Jormungar Soul Guide"] = "可从巫妖王之怒时空漫游地下城任意首领掉落。"
