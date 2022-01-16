@@ -121,7 +121,7 @@ function DatabaseMixin:GetFilteredItems()
     end
 
     local filteredItems = {}
-    for i, item in ipairs(self.soulshapes) do
+    for _, item in ipairs(self.soulshapes) do
         local isShown = false
 
         -- Dropdown filters
@@ -133,7 +133,7 @@ function DatabaseMixin:GetFilteredItems()
 
         -- Text filter
         if self.textFilter and self.textFilter ~= "" then
-            isShown = isShown and string.find(item.name, self.textFilter, 1, true)
+            isShown = isShown and item.searchText:find(self.textFilter:lower(), 1, true)
         end
 
         if isShown then
@@ -257,6 +257,13 @@ local function CreateGuideString(soulshape)
     else
         return guide
     end
+end
+
+--- Concats and transforms to lowercase all searchable text related to a soulshape.
+local function CreateSearchText(soulshape)
+    local guide = soulshape.guide or ""
+    local values = { soulshape.name:lower(), soulshape.source:lower(), guide:lower() }
+    return table.concat(values, " ")
 end
 
 local function CreateDatabase()
@@ -888,6 +895,7 @@ local function CreateDatabase()
     for _, soulshape in ipairs(soulshapes) do
         soulshape.source = CreateSourceString(soulshape)
         soulshape.guide = CreateGuideString(soulshape)
+        soulshape.searchText = CreateSearchText(soulshape)
     end
 
     SC.Database = CreateFromMixins({
