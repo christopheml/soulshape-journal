@@ -123,6 +123,7 @@ L["Marasmius"] = "瑪拉茲莫斯"
 L["Paragon reward."] = "聲望巔峰獎勵"
 L["Soulshape"] = "靈魂幻體"
 L["Pilgrim's Bounty"] = "旅人豐年祭"
+L["Covenant Callings reward chests"] = "誓盟使命任務獎勵寶箱"
 
 L["Normal or Heroic"] = "普通或英雄"
 L["Heroic"] = "英雄"
@@ -167,6 +168,7 @@ L["Frog Soul"] = "青蛙靈魂"
 L["Frog Soul Guide"] = "可於任何誓盟所在地圖的水域取得。"
 
 L["Goat Soul"] = "山羊靈魂"
+L["Goat Soul Guide"] = "從任何地區的使命任務獎勵寶箱掉落，不限於亞登曠野。"
 
 L["Gryphon Soul"] = "獅鷲獸靈魂"
 L["Gryphon Soul Guide"] = "亂鬥、競技場、隨機戰場、積分戰場獲勝時機率取得。"
@@ -221,7 +223,7 @@ L["Saurolisk Hatchling Soul"] = "尖角幼蜥靈魂"
 L["Shadowstalker Soul"] = "巡影者靈魂"
 
 L["Shoveltusk Soul"] = "鍬牙靈魂"
-L["Shoveltusk Soul Guide"] = "PvP亂鬥：對抗電腦獲勝時機率取得。"
+L["Shoveltusk Soul Guide"] = "任何PvP亂鬥獲勝時機率取得。"
 
 L["Shrieker Soul"] = "尖嘯者靈魂"
 L["Snake Soul"] = "蛇靈魂"
