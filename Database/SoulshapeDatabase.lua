@@ -106,7 +106,7 @@ function DatabaseMixin:HasFilter(filter)
 end
 
 function DatabaseMixin:HasAtLeastOneFilter()
-    for k, v in pairs(self.activeFilters) do
+    for _, v in pairs(self.activeFilters) do
         if v then
             return true
         end
@@ -323,10 +323,10 @@ local function CreateDatabase()
             coordinates = { x=54.9, y=45.1 },
             guide = L["Cat Soul (Well Fed) Guide"],
             critter = true,
+            questID = 64982,
             icon = 656577,
             model = 100636,
             scale = 4,
-            untrackable = "catwellfed",
         },
         {
             name = L["Chicken Soul"],
@@ -364,10 +364,10 @@ local function CreateDatabase()
             region = L["Ardenweald"],
             guide = L["Corgi Soul Guide"],
             critter = true,
+            questID = 64938,
             icon = 1339013,
             model = 100634,
             scale = 4,
-            untrackable = "corgi",
         },
         {
             name = L["Crane Soul"],
