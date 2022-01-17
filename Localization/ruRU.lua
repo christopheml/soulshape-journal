@@ -221,7 +221,7 @@ L["Saurolisk Hatchling Soul"] = "Дух детеныша завролиска"
 L["Shadowstalker Soul"] = "Дух тенелова"
 
 L["Shoveltusk Soul"] = "Душа черпорога"
-L["Shoveltusk Soul Guide"] = "Случайная награда за победу в PvP-потасовки: ботобойка."
+L["Shoveltusk Soul Guide"] = "Случайная награда за победу в PvP-потасовки."
 
 L["Shrieker Soul"] = "Дух визгуна"
 L["Snake Soul"] = "Дух змеи"

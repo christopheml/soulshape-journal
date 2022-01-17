@@ -123,6 +123,7 @@ L["Marasmius"] = true
 L["Paragon reward."] = "Récompense de parangon."
 L["Soulshape"] = "Forme d’âme"
 L["Pilgrim's Bounty"] = "Les Bienfaits du pèlerin"
+L["Covenant Callings reward chests"] = "Coffres de récompense d'appels de congrégation"
 
 L["Normal or Heroic"] = "Normal ou héroïque"
 L["Heroic"] = "Héroïque"
@@ -167,6 +168,7 @@ L["Frog Soul"] = "Âme de grenouille"
 L["Frog Soul Guide"] = "Disponible dans n'importe quelle zone de congrégation."
 
 L["Goat Soul"] = "Âme de chèvre"
+L["Goat Soul Guide"] = "Obtenable dans les coffres de n'importe quel Appel de congrégation, pas uniquement des Faë nocturnes."
 
 L["Gryphon Soul"] = "Âme de griffon"
 L["Gryphon Soul Guide"] = "Récompense occasionnelle après une victoire en Escarmouche, Arène, Champ de bataille aléatoire ou Champ de bataille coté."
@@ -221,7 +223,7 @@ L["Saurolisk Hatchling Soul"] = "Âme de bébé saurolisque"
 L["Shadowstalker Soul"] = "Âme de traqueur des ombres"
 
 L["Shoveltusk Soul"] = "Âme de brochepelle"
-L["Shoveltusk Soul Guide"] = "Récompense occasionnelle après une victoire en Choc JcJ : contre l’IA."
+L["Shoveltusk Soul Guide"] = "Récompense occasionnelle après une victoire dans n'importe quel Choc JcJ."
 
 L["Shrieker Soul"] = "Âme de hurleur"
 L["Snake Soul"] = "Âme de serpent"

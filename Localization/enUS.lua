@@ -122,6 +122,7 @@ L["Marasmius"] = true
 L["Paragon reward."] = true
 L["Soulshape"] = true
 L["Pilgrim's Bounty"] = true
+L["Covenant Callings reward chests"] = true
 
 L["Normal or Heroic"] = true
 L["Heroic"] = true
@@ -166,6 +167,7 @@ L["Frog Soul"] = true
 L["Frog Soul Guide"] = "Available from any covenant zone."
 
 L["Goat Soul"] = true
+L["Goat Soul Guide"] = "Can drop from any Covenant Calling chest, not only from Night Fae's."
 
 L["Gryphon Soul"] = true
 L["Gryphon Soul Guide"] = "Occasional reward from a win in Skirmish, Arena, Random Battleground or Rated Battleground."
@@ -220,7 +222,7 @@ L["Saurolisk Hatchling Soul"] = true
 L["Shadowstalker Soul"] = true
 
 L["Shoveltusk Soul"] = true
-L["Shoveltusk Soul Guide"] = "Occasional reward from a win in PvP Brawl: Comp Stomp."
+L["Shoveltusk Soul Guide"] = "Occasional reward from a win in any PvP Brawl."
 
 L["Shrieker Soul"] = true
 L["Snake Soul"] = true
