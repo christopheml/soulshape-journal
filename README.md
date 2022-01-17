@@ -56,6 +56,8 @@ The new locale file must contain all the keys from [enUS.lua](Localization/enUS.
 
 Your translation must be provided under a license compatible with the [MIT License](LICENSE.txt), ideally the MIT License itself, but some other copyleft licenses can work.
 
+There is a [translation changelog](Localization/CHANGELOG-translations.md) intended to help you identify translations that have been added, removed or modified.
+
 ## Thanks and acknowledgements
 
 This addon couldn't have been made without the help of the following people: 
