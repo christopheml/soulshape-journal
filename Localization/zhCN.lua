@@ -123,6 +123,7 @@ L["Marasmius"] = "玛拉斯缪斯"
 L["Paragon reward."] = "巅峰奖励。"
 L["Soulshape"] = "灵魂变形"
 L["Pilgrim's Bounty"] = "感恩节的馈赠"
+L["Covenant Callings reward chests"] = "盟约使命奖励宝箱"
 
 L["Normal or Heroic"] = "普通或英雄难度"
 L["Heroic"] = "英雄难度"
@@ -137,7 +138,7 @@ L["Boar Soul"] = "野猪之魂"
 L["Boar Soul Guide"] = "可从德拉诺之王时空漫游地下城任意首领掉落。"
 
 L["Bunny Soul"] = "兔子之魂"
-L["Bunny Soul Guide"] = "从该地区的宠物对战世界任务中可能获得奖励。"
+L["Bunny Soul Guide"] = "从宠物对战世界任务中可能获得奖励。"
 
 L["Cat Soul"] = "猫之魂"
 L["Cat Soul Guide"] = "猫之魂可能在炽蓝仙野最高的巨树（梦歌沼泽、闪瀑盆地、瓦尔仙林、冬日林谷或利爪之缘）的树干顶部刷新。对它使用 /安抚 或 /soothe 来获得灵魂变形。"
@@ -167,6 +168,7 @@ L["Frog Soul"] = "青蛙之魂"
 L["Frog Soul Guide"] = "任意盟约地区可用。"
 
 L["Goat Soul"] = "山羊之魂"
+L["Goat Soul Guide"] = "可以从任意盟约使命宝箱中掉落，并不只限法夜宝箱。"
 
 L["Gryphon Soul"] = "狮鹫之魂"
 L["Gryphon Soul Guide"] = "在练习赛、竞技场、随机战场或评级战场中获胜时可能会获得奖励。"
@@ -221,7 +223,7 @@ L["Saurolisk Hatchling Soul"] = "巨蜥幼体之魂"
 L["Shadowstalker Soul"] = "暗影追猎者之魂"
 
 L["Shoveltusk Soul"] = "铲齿鹿之魂"
-L["Shoveltusk Soul Guide"] = "PvP 乱斗：人机对决胜利后可能奖励。"
+L["Shoveltusk Soul Guide"] = "任意 PvP 乱斗胜利后可能奖励。"
 
 L["Shrieker Soul"] = "尖啸者之魂"
 L["Snake Soul"] = "蛇之魂"
