@@ -124,7 +124,7 @@ L["Paragon reward."] = "Награда идеала."
 L["Soulshape"] = "Облик души"
 L["Pilgrim's Bounty"] = "Дары странников"
 
-L["Normal or Heroic"] = "Обычная или Героическая"
+-- L["Heroic or Mythic"] = "Героическая "
 L["Heroic"] = "Героическая"
 L["Hardmode"] = "Сложный Режим"
 L["Any"] = "Любая"

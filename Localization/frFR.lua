@@ -125,7 +125,7 @@ L["Soulshape"] = "Forme d’âme"
 L["Pilgrim's Bounty"] = "Les Bienfaits du pèlerin"
 L["Covenant Callings reward chests"] = "Coffres de récompense d'appels de congrégation"
 
-L["Normal or Heroic"] = "Normal ou héroïque"
+-- L["Heroic or Mythic"] = "Héroïque or "
 L["Heroic"] = "Héroïque"
 L["Hardmode"] = true
 L["Any"] = "Toutes"
