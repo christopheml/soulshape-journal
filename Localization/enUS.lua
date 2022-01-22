@@ -121,6 +121,7 @@ L["Mushroom Network"] = true
 L["Marasmius"] = true
 L["Paragon reward."] = true
 L["Soulshape"] = true
+L["Crittershape"] = true
 L["Pilgrim's Bounty"] = true
 L["Covenant Callings reward chests"] = true
 

@@ -267,30 +267,46 @@ local function CreateTab(panel)
     panel.Tab = tab
 end
 
-local function InitializeFilterDropDown(self, level)
-    local info = UIDropDownMenu_CreateInfo();
-    info.keepShownOnClick = true;
+local function InitializeFilterDropDown(_, level)
+
+    local function CreateFilter(filter)
+        local info = UIDropDownMenu_CreateInfo();
+        info.text = filter.label
+        info.checked = filter.enabled
+        info.isNotRadio = true
+        info.keepShownOnClick = true;
+        info.func = function(_, _, _, checked)
+            SC.Database:SetFilter(filter, checked)
+            SC.Panel.ScrollFrame:UpdateButtons()
+        end
+        UIDropDownMenu_AddButton(info, level)
+    end
+
+    local function CreateFilterGroupLabel(text)
+        local info = UIDropDownMenu_CreateInfo();
+        info.isTitle = true
+        info.text = text
+        info.notCheckable = true
+        UIDropDownMenu_AddButton(info, level)
+    end
 
     if level == 1 then
-        local FILTER_COLLECTED = SC.Database.Filters.COLLECTED
-        info.text = COLLECTED
-        info.func = function(_, _, _, value)
-            SC.Database:SetFilter(FILTER_COLLECTED, value)
-            SC.Panel.ScrollFrame:UpdateButtons()
-        end
-        info.checked = SC.Database:HasFilter(FILTER_COLLECTED)
-        info.isNotRadio = true
-        UIDropDownMenu_AddButton(info, level)
+        local first = true
+        for _, filterGroup in ipairs(SC.Database.Filters) do
+            if not first then
+                UIDropDownMenu_AddSpace(level)
+            end
 
-        local FILTER_NOT_COLLECTED = SC.Database.Filters.NOT_COLLECTED
-        info.text = NOT_COLLECTED
-        info.func = function(_, _, _, value)
-            SC.Database:SetFilter(FILTER_NOT_COLLECTED, value)
-            SC.Panel.ScrollFrame:UpdateButtons()
+            if filterGroup.label then
+                CreateFilterGroupLabel(filterGroup.label)
+            end
+
+            for _, filter in ipairs(filterGroup.filters) do
+                CreateFilter(filter)
+            end
+
+            first = false;
         end
-        info.checked = SC.Database:HasFilter(FILTER_NOT_COLLECTED)
-        info.isNotRadio = true
-        UIDropDownMenu_AddButton(info, level)
     end
 end
 
