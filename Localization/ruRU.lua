@@ -124,7 +124,7 @@ L["Paragon reward."] = "Награда идеала."
 L["Soulshape"] = "Облик души"
 L["Pilgrim's Bounty"] = "Дары странников"
 
-L["Normal or Heroic"] = "Обычная или Героическая"
+L["Normal"] = "Обычная"
 L["Heroic"] = "Героическая"
 L["Hardmode"] = "Сложный Режим"
 L["Any"] = "Любая"
@@ -221,7 +221,7 @@ L["Saurolisk Hatchling Soul"] = "Дух детеныша завролиска"
 L["Shadowstalker Soul"] = "Дух тенелова"
 
 L["Shoveltusk Soul"] = "Душа черпорога"
-L["Shoveltusk Soul Guide"] = "Случайная награда за победу в PvP-потасовки: ботобойка."
+L["Shoveltusk Soul Guide"] = "Случайная награда за победу в PvP-потасовки."
 
 L["Shrieker Soul"] = "Дух визгуна"
 L["Snake Soul"] = "Дух змеи"

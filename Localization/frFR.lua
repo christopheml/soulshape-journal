@@ -123,9 +123,11 @@ L["Marasmius"] = true
 L["Paragon reward."] = "Récompense de parangon."
 L["Soulshape"] = "Forme d’âme"
 L["Pilgrim's Bounty"] = "Les Bienfaits du pèlerin"
+L["Covenant Callings reward chests"] = "Coffres de récompense d'appels de congrégation"
 
-L["Normal or Heroic"] = "Normal ou héroïque"
+L["Normal"] = true
 L["Heroic"] = "Héroïque"
+L["Mythic"] = "Mythique"
 L["Hardmode"] = true
 L["Any"] = "Toutes"
 
@@ -137,7 +139,7 @@ L["Boar Soul"] = "Âme de sanglier"
 L["Boar Soul Guide"] = "Peut-être obtenu sur le dernier boss de n’importe quel donjon des Marcheurs du temps de Warlords of Draenor."
 
 L["Bunny Soul"] = "Âme de lapin"
-L["Bunny Soul Guide"] = "Récompense occasionnelle des expéditions de combat de mascottes de la zone."
+L["Bunny Soul Guide"] = "Récompense occasionnelle des expéditions de combat de mascottes."
 
 L["Cat Soul"] = "Âme de chat"
 L["Cat Soul Guide"] = "Une âme de chat peut apparaître au sommet d'un des plus hauts arbres de Sylvarden (Palun Chanterêve, Bassin Tombe-Lueur, Tirna Vaal, Creux Hibernal ou Bord-de-Griffe). Utilisez /apaise sur lui pour obtenir la forme d'âme."
@@ -167,6 +169,7 @@ L["Frog Soul"] = "Âme de grenouille"
 L["Frog Soul Guide"] = "Disponible dans n'importe quelle zone de congrégation."
 
 L["Goat Soul"] = "Âme de chèvre"
+L["Goat Soul Guide"] = "Obtenable dans les coffres de n'importe quel Appel de congrégation, pas uniquement des Faë nocturnes."
 
 L["Gryphon Soul"] = "Âme de griffon"
 L["Gryphon Soul Guide"] = "Récompense occasionnelle après une victoire en Escarmouche, Arène, Champ de bataille aléatoire ou Champ de bataille coté."
@@ -221,7 +224,7 @@ L["Saurolisk Hatchling Soul"] = "Âme de bébé saurolisque"
 L["Shadowstalker Soul"] = "Âme de traqueur des ombres"
 
 L["Shoveltusk Soul"] = "Âme de brochepelle"
-L["Shoveltusk Soul Guide"] = "Récompense occasionnelle après une victoire en Choc JcJ : contre l’IA."
+L["Shoveltusk Soul Guide"] = "Récompense occasionnelle après une victoire dans n'importe quel Choc JcJ."
 
 L["Shrieker Soul"] = "Âme de hurleur"
 L["Snake Soul"] = "Âme de serpent"

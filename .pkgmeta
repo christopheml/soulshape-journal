@@ -6,10 +6,10 @@ ignore:
     - *.md
 
 embedded-libraries:
-  - SecureTabs-2.0
-  - LibStub
-  - Ace3
+  - securetabs
+  - libstub
+  - ace3
 
 manual-changelog:
-  filename: CHANGELOG.md
+  filename: CHANGELOG-last.md
   markup-type: markdown

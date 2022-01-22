@@ -26,7 +26,7 @@ local ADDON_NAME, SC = ...
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME, true)
 
 -- upvalues for frequent API calls
-local isQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted 
+local isQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted
 
 local function isarray(t)
    return type(t) == "table" and #t > 0
@@ -106,7 +106,7 @@ function DatabaseMixin:HasFilter(filter)
 end
 
 function DatabaseMixin:HasAtLeastOneFilter()
-    for k, v in pairs(self.activeFilters) do
+    for _, v in pairs(self.activeFilters) do
         if v then
             return true
         end
@@ -121,7 +121,7 @@ function DatabaseMixin:GetFilteredItems()
     end
 
     local filteredItems = {}
-    for i, item in ipairs(self.soulshapes) do
+    for _, item in ipairs(self.soulshapes) do
         local isShown = false
 
         -- Dropdown filters
@@ -133,7 +133,7 @@ function DatabaseMixin:GetFilteredItems()
 
         -- Text filter
         if self.textFilter and self.textFilter ~= "" then
-            isShown = isShown and string.find(item.name, self.textFilter, 1, true)
+            isShown = isShown and item.searchText:find(self.textFilter:lower(), 1, true)
         end
 
         if isShown then
@@ -195,6 +195,13 @@ local function Label(name)
     end
 end
 
+local function JoiningFormatter(values)
+    if isarray(values) then
+        return table.concat(values, ", ")
+    end
+    return values
+end
+
 local function Item(icon, name, rarity)
     return format("|T%d:0|t%s", icon, rarity:WrapTextInColorCode(name))
 end
@@ -229,7 +236,7 @@ local function CreateSourceString(soulshape)
         addLine(L["Coordinates"], vendor.coordinates, CoordinatesFormatter)
         addLine(L["Cost"], vendor.cost, CostFormatter)
     end
-    
+
     addLine(L["Loot"], soulshape.loot)
     addLine(L["Quest"], soulshape.quest)
     addLine(L["Quest"], soulshape.campaignQuest, CampaignQuestFormatter)
@@ -243,7 +250,7 @@ local function CreateSourceString(soulshape)
     addLine(L["Faction"], soulshape.faction, FactionFormatter)
     addMultiLine(soulshape.vendor, renderVendor)
     addLine(L["Covenant Feature"], soulshape.covenantFeature)
-    addLine(L["Difficulty"], soulshape.difficulty)
+    addLine(L["Difficulty"], soulshape.difficulty, JoiningFormatter)
     addLine(L["Coordinates"], soulshape.coordinates, CoordinatesFormatter)
     addLine(L["Renown"], soulshape.renown)
     addLine(L["Spell"], soulshape.spell)
@@ -257,6 +264,13 @@ local function CreateGuideString(soulshape)
     else
         return guide
     end
+end
+
+--- Concats and transforms to lowercase all searchable text related to a soulshape.
+local function CreateSearchText(soulshape)
+    local guide = soulshape.guide or ""
+    local values = { soulshape.name:lower(), soulshape.source:lower(), guide:lower() }
+    return table.concat(values, " ")
 end
 
 local function CreateDatabase()
@@ -291,7 +305,7 @@ local function CreateDatabase()
         {
             name = L["Bunny Soul"],
             worldQuest = L["Pet Battle"],
-            region = L["Ardenweald"],
+            region = L["Shadowlands"],
             guide = L["Bunny Soul Guide"],
             critter = true,
             questID = 64984,
@@ -316,10 +330,10 @@ local function CreateDatabase()
             coordinates = { x=54.9, y=45.1 },
             guide = L["Cat Soul (Well Fed) Guide"],
             critter = true,
+            questID = 64982,
             icon = 656577,
             model = 100636,
             scale = 4,
-            untrackable = "catwellfed",
         },
         {
             name = L["Chicken Soul"],
@@ -357,10 +371,10 @@ local function CreateDatabase()
             region = L["Ardenweald"],
             guide = L["Corgi Soul Guide"],
             critter = true,
+            questID = 64938,
             icon = 1339013,
             model = 100634,
             scale = 4,
-            untrackable = "corgi",
         },
         {
             name = L["Crane Soul"],
@@ -444,9 +458,9 @@ local function CreateDatabase()
         },
         {
             name = L["Goat Soul"],
-            loot = Item(3753378, L["Bounty of the Grove Wardens"], RARE_BLUE_COLOR),
-            region = L["Ardenweald"],
-            guide = BOUNTY_BOARD_LOCKED_TITLE,
+            loot = L["Covenant Callings reward chests"],
+            region = L["Shadowlands"],
+            guide = L["Goat Soul Guide"],
             questID = 65008,
             icon = 877477,
             model = 103072,
@@ -745,9 +759,9 @@ local function CreateDatabase()
         },
         {
             name = L["Snake Soul"],
-            loot = Item(3753378, L["Bounty of the Grove Wardens"], RARE_BLUE_COLOR),
-            region = L["Ardenweald"],
-            guide = BOUNTY_BOARD_LOCKED_TITLE,
+            loot = L["Covenant Callings reward chests"],
+            region = L["Shadowlands"],
+            guide = L["Goat Soul Guide"],
             critter = true,
             questID = 64988,
             icon = 2399227,
@@ -814,6 +828,7 @@ local function CreateDatabase()
             name = L["Turkey Soul"],
             worldEvent = L["Pilgrim's Bounty"],
             guide = L["Turkey Soul Guide"],
+            critter = true,
             questID = 65467,
             icon = 250626,
             model = 105220,
@@ -836,7 +851,7 @@ local function CreateDatabase()
             name = L["Veilwing Soul"],
             loot = L["Sire Denathrius"],
             region = L["Castle Nathria"],
-            difficulty = L["Normal or Heroic"],
+            difficulty = { L["Heroic"], L["Mythic"] },
             questID = 62425,
             icon = 303867,
             model = 96535,
@@ -887,9 +902,10 @@ local function CreateDatabase()
     for _, soulshape in ipairs(soulshapes) do
         soulshape.source = CreateSourceString(soulshape)
         soulshape.guide = CreateGuideString(soulshape)
+        soulshape.searchText = CreateSearchText(soulshape)
     end
-    
-    SC.Database = CreateFromMixins({ 
+
+    SC.Database = CreateFromMixins({
         soulshapes = soulshapes,
     }, DatabaseMixin)
 
