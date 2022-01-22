@@ -125,7 +125,6 @@ L["Soulshape"] = "靈魂幻體"
 L["Pilgrim's Bounty"] = "旅人豐年祭"
 L["Covenant Callings reward chests"] = "誓盟使命任務獎勵寶箱"
 
-L["Normal or Heroic"] = "普通或英雄"
 L["Normal"] = "普通"
 L["Heroic"] = "英雄"
 L["Mythic"] = "傳奇"
