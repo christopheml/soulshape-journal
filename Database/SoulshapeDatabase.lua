@@ -195,6 +195,13 @@ local function Label(name)
     end
 end
 
+local function JoiningFormatter(values)
+    if isarray(values) then
+        return table.concat(values, ", ")
+    end
+    return values
+end
+
 local function Item(icon, name, rarity)
     return format("|T%d:0|t%s", icon, rarity:WrapTextInColorCode(name))
 end
@@ -243,7 +250,7 @@ local function CreateSourceString(soulshape)
     addLine(L["Faction"], soulshape.faction, FactionFormatter)
     addMultiLine(soulshape.vendor, renderVendor)
     addLine(L["Covenant Feature"], soulshape.covenantFeature)
-    addLine(L["Difficulty"], soulshape.difficulty)
+    addLine(L["Difficulty"], soulshape.difficulty, JoiningFormatter)
     addLine(L["Coordinates"], soulshape.coordinates, CoordinatesFormatter)
     addLine(L["Renown"], soulshape.renown)
     addLine(L["Spell"], soulshape.spell)
@@ -844,7 +851,7 @@ local function CreateDatabase()
             name = L["Veilwing Soul"],
             loot = L["Sire Denathrius"],
             region = L["Castle Nathria"],
-            difficulty = L["Normal or Heroic"],
+            difficulty = { L["Heroic"], L["Mythic"] },
             questID = 62425,
             icon = 303867,
             model = 96535,
