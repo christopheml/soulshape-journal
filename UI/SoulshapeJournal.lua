@@ -105,13 +105,13 @@ local function CreateScrollFrame(panel)
         local buttonHeight;
 
         local filteredItems = SC.Database:GetFilteredItems()
-        
+
         for index = 1, #buttons do
             local button = buttons[index]
             local itemIndex = index + offset
-    
+
             buttonHeight = button:GetHeight()
-    
+
             if itemIndex <= #filteredItems then
                 local item = filteredItems[itemIndex]
                 button.name:SetText(item.name)
@@ -136,11 +136,11 @@ local function CreateScrollFrame(panel)
                 button.selectedTexture:SetShown(button.selected)
 
                 button:SetEnabled(true)
-            else 
+            else
                 self:ResetButton(button)
             end
         end
-    
+
         HybridScrollFrame_Update(self, #filteredItems * buttonHeight, self:GetHeight())
     end
 
@@ -171,7 +171,7 @@ local function CreateModelView(panel)
     background:SetAllPoints()
     background:SetTexture("Interface/CovenantChoice/CovenantChoiceOfferingsNightFae")
     background:SetTexCoord(0.0434117648, 0.3608851102, 0.427734375, 0.8486328125)
-    
+
     local shadow = CreateFrame("Frame", nil, soulshapeDisplay, "ShadowOverlayTemplate")
     shadow:Lower()
     shadow:SetAllPoints()
@@ -253,13 +253,15 @@ local function CreateTab(panel)
     tab.frame = panel
 
     tab.OnSelect = function()
-        if _G["RematchJournal"] then
-            -- Rematch isn't aware that we exist and won't hide iteself correctly when
-            -- we show up. We'll circumvent this by telling the UI we're selecting the 
-            -- first real tab of the CollectionsJournal immediately before switching to
-            -- ours, which causes Rematch to hide itself.
-            CollectionsJournal_SetTab(CollectionsJournal, CollectionsJournalTab1:GetID())
-        end
+        -- Some addons aren't aware that we exist and won't hide themselves correctly when
+        -- we show up. We'll circumvent this by telling the UI we're selecting another tab
+        -- from the CollectionsJournal immediately before switching to ours, which causes
+        -- those addons to hide themselves gracefully.
+        -- The chosen tab is the Heirlooms Journal because we don't expect any popular
+        -- addon to modify its frame. If it's the case, well, we're screwed.
+        -- If you read this and you have a better technique to attach tabs to the
+        -- collection journal, please message me.
+        CollectionsJournal_SetTab(CollectionsJournal, CollectionsJournalTab4:GetID())
     end
 
     panel.Tab = tab
@@ -318,7 +320,7 @@ end
 function CollectionPanelMixin:UpdateSoulshapeDisplay()
     function showModel(creatureDisplayID, scale, modelSceneID)
         local scene = self.SoulshapeDisplay.ModelScene
-        
+
         scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_DISCARD, true)
         local actor = scene:GetActorByTag("unwrapped")
         if actor then
@@ -389,7 +391,7 @@ function SC:CreateCollectionPanel()
     panel:SetAllPoints()
     panel:SetPortraitToAsset(GetSpellTexture(310143))
     panel:SetTitle(L["TAB_TITLE"])
-    
+
     CreateInsets(panel)
     CreateCount(panel)
     CreateCovenantWarning(panel)

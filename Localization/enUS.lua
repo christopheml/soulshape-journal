@@ -124,8 +124,9 @@ L["Soulshape"] = true
 L["Pilgrim's Bounty"] = true
 L["Covenant Callings reward chests"] = true
 
-L["Normal or Heroic"] = true
+L["Normal"] = true
 L["Heroic"] = true
+L["Mythic"] = true
 L["Hardmode"] = true
 L["Any"] = true
 

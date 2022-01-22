@@ -106,7 +106,7 @@ function DatabaseMixin:HasFilter(filter)
 end
 
 function DatabaseMixin:HasAtLeastOneFilter()
-    for k, v in pairs(self.activeFilters) do
+    for _, v in pairs(self.activeFilters) do
         if v then
             return true
         end
@@ -195,6 +195,13 @@ local function Label(name)
     end
 end
 
+local function JoiningFormatter(values)
+    if isarray(values) then
+        return table.concat(values, ", ")
+    end
+    return values
+end
+
 local function Item(icon, name, rarity)
     return format("|T%d:0|t%s", icon, rarity:WrapTextInColorCode(name))
 end
@@ -243,7 +250,7 @@ local function CreateSourceString(soulshape)
     addLine(L["Faction"], soulshape.faction, FactionFormatter)
     addMultiLine(soulshape.vendor, renderVendor)
     addLine(L["Covenant Feature"], soulshape.covenantFeature)
-    addLine(L["Difficulty"], soulshape.difficulty)
+    addLine(L["Difficulty"], soulshape.difficulty, JoiningFormatter)
     addLine(L["Coordinates"], soulshape.coordinates, CoordinatesFormatter)
     addLine(L["Renown"], soulshape.renown)
     addLine(L["Spell"], soulshape.spell)
@@ -323,10 +330,10 @@ local function CreateDatabase()
             coordinates = { x=54.9, y=45.1 },
             guide = L["Cat Soul (Well Fed) Guide"],
             critter = true,
+            questID = 64982,
             icon = 656577,
             model = 100636,
             scale = 4,
-            untrackable = "catwellfed",
         },
         {
             name = L["Chicken Soul"],
@@ -364,10 +371,10 @@ local function CreateDatabase()
             region = L["Ardenweald"],
             guide = L["Corgi Soul Guide"],
             critter = true,
+            questID = 64938,
             icon = 1339013,
             model = 100634,
             scale = 4,
-            untrackable = "corgi",
         },
         {
             name = L["Crane Soul"],
@@ -844,7 +851,7 @@ local function CreateDatabase()
             name = L["Veilwing Soul"],
             loot = L["Sire Denathrius"],
             region = L["Castle Nathria"],
-            difficulty = L["Normal or Heroic"],
+            difficulty = { L["Heroic"], L["Mythic"] },
             questID = 62425,
             icon = 303867,
             model = 96535,
