@@ -123,9 +123,11 @@ L["Marasmius"] = true
 L["Paragon reward."] = "Paragon-Belohnung"
 L["Soulshape"] = "Seelengestalt"
 L["Pilgrim's Bounty"] = "Pilgerfreudenfest"
+L["Covenant Callings reward chests"] = "Belohnungstruhen der Pakt-Berufungen"
 
-L["Normal or Heroic"] = "normal oder heroisch"
+L["Normal"] = "normal"
 L["Heroic"] = "heroisch"
+L["Mythic"] = "mythisch"
 L["Hardmode"] = true
 L["Any"] = "beliebig"
 
@@ -167,6 +169,7 @@ L["Frog Soul"] = "Froschseele"
 L["Frog Soul Guide"] = "Kann in einem beliebigen Gewässer der vier Schattenlande-Hauptgebiete ohne Skill-Anforderung geangelt werden."
 
 L["Goat Soul"] = "Ziegenseele"
+L["Goat Soul Guide"] = "Kann in jeder Belohnungstruhe enthalten sein, nicht nur in denen der Nachtfae."
 
 L["Gryphon Soul"] = "Greifenseele"
 L["Gryphon Soul Guide"] = "Gelegentliche Belohnung für einen Sieg in Arenageplänkel, Arena, zufälligem oder gewertetem Schlachtfeld."
