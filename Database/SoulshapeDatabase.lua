@@ -770,7 +770,7 @@ local function CreateDatabase()
             coordinates = { x=30.6, y=55.0 },
             questID = 62431,
             icon = 2475038,
-            model = 97492,
+            model = 96530,
             scale = 5.5,
         },
         {
