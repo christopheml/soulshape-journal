@@ -122,6 +122,7 @@ L["Mushroom Network"] = "Der Ring (Pilznetzwerk)"
 L["Marasmius"] = true
 L["Paragon reward."] = "Paragon-Belohnung"
 L["Soulshape"] = "Seelengestalt"
+L["Crittershape"] = "Kleintiergestalt"
 L["Pilgrim's Bounty"] = "Pilgerfreudenfest"
 L["Covenant Callings reward chests"] = "Belohnungstruhen der Pakt-Berufungen"
 
