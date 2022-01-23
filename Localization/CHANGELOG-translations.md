@@ -7,6 +7,7 @@ identify keys that may be missing or are no longer correct.
 
 * `Normal` (dungeon difficulty)
 * `Mythic` (dungeon difficulty)
+* `Crittershape`
 
 ## Removed
 
