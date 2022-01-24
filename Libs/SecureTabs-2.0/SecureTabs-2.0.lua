@@ -97,7 +97,13 @@ function Lib:Update(panel, selection)
 				frame:SetFrameLevel(panel:GetFrameLevel() + 20)
 
 				if frame.CloseButton then -- this could cause taint, must solve?
-					frame.CloseButton:SetScript('OnClick',  function() panel:Hide() end)
+					frame.CloseButton:SetScript('OnClick',  function()
+						if frame:GetParent() and frame:GetParent().CloseButton then
+							-- Fixes a bug that would temporarily deactivate the ESC key
+							UIPanelCloseButton_OnClick(frame:GetParent().CloseButton)
+						end
+						panel:Hide()
+					end)
 				end
 			end
 		end

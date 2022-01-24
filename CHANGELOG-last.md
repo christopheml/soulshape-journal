@@ -1,6 +1,6 @@
-* Fixed Bunny Soul source information (thanks to covsoul)
-* Fixed missing Turkey Soul critter icon (thanks to covsoul)
-* Fixed Goat Soul and Snake Soul sources (thanks to WuSage3)
-* Improved text filter
-    * Filter is now case-insensitive (thanks to WuSage3)
-    * Filter now searches from the full soulshape information text, not only the name (thanks to covsoul)
+* Added automatic tracking for Cat Soul (Well Fed) and Corgi Soul (thanks to Dairyman, madcowfred and mtwango)
+* Fixed compatibility issues with MountsJournal, BetterWardrobe and other similar addons (thanks to Morraine and LadyAtia)
+* Fixed a bug that would disable the Escape key when closing the addon by clicking on the top-right close button (thanks to AyJayCoding)
+* Fixed Veilwing Soul difficulty to heroic and mythic only (thanks to adavak)
+* Added a filter to separate Crittershapes and regular Soulshapes
+* Fixed Shadowstalker Soul showing the wrong model (thanks to penguinsane)
