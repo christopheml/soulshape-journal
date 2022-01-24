@@ -125,8 +125,9 @@ L["Soulshape"] = "灵魂变形"
 L["Pilgrim's Bounty"] = "感恩节的馈赠"
 L["Covenant Callings reward chests"] = "盟约使命奖励宝箱"
 
-L["Heroic or Mythic"] = "英雄或史诗难度"
+L["Normal"] = "普通难度"
 L["Heroic"] = "英雄难度"
+L["Mythic"] = "史诗难度"
 L["Hardmode"] = "困难模式"
 L["Any"] = "任意"
 
