@@ -122,6 +122,7 @@ L["Mushroom Network"] = "蘑网"
 L["Marasmius"] = "玛拉斯缪斯"
 L["Paragon reward."] = "巅峰奖励。"
 L["Soulshape"] = "灵魂变形"
+L["Crittershape"] = "小动物变形"
 L["Pilgrim's Bounty"] = "感恩节的馈赠"
 L["Covenant Callings reward chests"] = "盟约使命奖励宝箱"
 
