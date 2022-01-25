@@ -35,7 +35,11 @@ The project is released under the [MIT License](LICENSE.txt).
 
 If you find an bug or want to suggest a feature or enhancement, please create an issue on this repository. Github is the only channel I'll monitor for this purpose. 
 
-Before you create an issue about a bug, make sure it hasn't already submitted before. Please attach any relevant information you have, including Lua stacktraces, steps you took to trigger the bug and the list of other addons you use (I would be extra kind to narrow down that list by reproducing the bug with other addons disabled, in case the bug is caused by an incompatibility between Soulshape Journal and another addon).
+Before you create an issue about a bug, make sure it hasn't already submitted before or not in the list below. Please attach any relevant information you have, including Lua stacktraces, steps you took to trigger the bug and the list of other addons you use (I would be extra kind to narrow down that list by reproducing the bug with other addons disabled, in case the bug is caused by an incompatibility between Soulshape Journal and another addon).
+
+### Known issues
+
+* Due to a difference in how both addons handle adding a tab to the Collections Journal frame, Soulshape Journal **is not compatible with iStableMaster**. This isn't something I can realistically change on my own and won't probably be fixed.
 
 ## Translating the addon
 
