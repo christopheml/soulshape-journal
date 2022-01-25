@@ -30,7 +30,7 @@ L["TAB_TITLE"] = "Soulshapes"
 L["COUNT_LABEL"] = "Total"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "This soulshape can't be automatically detected"
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Click to mark %s as collected if you already have it."
-L["WARNING_NOT_NIGHT_FAE"] = "You're not a member of the Night Fae,\nyou can't collecte new soulshapes at this time."
+L["WARNING_NOT_NIGHT_FAE"] = "You're not a member of the Night Fae,\nyou can't collect new soulshapes at this time."
 
 -- Labels
 L["Loot"] = true
@@ -121,11 +121,13 @@ L["Mushroom Network"] = true
 L["Marasmius"] = true
 L["Paragon reward."] = true
 L["Soulshape"] = true
+L["Crittershape"] = true
 L["Pilgrim's Bounty"] = true
 L["Covenant Callings reward chests"] = true
 
-L["Normal or Heroic"] = true
+L["Normal"] = true
 L["Heroic"] = true
+L["Mythic"] = true
 L["Hardmode"] = true
 L["Any"] = true
 

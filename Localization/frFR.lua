@@ -122,11 +122,13 @@ L["Mushroom Network"] = "Réseau de champignons"
 L["Marasmius"] = true
 L["Paragon reward."] = "Récompense de parangon."
 L["Soulshape"] = "Forme d’âme"
+L["Crittershape"] = "Forme de bestiole"
 L["Pilgrim's Bounty"] = "Les Bienfaits du pèlerin"
 L["Covenant Callings reward chests"] = "Coffres de récompense d'appels de congrégation"
 
-L["Normal or Heroic"] = "Normal ou héroïque"
+L["Normal"] = true
 L["Heroic"] = "Héroïque"
+L["Mythic"] = "Mythique"
 L["Hardmode"] = true
 L["Any"] = "Toutes"
 

@@ -35,18 +35,45 @@ end
 local DatabaseMixin = {
 
     Filters = {
-
-        COLLECTED = function(soulshape)
-            return soulshape.collected
-        end,
-
-        NOT_COLLECTED = function(soulshape)
-            return not soulshape.collected
-        end,
-
+        {
+            label = nil,
+            filters = {
+                {
+                    label = COLLECTED,
+                    enabled = true,
+                    func = function(soulshape)
+                        return soulshape.collected
+                    end
+                },
+                {
+                    label = NOT_COLLECTED,
+                    enabled = true,
+                    func = function(soulshape)
+                        return not soulshape.collected
+                    end
+                }
+            }
+        },
+        {
+            label = TYPE,
+            filters = {
+                {
+                    label = L["Soulshape"],
+                    enabled = true,
+                    func = function(soulshape)
+                        return not soulshape.critter
+                    end
+                },
+                {
+                    label = L["Crittershape"],
+                    enabled = true,
+                    func = function(soulshape)
+                        return soulshape.critter or false
+                    end
+                }
+            }
+        }
     },
-
-    activeFilters = {},
 
 }
 
@@ -98,49 +125,57 @@ function DatabaseMixin:SetTextFilter(textFilter)
 end
 
 function DatabaseMixin:SetFilter(filter, value)
-    self.activeFilters[filter] = value
+    filter.enabled = value
 end
 
-function DatabaseMixin:HasFilter(filter)
-    return self.activeFilters[filter] or false
-end
-
-function DatabaseMixin:HasAtLeastOneFilter()
-    for k, v in pairs(self.activeFilters) do
-        if v then
-            return true
+function DatabaseMixin:AllFiltersEnabled()
+    for _, filterGroup in ipairs(self.Filters) do
+        for _, filter in ipairs(filterGroup.filters) do
+            if not filter.enabled then
+                return false
+            end
         end
     end
-    return false
+    return true
+end
+
+function DatabaseMixin:IsRetainedByFilters(soulshape)
+    local isShown = true
+    for _, filterGroup in ipairs(self.Filters) do
+        local isShownForGroup = true
+        for _, filter in ipairs(filterGroup.filters) do
+            if filter.func(soulshape) then
+                isShownForGroup = isShownForGroup and filter.enabled
+            end
+        end
+        isShown = isShown and isShownForGroup
+    end
+    return isShown
 end
 
 function DatabaseMixin:GetFilteredItems()
-    if (self.textFilter == nil or self.textFilter == "") and not self:HasAtLeastOneFilter() then
-        -- No filter active, do nothing
+    if (self.textFilter == nil or self.textFilter == "") and self:AllFiltersEnabled() then
+        -- No filtering active, do nothing
         return self.soulshapes
     end
 
-    local filteredItems = {}
-    for _, item in ipairs(self.soulshapes) do
+    local filteredSoulshapes = {}
+    for _, soulshape in ipairs(self.soulshapes) do
         local isShown = false
 
         -- Dropdown filters
-        for filter, enabled in pairs(self.activeFilters) do
-            if enabled then
-                isShown = isShown or filter(item)
-            end
-        end
+        isShown = isShown or self:IsRetainedByFilters(soulshape)
 
         -- Text filter
         if self.textFilter and self.textFilter ~= "" then
-            isShown = isShown and item.searchText:find(self.textFilter:lower(), 1, true)
+            isShown = isShown and soulshape.searchText:find(self.textFilter:lower(), 1, true)
         end
 
         if isShown then
-            tinsert(filteredItems, item)
+            tinsert(filteredSoulshapes, soulshape)
         end
     end
-    return filteredItems
+    return filteredSoulshapes
 end
 
 local function CostFormatter(cost)
@@ -195,6 +230,13 @@ local function Label(name)
     end
 end
 
+local function JoiningFormatter(values)
+    if isarray(values) then
+        return table.concat(values, ", ")
+    end
+    return values
+end
+
 local function Item(icon, name, rarity)
     return format("|T%d:0|t%s", icon, rarity:WrapTextInColorCode(name))
 end
@@ -243,7 +285,7 @@ local function CreateSourceString(soulshape)
     addLine(L["Faction"], soulshape.faction, FactionFormatter)
     addMultiLine(soulshape.vendor, renderVendor)
     addLine(L["Covenant Feature"], soulshape.covenantFeature)
-    addLine(L["Difficulty"], soulshape.difficulty)
+    addLine(L["Difficulty"], soulshape.difficulty, JoiningFormatter)
     addLine(L["Coordinates"], soulshape.coordinates, CoordinatesFormatter)
     addLine(L["Renown"], soulshape.renown)
     addLine(L["Spell"], soulshape.spell)
@@ -323,10 +365,10 @@ local function CreateDatabase()
             coordinates = { x=54.9, y=45.1 },
             guide = L["Cat Soul (Well Fed) Guide"],
             critter = true,
+            questID = 64982,
             icon = 656577,
             model = 100636,
             scale = 4,
-            untrackable = "catwellfed",
         },
         {
             name = L["Chicken Soul"],
@@ -364,10 +406,10 @@ local function CreateDatabase()
             region = L["Ardenweald"],
             guide = L["Corgi Soul Guide"],
             critter = true,
+            questID = 64938,
             icon = 1339013,
             model = 100634,
             scale = 4,
-            untrackable = "corgi",
         },
         {
             name = L["Crane Soul"],
@@ -728,7 +770,7 @@ local function CreateDatabase()
             coordinates = { x=30.6, y=55.0 },
             questID = 62431,
             icon = 2475038,
-            model = 97492,
+            model = 96530,
             scale = 5.5,
         },
         {
@@ -844,7 +886,7 @@ local function CreateDatabase()
             name = L["Veilwing Soul"],
             loot = L["Sire Denathrius"],
             region = L["Castle Nathria"],
-            difficulty = L["Normal or Heroic"],
+            difficulty = { L["Heroic"], L["Mythic"] },
             questID = 62425,
             icon = 303867,
             model = 96535,
@@ -901,10 +943,6 @@ local function CreateDatabase()
     SC.Database = CreateFromMixins({
         soulshapes = soulshapes,
     }, DatabaseMixin)
-
-    -- Default filters
-    SC.Database:SetFilter(SC.Database.Filters.COLLECTED, true)
-    SC.Database:SetFilter(SC.Database.Filters.NOT_COLLECTED, true)
 end
 
 SC.CreateDatabase = function()
