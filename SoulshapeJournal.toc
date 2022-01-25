@@ -19,6 +19,8 @@ Localization\enUS.lua
 Localization\frFR.lua
 Localization\ruRU.lua
 Localization\deDE.lua
+Localization\zhCN.lua
+Localization\zhTW.lua
 
 Database\SoulshapeDatabase.lua
 UI\Templates.xml
