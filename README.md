@@ -44,6 +44,20 @@ Available translations:
 * :us:/:uk: English by Christophe Michel
 * :fr: French  by Christophe Michel
 * :ru: Russian by ZamestoTV
+* :cn: Chinese (Simplified) by adavak
+* :taiwan: Chinese (Traditional) by OwenFeline
+* :de: German translation by covsoul
+* :kr: Korean translation by chhanz
+
+I'd like to thank all translators that made the addon more accessible for many people. You people rock!
+
+### Note on translation correctness
+
+I trust people sending me translations that they are correct. If anything is missing or wrong, please open an issue.
+
+Note that translators are doing this on their own free time and cannot be expected to update translation immediatly after I release an update. The most up-to-date locale is always going to be the English one. Once again, if something's wrong with a translation, please open an issuee so it can get fixed as soon as possible. 
+
+### How to contribute
 
 If you want to contribute a new translation, please open a pull-request with the new translation added. 
 

@@ -4,3 +4,8 @@
 * Fixed Veilwing Soul difficulty to heroic and mythic only (thanks to adavak)
 * Added a filter to separate Crittershapes and regular Soulshapes
 * Fixed Shadowstalker Soul showing the wrong model (thanks to penguinsane)
+* Fixed Shadowstalker Soul showing the wrong model (thanks to penguinsane)
+* Chinese (Simplified) translation by adavak
+* Chinese (Traditional) translation by OwenFeline
+* German translation by covsoul
+* Korean translation by chhanz
