@@ -1,3 +1,7 @@
+# 0.9.1
+
+* Fixed a bug in the Korean translation file
+
 # 0.9
 
 * Added automatic tracking for Cat Soul (Well Fed) and Corgi Soul (thanks to Dairyman and madcowfred)
