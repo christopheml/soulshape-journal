@@ -238,6 +238,9 @@ L["Spider Soul Guide"] = "Entrez dans un portail de faille avec une %s. Il y a 4
 L["Sporebat Soul"] = "Âme de sporoptère"
 L["Sporebat Soul Guide"] = "Peut-être obtenu sur le dernier boss de n’importe quel donjon des Marcheurs du temps de Burning Crusade."
 
+L["Squirrel Soul"] = "Âme d’écureuil"
+L["Squirrel Soul Guide"] = "La première forme de bestiole de votre collection, offerte par Choufa !"
+
 L["Stag Soul"] = "Âme de cerf"
 L["Stag Soul Guide"] = "Peut-être aléatoirement offert en récompense de n'importe quelle quête journalière des Faë nocturnes à Korthia."
 

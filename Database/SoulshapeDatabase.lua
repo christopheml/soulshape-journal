@@ -950,6 +950,18 @@ local function CreateDatabase()
             buildNumber = BUILD_9_1,
         },
         {
+            name = L["Squirrel Soul"],
+            spell = L["Soulshape"],
+            region = L["Ardenweald"],
+            guide = L["Squirrel Soul Guide"],
+            critter = true,
+            icon = 3749003,
+            model = 100635,
+            scale = 5,
+            collected = true,
+            buildNumber = BUILD_9_1_5,
+        },
+        {
             name = L["Tiger Soul"],
             faction = { name = L["Marasmius"], level = 5 },
             vendor = {

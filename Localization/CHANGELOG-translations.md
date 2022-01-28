@@ -7,6 +7,8 @@ are provided with a bit of context to make translations easier.
 ## Added
 
 * `Available since` (applies to the patch number a soulshape was first available)
+* `Squirrel Soul`
+* `Squirrel Soul Guide`
 
 # 0.9
 
