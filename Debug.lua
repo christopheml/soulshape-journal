@@ -44,7 +44,7 @@ function Debug:OnInitialize()
     self:RegisterChatCommand("sj_msi", function(input)
         local modelSceneID = tonumber(input)
         local scene = SJ.Panel.SoulshapeDisplay.ModelScene
-        scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_MAINTAIN, true)
+        scene:SetFromModelSceneID(modelSceneID, true, false)
     end)
 
     -- Sets the scale in the 3D view

@@ -334,31 +334,43 @@ local function CreateFilterDropDown(panel)
 end
 
 function CollectionPanelMixin:UpdateSoulshapeDisplay()
-    function showModel(creatureDisplayID, scale, modelSceneID)
-        local scene = self.SoulshapeDisplay.ModelScene
+    local scene = self.SoulshapeDisplay.ModelScene
 
-        scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_DISCARD, true)
+    local function showModel(creatureDisplayID, scale, modelSceneID, animation)
+        scene:SetFromModelSceneID(modelSceneID, true, false)
         local actor = scene:GetActorByTag("unwrapped")
         if actor then
             actor:SetModelByCreatureDisplayID(creatureDisplayID)
             if scale then
                 actor:SetRequestedScale(scale)
             end
+            if animation then
+                actor:SetAnimation(animation, 0)
+            end
         end
-        local camera = scene:GetActiveCamera()
         scene:Show()
+    end
+
+    local function enableUserControls(enabled)
+        scene.RotateLeftButton:SetShown(enabled)
+        scene.RotateRightButton:SetShown(enabled)
+        scene:EnableMouse(enabled)
+        scene:EnableMouseWheel(enabled)
     end
 
     local soulshape = self.selectedSoulshape
     if soulshape then
+        enableUserControls(true)
         self.Name:SetText(soulshape.name)
         self.Source:SetText(soulshape.source)
         self.Guide:SetText(soulshape.guide)
         showModel(soulshape.model, soulshape.scale, soulshape.modelSceneID or 44)
     else
-        -- default display
+        -- Default display
+        enableUserControls(false)
         self.Name:SetText("Soulshape Journal")
-        showModel(101678, 6, 4)
+        -- Running Vulpine!
+        showModel(93949, 4, 4, 5)
     end
 end
 
