@@ -1,3 +1,7 @@
+# 0.10
+
+* Added a filter to filter soulshapes by the patch they became available to players
+
 # 0.9.1
 
 * Fixed a bug in the Korean translation file

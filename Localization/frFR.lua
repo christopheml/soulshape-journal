@@ -32,6 +32,7 @@ L["COUNT_LABEL"] = "Total"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "Cette forme d’âme ne peut pas être détectée automatiquement"
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Cliquez pour marquer %s comme débloquée si vous l'avez déjà."
 L["WARNING_NOT_NIGHT_FAE"] = "Vous n'êtes pas membre des Faë nocturnes, vous ne pouvez pas\ncollecter de nouvelle forme d’âme actuellement."
+L["Available since"] = "Disponible depuis la"
 
 -- Labels
 L["Loot"] = "Butin"

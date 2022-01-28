@@ -7,7 +7,7 @@ Adds a tab in the Collections Journal to track your soulshape collection and pro
 ## Features
 
 * Displays all known soulshapes currently available for players in 9.1.5 with their 3D model.
-* Automatically tracks almost every collected soulshape on any character (others can be tracked manually).
+* Automatically tracks every collected soulshape on any character.
 * Detailed information on where and how to find every soulshape.
 * Searchable and filterable list.
 
