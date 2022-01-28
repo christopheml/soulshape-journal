@@ -87,7 +87,8 @@ This addon couldn't have been made without the help of the following people:
 
 * Marlamin for helping me identifying all the soulshape 3D models with [Wow Tools](https://wow.tools/).
 * jaliborc for the [SecureTabs](https://github.com/Jaliborc/SecureTabs-2.0) lib that saved me a lot of time plugging the UI into the Collections Journal.
-* RenataKane for the [Wowhead Soulshape Guide](https://fr.wowhead.com/guides/soulshapes-night-fae-covenant) that was the starting point for the information included in this addon.
+* RenataKane and everyone involved in the Wowhead community for the [Wowhead Soulshape Guide](https://fr.wowhead.com/guides/soulshapes-night-fae-covenant) that was the starting point for the information included in this addon.
 * The people of [WowAce](https://www.wowace.com/) and [Ace3](https://www.wowace.com/projects/ace3) for the great scaffolding code.
 * foxlit for the [Townlong Yak](https://www.townlong-yak.com/) tools.
 * PigeonD at the *WoW Secret Finding & Collection* Discord for the Turkey Soul model info.
+* All the people that provided feedback, enhancement suggestions, translations and so on, credited in the changelog.
