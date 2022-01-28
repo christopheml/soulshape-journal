@@ -368,7 +368,7 @@ function CollectionPanelMixin:UpdateSoulshapeDisplay()
     else
         -- Default display
         enableUserControls(false)
-        self.Name:SetText("Soulshape Journal")
+        self.Name:SetText(L["Soulshape Journal"])
         -- Running Vulpine!
         showModel(93949, 4, 4, 5)
     end
