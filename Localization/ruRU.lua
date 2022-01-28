@@ -122,10 +122,13 @@ L["Mushroom Network"] = "Грибная сеть"
 L["Marasmius"] = "Чесночник"
 L["Paragon reward."] = "Награда идеала."
 L["Soulshape"] = "Облик души"
+L["Crittershape"] = "Форма зверька"
 L["Pilgrim's Bounty"] = "Дары странников"
+L["Covenant Callings reward chests"] = "Сундуки с наградами Призывов ковенанта"
 
 L["Normal"] = "Обычная"
 L["Heroic"] = "Героическая"
+L["Mythic"] = "Эпохальная"
 L["Hardmode"] = "Сложный Режим"
 L["Any"] = "Любая"
 
@@ -167,6 +170,7 @@ L["Frog Soul"] = "Дух лягушки"
 L["Frog Soul Guide"] = "Доступно в любой локации ковенантов."
 
 L["Goat Soul"] = "Дух козла"
+L["Goat Soul Guide"] = "Может выпасть из любого сундука призыва Ковенанта, а не только из сундука Ночного Народца."
 
 L["Gryphon Soul"] = "Дух грифона"
 L["Gryphon Soul Guide"] = "Случайная награда за победу в стычках, арене, случайном поле боя или рейтинговом поле боя."
@@ -221,7 +225,7 @@ L["Saurolisk Hatchling Soul"] = "Дух детеныша завролиска"
 L["Shadowstalker Soul"] = "Дух тенелова"
 
 L["Shoveltusk Soul"] = "Душа черпорога"
-L["Shoveltusk Soul Guide"] = "Случайная награда за победу в PvP-потасовки."
+L["Shoveltusk Soul Guide"] = "Случайная награда за победу в PvP-потасовки: ботобойка."
 
 L["Shrieker Soul"] = "Дух визгуна"
 L["Snake Soul"] = "Дух змеи"
