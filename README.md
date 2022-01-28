@@ -41,7 +41,17 @@ Before you create an issue about a bug, make sure it hasn't already submitted be
 
 * Due to a difference in how both addons handle adding a tab to the Collections Journal frame, Soulshape Journal **is not compatible with iStableMaster**. This isn't something I can realistically change on my own and won't probably be fixed.
 
-## Translating the addon
+### Things I will probably not implement
+
+This addon addresses Shadowlands specific content and isn't likely to see much use once the expansion is over (as opposed to e.g. a pet battle addon or an action bar addon), which
+means I won't spend time on features that aren't trivial to develop and are not likely to be useful during the (relatively) short lifespan of Soulshape Journal.
+
+Here's a list of things that were suggested or that I considered but I'm very unlikely to add for the reasons stated above:
+
+* Organising and filtering soulshapes with custom tags
+* Tutorial frames and tooltips to explain how to use the addon
+
+## Translating Soulshape Journal
 
 Available translations:
 
