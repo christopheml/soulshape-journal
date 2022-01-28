@@ -326,7 +326,7 @@ local function CreateFilterDropDown(panel)
     arrow:SetPoint("RIGHT", dropDownButton, "RIGHT", -5, 0)
 
     dropDownButton:SetScript("OnMouseDown", function(sender, mouseButton)
-        UIMenuButtonStretchMixin.OnMouseDown(sender, button)
+        UIMenuButtonStretchMixin.OnMouseDown(sender, mouseButton)
         PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
         ToggleDropDownMenu(1, nil, dropDownMenu, dropDownButton, 74, 15)
     end)
