@@ -31,7 +31,7 @@ L["TAB_TITLE"] = "靈魂幻體"
 L["COUNT_LABEL"] = "總數"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "此靈魂幻體無法經由插件偵測"
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "如你已經擁有，點擊圖標 %s 來標記完成。"
-L["WARNING_NOT_NIGHT_FAE"] = "你並非暗夜妖精的成員，\n你現在不能收集新的靈魂幻體。"
+L["WARNING_NOT_NIGHT_FAE"] = "你並非暗夜妖精的成員，你現在不能收集新的靈魂幻體。"
 L["Available since"] = "新增於"
 L["Soulshape Journal"] = "靈魂幻體手冊" -- Addon title, you may translate it but it's not necessary
 
