@@ -25,6 +25,7 @@ Localization\zhTW.lua
 
 Database\SoulshapeDatabase.lua
 UI\Templates.xml
+UI\FilterDropDown.lua
 UI\SoulshapeJournal.lua
 Core.lua
 
