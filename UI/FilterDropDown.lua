@@ -34,7 +34,7 @@ local function InitializeFilterDropDown(_, level)
         info.isNotRadio = true
         info.keepShownOnClick = true;
         info.func = function(_, _, _, checked)
-            SJ.Database:SetFilter(filter, checked)
+            SJ.Filters:SetFilter(filter, checked)
             SJ.Panel.ScrollFrame:UpdateButtons()
         end
         UIDropDownMenu_AddButton(info, level)
@@ -50,7 +50,7 @@ local function InitializeFilterDropDown(_, level)
 
     if level == 1 then
         local first = true
-        for _, filterGroup in ipairs(SJ.Database.Filters) do
+        for _, filterGroup in ipairs(SJ.Filters:GetFilters()) do
             if not first then
                 UIDropDownMenu_AddSpace(level)
             end

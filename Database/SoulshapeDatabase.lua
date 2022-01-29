@@ -25,12 +25,6 @@ local ADDON_NAME, SC = ...
 
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME, true)
 
--- Build numbers for patches
-local BUILD_9_0 = 37474
-local BUILD_9_0_5 = 37862
-local BUILD_9_1 = 39185
-local BUILD_9_1_5 = 40871
-
 -- upvalues for frequent API calls
 local isQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted
 
@@ -38,81 +32,7 @@ local function isarray(t)
     return type(t) == "table" and #t > 0
 end
 
-local function matchBuild(targetBuild)
-    return function(soulshape)
-        return soulshape.buildNumber == targetBuild
-    end
-end
-
-local DatabaseMixin = {
-
-    Filters = {
-        {
-            label = nil,
-            filters = {
-                {
-                    label = COLLECTED,
-                    enabled = true,
-                    func = function(soulshape)
-                        return soulshape.collected
-                    end
-                },
-                {
-                    label = NOT_COLLECTED,
-                    enabled = true,
-                    func = function(soulshape)
-                        return not soulshape.collected
-                    end
-                }
-            }
-        },
-        {
-            label = TYPE,
-            filters = {
-                {
-                    label = L["Soulshape"],
-                    enabled = true,
-                    func = function(soulshape)
-                        return not soulshape.critter
-                    end
-                },
-                {
-                    label = L["Crittershape"],
-                    enabled = true,
-                    func = function(soulshape)
-                        return soulshape.critter or false
-                    end
-                }
-            }
-        },
-        {
-            label = L["Available since"],
-            filters = {
-                {
-                    label = "9.0",
-                    enabled = true,
-                    func = matchBuild(BUILD_9_0)
-                },
-                {
-                    label = "9.0.5",
-                    enabled = true,
-                    func = matchBuild(BUILD_9_0_5)
-                },
-                {
-                    label = "9.1",
-                    enabled = true,
-                    func = matchBuild(BUILD_9_1)
-                },
-                {
-                    label = "9.1.5",
-                    enabled = true,
-                    func = matchBuild(BUILD_9_1_5)
-                }
-            }
-        }
-    },
-
-}
+local DatabaseMixin = { }
 
 function DatabaseMixin:Sort()
     -- For the moment default to natural order on names
@@ -155,64 +75,6 @@ function DatabaseMixin:IsCollected(soulshape)
     else
         return soulshape.untrackable and SC.saved.char.collectedUntrackable[soulshape.untrackable]
     end
-end
-
-function DatabaseMixin:SetTextFilter(textFilter)
-    self.textFilter = textFilter
-end
-
-function DatabaseMixin:SetFilter(filter, value)
-    filter.enabled = value
-end
-
-function DatabaseMixin:AllFiltersEnabled()
-    for _, filterGroup in ipairs(self.Filters) do
-        for _, filter in ipairs(filterGroup.filters) do
-            if not filter.enabled then
-                return false
-            end
-        end
-    end
-    return true
-end
-
-function DatabaseMixin:IsRetainedByFilters(soulshape)
-    local isShown = true
-    for _, filterGroup in ipairs(self.Filters) do
-        local isShownForGroup = true
-        for _, filter in ipairs(filterGroup.filters) do
-            if filter.func(soulshape) then
-                isShownForGroup = isShownForGroup and filter.enabled
-            end
-        end
-        isShown = isShown and isShownForGroup
-    end
-    return isShown
-end
-
-function DatabaseMixin:GetFilteredItems()
-    if (self.textFilter == nil or self.textFilter == "") and self:AllFiltersEnabled() then
-        -- No filtering active, do nothing
-        return self.soulshapes
-    end
-
-    local filteredSoulshapes = {}
-    for _, soulshape in ipairs(self.soulshapes) do
-        local isShown = false
-
-        -- Dropdown filters
-        isShown = isShown or self:IsRetainedByFilters(soulshape)
-
-        -- Text filter
-        if self.textFilter and self.textFilter ~= "" then
-            isShown = isShown and soulshape.searchText:find(self.textFilter:lower(), 1, true)
-        end
-
-        if isShown then
-            tinsert(filteredSoulshapes, soulshape)
-        end
-    end
-    return filteredSoulshapes
 end
 
 local function CostFormatter(cost)
@@ -372,7 +234,7 @@ local function CreateDatabase()
             icon = 2061352,
             model = 103074,
             scale = 3.5,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Ardenmoth Soul"],
@@ -383,7 +245,7 @@ local function CreateDatabase()
             icon = 3255388,
             model = 96511,
             modelSceneID = 34,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Boar Soul"],
@@ -393,7 +255,7 @@ local function CreateDatabase()
             icon = 1044799,
             model = 103082,
             scale = 3,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Bunny Soul"],
@@ -405,7 +267,7 @@ local function CreateDatabase()
             icon = 2399274,
             model = 102364,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Cat Soul"],
@@ -416,7 +278,7 @@ local function CreateDatabase()
             questID = 64961,
             icon = 656574,
             model = 103084,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Cat Soul (Well Fed)"],
@@ -429,7 +291,7 @@ local function CreateDatabase()
             icon = 656577,
             model = 100636,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Chicken Soul"],
@@ -442,7 +304,7 @@ local function CreateDatabase()
             icon = 2027864,
             model = 102363,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Cloud Serpent Soul"],
@@ -452,7 +314,7 @@ local function CreateDatabase()
             icon = 1247267,
             model = 103080,
             scale = 6,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Cobra Soul"],
@@ -462,7 +324,7 @@ local function CreateDatabase()
             icon = 2399271,
             model = 96525,
             scale = 4,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Corgi Soul"],
@@ -474,7 +336,7 @@ local function CreateDatabase()
             icon = 1339013,
             model = 100634,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Crane Soul"],
@@ -495,7 +357,7 @@ local function CreateDatabase()
             icon = 605484,
             model = 96519,
             scale = 4,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Cricket Soul"],
@@ -513,7 +375,7 @@ local function CreateDatabase()
             icon = 646325,
             model = 103069,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Direhorn Soul"],
@@ -523,7 +385,7 @@ local function CreateDatabase()
             icon = 791593,
             model = 100626,
             scale = 5,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Eagle Soul"],
@@ -537,7 +399,7 @@ local function CreateDatabase()
             icon = 132172,
             model = 103076,
             modelSceneID = 34,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Equine Soul"],
@@ -548,7 +410,7 @@ local function CreateDatabase()
             icon = 2153980,
             model = 96517,
             scale = 4.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Frog Soul"],
@@ -560,7 +422,7 @@ local function CreateDatabase()
             icon = 2399262,
             model = 100638,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Goat Soul"],
@@ -571,7 +433,7 @@ local function CreateDatabase()
             icon = 877477,
             model = 103072,
             scale = 3,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Gryphon Soul"],
@@ -581,7 +443,7 @@ local function CreateDatabase()
             icon = 537515,
             model = 96539,
             scale = 5.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Gulper Soul"],
@@ -595,7 +457,7 @@ local function CreateDatabase()
             icon = 2481372,
             model = 97394,
             scale = 3,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Hippo Soul"],
@@ -606,7 +468,7 @@ local function CreateDatabase()
             icon = 1044490,
             model = 100627,
             scale = 3.4,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Hippogryph Soul"],
@@ -617,7 +479,7 @@ local function CreateDatabase()
             icon = 1455896,
             model = 96538,
             scale = 4.5,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Hyena Soul"],
@@ -627,7 +489,7 @@ local function CreateDatabase()
             icon = 132190,
             model = 96524,
             scale = 4,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Jormungar Soul"],
@@ -637,7 +499,7 @@ local function CreateDatabase()
             icon = 1531518,
             model = 103079,
             scale = 5,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Kodo Soul"],
@@ -647,7 +509,7 @@ local function CreateDatabase()
             icon = 132243,
             model = 100629,
             scale = 5,
-            buildNumber = BUILD_9_0_5,
+            buildNumber = SC.BUILD_9_0_5,
         },
         {
             name = L["Leonine Soul"],
@@ -665,7 +527,7 @@ local function CreateDatabase()
             icon = 464140,
             model = 96520,
             scale = 5.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Lupine Soul"],
@@ -683,7 +545,7 @@ local function CreateDatabase()
             icon = 464162,
             model = 96534,
             scale = 5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Mammoth Soul"],
@@ -693,7 +555,7 @@ local function CreateDatabase()
             questID = 63610,
             icon = 236240,
             model = 100630,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Moose Soul"],
@@ -707,7 +569,7 @@ local function CreateDatabase()
             questID = 62430,
             icon = 1390637,
             model = 96533,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Otter Soul"],
@@ -720,7 +582,7 @@ local function CreateDatabase()
             icon = 645906,
             model = 100637,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Owl Soul"],
@@ -730,7 +592,7 @@ local function CreateDatabase()
             icon = 1387709,
             model = 103083,
             modelSceneID = 34,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Owlcat Soul"],
@@ -741,7 +603,7 @@ local function CreateDatabase()
             icon = 132192,
             model = 96529,
             scale = 5.5,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Porcupine Soul"],
@@ -752,7 +614,7 @@ local function CreateDatabase()
             questID = 64989,
             icon = 838549,
             model = 100640,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Prairie Dog Soul"],
@@ -767,7 +629,7 @@ local function CreateDatabase()
             icon = 656176,
             model = 103070,
             scale = 6.5,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Ram Soul"],
@@ -783,7 +645,7 @@ local function CreateDatabase()
             questID = 65009,
             icon = 132248,
             model = 103075,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Raptor Soul"],
@@ -794,7 +656,7 @@ local function CreateDatabase()
             icon = 838683,
             model = 96531,
             scale = 5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Rat Soul"],
@@ -813,7 +675,7 @@ local function CreateDatabase()
             icon = 647701,
             model = 100639,
             scale = 5,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Runestag Soul"],
@@ -823,7 +685,7 @@ local function CreateDatabase()
             questID = 62434,
             icon = 3087326,
             model = 95614,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Saurid Soul"],
@@ -835,7 +697,7 @@ local function CreateDatabase()
             questID = 64995,
             icon = 2399239,
             model = 103067,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Saurolisk Hatchling Soul"],
@@ -846,7 +708,7 @@ local function CreateDatabase()
             icon = 2027844,
             model = 97505,
             scale = 3,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Saurolisk Soul"],
@@ -856,7 +718,7 @@ local function CreateDatabase()
             icon = 2027929,
             model = 100624,
             scale = 5,
-            buildNumber = BUILD_9_0_5,
+            buildNumber = SC.BUILD_9_0_5,
         },
         {
             name = L["Shadowstalker Soul"],
@@ -867,7 +729,7 @@ local function CreateDatabase()
             icon = 2475038,
             model = 96530,
             scale = 5.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Shoveltusk Soul"],
@@ -877,7 +739,7 @@ local function CreateDatabase()
             icon = 134060,
             model = 100623,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Shrieker Soul"],
@@ -888,7 +750,7 @@ local function CreateDatabase()
             icon = 952507,
             model = 96518,
             scale = 5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Snake Soul"],
@@ -900,7 +762,7 @@ local function CreateDatabase()
             icon = 2399227,
             model = 103068,
             scale = 4,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Snapper Soul"],
@@ -914,7 +776,7 @@ local function CreateDatabase()
             icon = 1339043,
             model = 96527,
             scale = 4,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Spider Soul"],
@@ -928,7 +790,7 @@ local function CreateDatabase()
             icon = 2027946,
             model = 100625,
             scale = 4,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Sporebat Soul"],
@@ -937,7 +799,7 @@ local function CreateDatabase()
             questID = 65022,
             icon = 132197,
             model = 103078,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Stag Soul"],
@@ -947,7 +809,7 @@ local function CreateDatabase()
             questID = 62435,
             icon = 1396983,
             model = 96528,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         },
         {
             name = L["Squirrel Soul"],
@@ -959,7 +821,7 @@ local function CreateDatabase()
             model = 100635,
             scale = 5,
             collected = true,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Tiger Soul"],
@@ -973,7 +835,7 @@ local function CreateDatabase()
             icon = 620832,
             model = 96521,
             scale = 5.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Turkey Soul"],
@@ -984,7 +846,7 @@ local function CreateDatabase()
             icon = 250626,
             model = 105220,
             scale = 3,
-            buildNumber = BUILD_9_1_5,
+            buildNumber = SC.BUILD_9_1_5,
         },
         {
             name = L["Ursine Soul"],
@@ -998,7 +860,7 @@ local function CreateDatabase()
             icon = 132183,
             model = 96532,
             scale = 4.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Veilwing Soul"],
@@ -1009,7 +871,7 @@ local function CreateDatabase()
             icon = 303867,
             model = 96535,
             scale = 5.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Vulpine Soul"],
@@ -1019,7 +881,7 @@ local function CreateDatabase()
             model = 93949,
             scale = 5,
             collected = true,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Wolfhawk Soul"],
@@ -1031,7 +893,7 @@ local function CreateDatabase()
             icon = 1279719,
             model = 96537,
             scale = 5.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Wyvern Soul"],
@@ -1041,7 +903,7 @@ local function CreateDatabase()
             icon = 537531,
             model = 96540,
             scale = 5.5,
-            buildNumber = BUILD_9_0,
+            buildNumber = SC.BUILD_9_0,
         },
         {
             name = L["Yak Soul"],
@@ -1052,7 +914,7 @@ local function CreateDatabase()
             icon = 900317,
             model = 100622,
             scale = 4,
-            buildNumber = BUILD_9_1,
+            buildNumber = SC.BUILD_9_1,
         }
     }
 

@@ -104,7 +104,7 @@ local function CreateScrollFrame(panel)
         local offset = HybridScrollFrame_GetOffset(self)
         local buttonHeight;
 
-        local filteredItems = SJ.Database:GetFilteredItems()
+        local filteredItems = SJ.Filters:Filter(SJ.Database.soulshapes)
 
         for index = 1, #buttons do
             local button = buttons[index]
@@ -239,7 +239,7 @@ local function CreateSearchBox(panel)
     editBox.letters = 40
     editBox:SetScript("OnTextChanged", function(self)
         SearchBoxTemplate_OnTextChanged(self)
-        SJ.Database:SetTextFilter(self:GetText())
+        SJ.Filters:SetTextFilter(self:GetText())
         panel.ScrollFrame:UpdateButtons()
     end)
     editBox:SetScript("OnHide", function(self)
