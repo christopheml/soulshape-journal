@@ -31,6 +31,18 @@ local function matchBuild(targetBuild)
     end
 end
 
+local function isCollected(value)
+    return function(soulshape)
+        return (soulshape.collected or false) == value
+    end
+end
+
+local function isCritter(value)
+    return function(soulshape)
+        return (soulshape.critter or false) == value
+    end
+end
+
 local filters = {
     {
         label = nil,
@@ -38,16 +50,12 @@ local filters = {
             {
                 label = COLLECTED,
                 enabled = true,
-                func = function(soulshape)
-                    return soulshape.collected
-                end
+                func = isCollected(true)
             },
             {
                 label = NOT_COLLECTED,
                 enabled = true,
-                func = function(soulshape)
-                    return not soulshape.collected
-                end
+                func = isCollected(false)
             }
         }
     },
@@ -57,21 +65,18 @@ local filters = {
             {
                 label = L["Soulshape"],
                 enabled = true,
-                func = function(soulshape)
-                    return not soulshape.critter
-                end
+                func = isCritter(false)
             },
             {
                 label = L["Crittershape"],
                 enabled = true,
-                func = function(soulshape)
-                    return soulshape.critter or false
-                end
+                func = isCritter(true)
             }
         }
     },
     {
         label = L["Available since"],
+        subMenu = true,
         filters = {
             {
                 label = "9.0",
@@ -130,14 +135,17 @@ function SJ.Filters:SetTextFilter(textFilter)
     self.textFilter = textFilter
 end
 
+--- Enables or disables a drop-down filter
 function SJ.Filters:SetFilter(filter, value)
     filter.enabled = value
 end
 
+--- Returns the list of all drop-down filters
 function SJ.Filters:GetFilters()
     return filters
 end
 
+--- Filters a collection of soulshapes based on drop-down filters and a text filter
 function SJ.Filters:Filter(soulshapes)
     if (self.textFilter == nil or self.textFilter == "") and AllFiltersEnabled() then
         -- No filtering active, do nothing

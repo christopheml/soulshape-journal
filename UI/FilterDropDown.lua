@@ -25,14 +25,14 @@ local _, SJ = ...
 
 SJ.UIFactory = SJ.UIFactory or { }
 
-local function InitializeFilterDropDown(_, level)
+local function InitializeFilterDropDown(_, level, menuList)
 
     local function CreateFilter(filter)
-        local info = UIDropDownMenu_CreateInfo();
+        local info = UIDropDownMenu_CreateInfo()
         info.text = filter.label
         info.checked = filter.enabled
         info.isNotRadio = true
-        info.keepShownOnClick = true;
+        info.keepShownOnClick = true
         info.func = function(_, _, _, checked)
             SJ.Filters:SetFilter(filter, checked)
             SJ.Panel.ScrollFrame:UpdateButtons()
@@ -41,10 +41,19 @@ local function InitializeFilterDropDown(_, level)
     end
 
     local function CreateFilterGroupLabel(text)
-        local info = UIDropDownMenu_CreateInfo();
+        local info = UIDropDownMenu_CreateInfo()
         info.isTitle = true
         info.text = text
         info.notCheckable = true
+        UIDropDownMenu_AddButton(info, level)
+    end
+
+    local function CreateSubMenu(text, filters)
+        local info = UIDropDownMenu_CreateInfo()
+        info.hasArrow = true
+        info.notCheckable = true
+        info.text = text
+        info.menuList = filters
         UIDropDownMenu_AddButton(info, level)
     end
 
@@ -54,16 +63,22 @@ local function InitializeFilterDropDown(_, level)
             if not first then
                 UIDropDownMenu_AddSpace(level)
             end
+            first = false
 
-            if filterGroup.label then
+            if filterGroup.subMenu then
+                CreateSubMenu(filterGroup.label, filterGroup.filters)
+                return
+            elseif filterGroup.label then
                 CreateFilterGroupLabel(filterGroup.label)
             end
 
             for _, filter in ipairs(filterGroup.filters) do
                 CreateFilter(filter)
             end
-
-            first = false;
+        end
+    elseif menuList then
+        for _, filter in ipairs(menuList) do
+            CreateFilter(filter)
         end
     end
 end
