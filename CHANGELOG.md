@@ -1,10 +1,14 @@
+# 0.11
+
+* Added a way to filter soulshapes by source
+
 # 0.10.1 
 
 * Updated Russian translation (thanks to ZamestoTV)
 
 # 0.10
 
-* Added a filter to filter soulshapes by the patch they became available to players
+* Added a way to filter soulshapes by the patch they became available to players
 * Updated Russian translation (thanks to ZamestoTV)
 * Added the default Squirrel Crittershape (thanks to covsoul) 
 * Replaced the splash screen with a running fox

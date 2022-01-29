@@ -75,6 +75,47 @@ local filters = {
         }
     },
     {
+        label = SOURCES,
+        subMenu = true,
+        filters = {
+            {
+                label = L["Loot"],
+                enabled = true,
+                func = function(soulshape)
+                    return soulshape.loot ~= nil
+                end
+            },
+            {
+                label = L["Quest"],
+                enabled = true,
+                func = function(soulshape)
+                    return soulshape.quest ~= nil or soulshape.campaignQuest ~= nil
+                end
+            },
+            {
+                label = L["Vendor"],
+                enabled = true,
+                func = function(soulshape)
+                    return soulshape.vendor ~= nil
+                end
+            },
+            {
+                label = L["NPC"],
+                enabled = true,
+                func = function(soulshape)
+                    return soulshape.npc ~= nil
+                end
+            },
+            {
+                label = L["World Event"],
+                enabled = true,
+                func = function(soulshape)
+                    return soulshape.worldEvent ~= nil
+                end
+            }
+        }
+    },
+    {
         label = L["Available since"],
         subMenu = true,
         filters = {

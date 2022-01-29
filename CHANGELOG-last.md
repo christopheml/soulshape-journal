@@ -1,1 +1,1 @@
-* Updated Russian translation (thanks to ZamestoTV)
+* Added a way to filter soulshapes by source

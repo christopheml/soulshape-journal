@@ -58,22 +58,24 @@ local function InitializeFilterDropDown(_, level, menuList)
     end
 
     if level == 1 then
-        local first = true
+        local insertSpace = false
         for _, filterGroup in ipairs(SJ.Filters:GetFilters()) do
-            if not first then
+            if insertSpace then
                 UIDropDownMenu_AddSpace(level)
+                insertSpace = false
             end
-            first = false
 
             if filterGroup.subMenu then
                 CreateSubMenu(filterGroup.label, filterGroup.filters)
-                return
-            elseif filterGroup.label then
-                CreateFilterGroupLabel(filterGroup.label)
-            end
+            else
+                if filterGroup.label then
+                    CreateFilterGroupLabel(filterGroup.label)
+                end
 
-            for _, filter in ipairs(filterGroup.filters) do
-                CreateFilter(filter)
+                for _, filter in ipairs(filterGroup.filters) do
+                    CreateFilter(filter)
+                end
+                insertSpace = true
             end
         end
     elseif menuList then
