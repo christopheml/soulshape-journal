@@ -1,3 +1,7 @@
+# 0.10.1 
+
+* Updated Russian translation (thanks to ZamestoTV)
+
 # 0.10
 
 * Added a filter to filter soulshapes by the patch they became available to players
