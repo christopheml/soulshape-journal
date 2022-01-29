@@ -32,6 +32,8 @@ L["COUNT_LABEL"] = "總數"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "此靈魂幻體無法經由插件偵測"
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "如你已經擁有，點擊圖標 %s 來標記完成。"
 L["WARNING_NOT_NIGHT_FAE"] = "你並非暗夜妖精的成員，\n你現在不能收集新的靈魂幻體。"
+L["Available since"] = "新增於"
+L["Soulshape Journal"] = "靈魂幻體手冊" -- Addon title, you may translate it but it's not necessary
 
 -- Labels
 L["Loot"] = "拾取"
@@ -122,6 +124,7 @@ L["Mushroom Network"] = "蘑菇網路"
 L["Marasmius"] = "瑪拉茲莫斯"
 L["Paragon reward."] = "聲望巔峰獎勵"
 L["Soulshape"] = "靈魂幻體"
+L["Crittershape"] = "小動物型態"
 L["Pilgrim's Bounty"] = "旅人豐年祭"
 L["Covenant Callings reward chests"] = "誓盟使命任務獎勵寶箱"
 
@@ -235,6 +238,9 @@ L["Spider Soul Guide"] = "用%s進入裂隙傳送門，裡面每天都有四個�
 
 L["Sporebat Soul"] = "孢子蝙蝠靈魂"
 L["Sporebat Soul Guide"] = "任何燃燒的遠征時光漫遊地城的尾王掉落。"
+
+L["Squirrel Soul"] = "松鼠之魂"
+L["Squirrel Soul Guide"] = "你的第一個小動物型態，鳴謝丘發的慷慨餽贈！"
 
 L["Stag Soul"] = "雄鹿靈魂"
 L["Stag Soul Guide"] = "科西亞由暗夜妖精陣營發布的每日任務可能的獎勵之一。"
