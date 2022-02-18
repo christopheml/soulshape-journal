@@ -24,7 +24,6 @@ SOFTWARE.
 local ADDON, _ = ...
 
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON, "koKR", false)
-if not L then return end
 
 -- UI elements
 L["TAB_TITLE"] = "영혼형상"
@@ -122,13 +121,11 @@ L["Mushroom Network"] = "버섯 연결망"
 L["Marasmius"] = "마라스미우스"
 L["Paragon reward."] = "확고한 동맹 보급품."
 L["Soulshape"] = "영혼형상"
-L["Crittershape"] = true
 L["Pilgrim's Bounty"] = "순례자의 감사절"
 L["Covenant Callings reward chests"] = "성약의 단 부름 퀘스트 보상 상자"
 
-L["Normal"] = true
+L["Normal or Heroic"] = "일반 혹은 영웅"
 L["Heroic"] = "영웅"
-L["Mythic"] = true
 L["Hardmode"] = "하드모드"
 L["Any"] = "어느"
 
