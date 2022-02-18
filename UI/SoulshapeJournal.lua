@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ]]
 
-local ADDON_NAME, SC = ...
+local ADDON_NAME, SJ = ...
 
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 
@@ -104,7 +104,7 @@ local function CreateScrollFrame(panel)
         local offset = HybridScrollFrame_GetOffset(self)
         local buttonHeight;
 
-        local filteredItems = SC.Database:GetFilteredItems()
+        local filteredItems = SJ.Filters:Filter(SJ.Database.soulshapes)
 
         for index = 1, #buttons do
             local button = buttons[index]
@@ -147,7 +147,7 @@ local function CreateScrollFrame(panel)
     local scrollFrame = Mixin(CreateFrame("ScrollFrame", "$parentScrollFrame", panel, "HybridScrollFrameTemplate"), ScrollFrameMixin)
     scrollFrame:SetPoint("TOPLEFT", panel.LeftInset, "TOPLEFT", 3, -36)
     scrollFrame:SetPoint("BOTTOMRIGHT", panel.LeftInset, "BOTTOMRIGHT", -3, 5)
-    scrollFrame.items = SC.Database.soulshapes
+    scrollFrame.items = SJ.Database.soulshapes
 
     local scrollBar = CreateFrame("Slider", "$parentScrollBar", scrollFrame, "HybridScrollBarTemplate")
     scrollBar:SetPoint("TOPLEFT", panel.LeftInset, "TOPRIGHT", 1, -16)
@@ -239,7 +239,7 @@ local function CreateSearchBox(panel)
     editBox.letters = 40
     editBox:SetScript("OnTextChanged", function(self)
         SearchBoxTemplate_OnTextChanged(self)
-        SC.Database:SetTextFilter(self:GetText())
+        SJ.Filters:SetTextFilter(self:GetText())
         panel.ScrollFrame:UpdateButtons()
     end)
     editBox:SetScript("OnHide", function(self)
@@ -267,98 +267,44 @@ local function CreateTab(panel)
     panel.Tab = tab
 end
 
-local function InitializeFilterDropDown(_, level)
-
-    local function CreateFilter(filter)
-        local info = UIDropDownMenu_CreateInfo();
-        info.text = filter.label
-        info.checked = filter.enabled
-        info.isNotRadio = true
-        info.keepShownOnClick = true;
-        info.func = function(_, _, _, checked)
-            SC.Database:SetFilter(filter, checked)
-            SC.Panel.ScrollFrame:UpdateButtons()
-        end
-        UIDropDownMenu_AddButton(info, level)
-    end
-
-    local function CreateFilterGroupLabel(text)
-        local info = UIDropDownMenu_CreateInfo();
-        info.isTitle = true
-        info.text = text
-        info.notCheckable = true
-        UIDropDownMenu_AddButton(info, level)
-    end
-
-    if level == 1 then
-        local first = true
-        for _, filterGroup in ipairs(SC.Database.Filters) do
-            if not first then
-                UIDropDownMenu_AddSpace(level)
-            end
-
-            if filterGroup.label then
-                CreateFilterGroupLabel(filterGroup.label)
-            end
-
-            for _, filter in ipairs(filterGroup.filters) do
-                CreateFilter(filter)
-            end
-
-            first = false;
-        end
-    end
-end
-
-local function CreateFilterDropDown(panel)
-    local dropDownMenu = CreateFrame("FRAME", nil, panel, "UIDropDownMenuTemplate")
-    UIDropDownMenu_Initialize(dropDownMenu, InitializeFilterDropDown, "MENU")
-
-
-    local dropDownButton = CreateFrame("DropDownToggleButton", nil, panel, "UIMenuButtonStretchTemplate")
-    dropDownButton:SetText(FILTER)
-    dropDownButton:SetSize(93, 22)
-    dropDownButton:SetPoint("TOPRIGHT", panel.LeftInset, -5, -9)
-
-    local arrow = dropDownButton:CreateTexture(nil, "ARTWORK")
-    arrow:SetTexture("Interface\\ChatFrame\\ChatFrameExpandArrow")
-    arrow:SetSize(10, 12)
-    arrow:SetPoint("RIGHT", dropDownButton, "RIGHT", -5, 0)
-
-    dropDownButton:SetScript("OnMouseDown", function(sender, mouseButton)
-        UIMenuButtonStretchMixin.OnMouseDown(sender, button)
-        PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
-        ToggleDropDownMenu(1, nil, dropDownMenu, dropDownButton, 74, 15)
-    end)
-
-end
-
 function CollectionPanelMixin:UpdateSoulshapeDisplay()
-    function showModel(creatureDisplayID, scale, modelSceneID)
-        local scene = self.SoulshapeDisplay.ModelScene
+    local scene = self.SoulshapeDisplay.ModelScene
 
-        scene:TransitionToModelSceneID(modelSceneID, CAMERA_TRANSITION_TYPE_IMMEDIATE, CAMERA_MODIFICATION_TYPE_DISCARD, true)
+    local function showModel(creatureDisplayID, scale, modelSceneID, animation)
+        scene:SetFromModelSceneID(modelSceneID, true, false)
         local actor = scene:GetActorByTag("unwrapped")
         if actor then
             actor:SetModelByCreatureDisplayID(creatureDisplayID)
             if scale then
                 actor:SetRequestedScale(scale)
             end
+            if animation then
+                actor:SetAnimation(animation, 0)
+            end
         end
-        local camera = scene:GetActiveCamera()
         scene:Show()
+    end
+
+    local function enableUserControls(enabled)
+        scene.RotateLeftButton:SetShown(enabled)
+        scene.RotateRightButton:SetShown(enabled)
+        scene:EnableMouse(enabled)
+        scene:EnableMouseWheel(enabled)
     end
 
     local soulshape = self.selectedSoulshape
     if soulshape then
+        enableUserControls(true)
         self.Name:SetText(soulshape.name)
         self.Source:SetText(soulshape.source)
         self.Guide:SetText(soulshape.guide)
         showModel(soulshape.model, soulshape.scale, soulshape.modelSceneID or 44)
     else
-        -- default display
-        self.Name:SetText("Soulshape Journal")
-        showModel(101678, 6, 4)
+        -- Default display
+        enableUserControls(false)
+        self.Name:SetText(L["Soulshape Journal"])
+        -- Running Vulpine!
+        showModel(93949, 4, 4, 5)
     end
 end
 
@@ -371,7 +317,7 @@ function CollectionPanelMixin:ShowUntrackableTooltip(addButton)
 end
 
 function CollectionPanelMixin:UpdateCount()
-    self.Count:SetText(SC.Database:CountCollected() .. "/" .. SC.Database:CountTotal())
+    self.Count:SetText(SJ.Database:CountCollected() .. "/" .. SJ.Database:CountTotal())
 end
 
 function CollectionPanelMixin:UpdateCovenantWarning()
@@ -387,21 +333,21 @@ end
 
 function CollectionPanelMixin:AddUntrackableToCollection(addButton)
     local soulshape = addButton:GetParent().soulshape
-    if SC.Database:AddUntrackable(soulshape) then
+    if SJ.Database:AddUntrackable(soulshape) then
         self:Update()
     end
 end
 
 -- Called when journal is shown
 function CollectionPanelMixin:Update()
-    SC.Database:Update()
+    SJ.Database:Update()
     self.ScrollFrame:UpdateButtons()
     self:UpdateSoulshapeDisplay()
     self:UpdateCount()
     self:UpdateCovenantWarning()
 end
 
-function SC:CreateCollectionPanel()
+function SJ:CreateCollectionPanel()
     local panel = Mixin(CreateFrame("Frame", "SoulshapeCollectionPanel", CollectionsJournal, "PortraitFrameTemplate"), CollectionPanelMixin)
     panel:Hide()
     panel:SetAllPoints()
@@ -414,12 +360,12 @@ function SC:CreateCollectionPanel()
     CreateScrollFrame(panel)
     CreateModelView(panel)
     CreateSearchBox(panel)
-    CreateFilterDropDown(panel)
+    SJ.UIFactory:CreateFilterDropDown(panel)
     CreateTab(panel)
 
     panel:SetScript("OnShow", function(self)
         self:Update()
     end)
 
-    SC.Panel = panel
+    SJ.Panel = panel
 end

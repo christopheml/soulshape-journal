@@ -1,3 +1,22 @@
+# 0.11
+
+* Added a way to filter soulshapes by source
+
+# 0.10.1 
+
+* Updated Russian translation (thanks to ZamestoTV)
+
+# 0.10
+
+* Added a way to filter soulshapes by the patch they became available to players
+* Updated Russian translation (thanks to ZamestoTV)
+* Added the default Squirrel Crittershape (thanks to covsoul) 
+* Replaced the splash screen with a running fox
+
+# 0.9.1
+
+* Fixed a bug in the Korean translation file
+
 # 0.9
 
 * Added automatic tracking for Cat Soul (Well Fed) and Corgi Soul (thanks to Dairyman and madcowfred)

@@ -31,6 +31,8 @@ L["COUNT_LABEL"] = "Total"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "This soulshape can't be automatically detected"
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Click to mark %s as collected if you already have it."
 L["WARNING_NOT_NIGHT_FAE"] = "You're not a member of the Night Fae,\nyou can't collect new soulshapes at this time."
+L["Available since"] = true
+L["Soulshape Journal"] = true -- Addon title, you may translate it but it's not necessary
 
 -- Labels
 L["Loot"] = true
@@ -235,6 +237,9 @@ L["Spider Soul Guide"] = "Go through a Rift Portal using a %s. There are 4 cache
 
 L["Sporebat Soul"] = true
 L["Sporebat Soul Guide"] = "Can drop from the last boss of any Burning Crusade Timewalking dungeon."
+
+L["Squirrel Soul"] = true
+L["Squirrel Soul Guide"] = "The first crittershape of your collection, courtesy of Choofa!"
 
 L["Stag Soul"] = true
 L["Stag Soul Guide"] = "Can be randomly offered as a reward from any Night Fae daily in Korthia."

@@ -7,7 +7,7 @@ Adds a tab in the Collections Journal to track your soulshape collection and pro
 ## Features
 
 * Displays all known soulshapes currently available for players in 9.1.5 with their 3D model.
-* Automatically tracks almost every collected soulshape on any character (others can be tracked manually).
+* Automatically tracks every collected soulshape on any character.
 * Detailed information on where and how to find every soulshape.
 * Searchable and filterable list.
 
@@ -41,7 +41,17 @@ Before you create an issue about a bug, make sure it hasn't already submitted be
 
 * Due to a difference in how both addons handle adding a tab to the Collections Journal frame, Soulshape Journal **is not compatible with iStableMaster**. This isn't something I can realistically change on my own and won't probably be fixed.
 
-## Translating the addon
+### Things I will probably not implement
+
+This addon addresses Shadowlands specific content and isn't likely to see much use once the expansion is over (as opposed to e.g. a pet battle addon or an action bar addon), which
+means I won't spend time on features that aren't trivial to develop and are not likely to be useful during the (relatively) short lifespan of Soulshape Journal.
+
+Here's a list of things that were suggested or that I considered but I'm very unlikely to add for the reasons stated above:
+
+* Organising and filtering soulshapes with custom tags
+* Tutorial frames and tooltips to explain how to use the addon
+
+## Translating Soulshape Journal
 
 Available translations:
 
@@ -77,7 +87,8 @@ This addon couldn't have been made without the help of the following people:
 
 * Marlamin for helping me identifying all the soulshape 3D models with [Wow Tools](https://wow.tools/).
 * jaliborc for the [SecureTabs](https://github.com/Jaliborc/SecureTabs-2.0) lib that saved me a lot of time plugging the UI into the Collections Journal.
-* RenataKane for the [Wowhead Soulshape Guide](https://fr.wowhead.com/guides/soulshapes-night-fae-covenant) that was the starting point for the information included in this addon.
+* RenataKane and everyone involved in the Wowhead community for the [Wowhead Soulshape Guide](https://fr.wowhead.com/guides/soulshapes-night-fae-covenant) that was the starting point for the information included in this addon.
 * The people of [WowAce](https://www.wowace.com/) and [Ace3](https://www.wowace.com/projects/ace3) for the great scaffolding code.
 * foxlit for the [Townlong Yak](https://www.townlong-yak.com/) tools.
 * PigeonD at the *WoW Secret Finding & Collection* Discord for the Turkey Soul model info.
+* All the people that provided feedback, enhancement suggestions, translations and so on, credited in the changelog.

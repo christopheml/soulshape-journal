@@ -32,6 +32,8 @@ L["COUNT_LABEL"] = "总计"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "此灵魂变形不能被自动侦测"
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "如果您已经拥有%s，请点击以将其标记为已收集。"
 L["WARNING_NOT_NIGHT_FAE"] = "你不是法夜成员，\n现在你不能收集新的灵魂变形。"
+L["Available since"] = "来自"
+L["Soulshape Journal"] = "灵魂变形手册" -- Addon title, you may translate it but it's not necessary
 
 -- Labels
 L["Loot"] = "拾取"
@@ -236,6 +238,9 @@ L["Spider Soul Guide"] = "使用%s后穿过裂隙传送门。每天这里有4个
 
 L["Sporebat Soul"] = "孢子蝠之魂"
 L["Sporebat Soul Guide"] = "可从燃烧的远征时空漫游地下城任意首领掉落。"
+
+L["Squirrel Soul"] = "松鼠之魂"
+L["Squirrel Soul Guide"] = "最先收藏的小动物变形，赞美丘法！"
 
 L["Stag Soul"] = "牡鹿之魂"
 L["Stag Soul Guide"] = "每天可以在刻希亚任意法夜奖励随机提供。"
