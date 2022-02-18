@@ -31,7 +31,9 @@ L["TAB_TITLE"] = "Seelengestalten"
 L["COUNT_LABEL"] = "Seelengestalten"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "Diese Seelengestalt kann nicht automatisch erkannt werden."
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Klicke hier, um %s als gesammelt zu markieren."
-L["WARNING_NOT_NIGHT_FAE"] = "Du bist kein Mitglied der Nachtfae,\ndu kannst daher derzeit keine weiteren Seelengestalten sammeln."
+L["WARNING_NOT_NIGHT_FAE"] = "Du bist kein Mitglied der Nachtfae, du kannst daher\nderzeit keine weiteren Seelengestalten sammeln."
+L["Available since"] = "Verfügbar seit"
+L["Soulshape Journal"] = true -- Addon title, you may translate it but it's not necessary
 
 -- Labels
 L["Loot"] = "Beute"
@@ -236,6 +238,9 @@ L["Spider Soul Guide"] = "Nutze mit %s ein Rissportal, um den Riss zu betreten. 
 
 L["Sporebat Soul"] = "Sporenseglerseele"
 L["Sporebat Soul Guide"] = "Kann von Endbossen beliebiger Burning Crusade-Zeitwanderungsdungeons erbeutet werden."
+
+L["Squirrel Soul"] = "Eichhörnchenseele"
+L["Squirrel Soul Guide"] = "Die Standard-Kleintiergestalt in deiner Sammlung."
 
 L["Stag Soul"] = "Hirschseele"
 L["Stag Soul Guide"] = "Gelegentliche Belohnung einer beliebigen täglichen Quest der Nachtfae in Korthia."
