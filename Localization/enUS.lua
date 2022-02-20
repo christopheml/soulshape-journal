@@ -33,6 +33,8 @@ L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Click to mark %s as collected if you alread
 L["WARNING_NOT_NIGHT_FAE"] = "You're not a member of the Night Fae,\nyou can't collect new soulshapes at this time."
 L["Available since"] = true
 L["Soulshape Journal"] = true -- Addon title, you may translate it but it's not necessary
+L["BLIZZARD_MAP_PIN_TOOLTIP"] = "<Ctrl + click to add a map pin for this location>"
+L["TOMTOM_WAYPOINT_TOOLTIP"] = "<Shift + click to add a TomTom waypoint for this location>"
 
 -- Labels
 L["Loot"] = true
@@ -86,6 +88,7 @@ L["Stygian Lockbox"] = true
 L["Riftbound Cache"] = true
 L["Wildseed Root Grain"] = true
 L["Repaired Riftkey"] = true
+L["Spectral Feed"] = true
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = true
@@ -260,3 +263,6 @@ L["Wolfhawk Soul Guide"] = "You need to use Soulshape to cross the barrier."
 
 L["Wyvern Soul"] = true
 L["Yak Soul"] = true
+
+-- Tooltips on maps
+L["Spectral Feed Tooltip"] = "Spectral Feed is a glowing blue sack of grain on the ground, respawning every 1-2 hours. Upon clicking it, you get the item in your bags, with a 10 minutes duration, that is consumed on use."

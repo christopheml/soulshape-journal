@@ -1,3 +1,1 @@
-* Added a way to filter soulshapes by source
-* Updated Chinese (Simplified) translation (thanks to adavak)
-* Updated Chinese (Traditional) translation (thanks to OwenFeline)
+* Added a map on many soulshapes to see exactly where things are
