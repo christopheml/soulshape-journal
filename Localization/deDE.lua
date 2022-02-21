@@ -34,6 +34,8 @@ L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Klicke hier, um %s als gesammelt zu markier
 L["WARNING_NOT_NIGHT_FAE"] = "Du bist kein Mitglied der Nachtfae, du kannst daher\nderzeit keine weiteren Seelengestalten sammeln."
 L["Available since"] = "Verfügbar seit"
 L["Soulshape Journal"] = true -- Addon title, you may translate it but it's not necessary
+L["BLIZZARD_MAP_PIN_TOOLTIP"] = "<Strg+Linksklick um eine Kartenmarkierung für diese Position hinzuzufügen>"
+L["TOMTOM_WAYPOINT_TOOLTIP"] = "<Shift+Linksklick um einen TomTom-Wegpunkt für diese Position hinzuzufügen>"
 
 -- Labels
 L["Loot"] = "Beute"
@@ -87,6 +89,7 @@ L["Stygian Lockbox"] = "Stygische Schließkassette"
 L["Riftbound Cache"] = "Rissgebundene Truhe"
 L["Wildseed Root Grain"] = "Wildsamenwurzelfaser"
 L["Repaired Riftkey"] = "Reparierter Rissschlüssel"
+L["Spectral Feed"] = "Spektrales Futter"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "Verlorene Seele"
@@ -261,3 +264,6 @@ L["Wolfhawk Soul Guide"] = "Nutze die Seelengestalt bzw. Flackern, um durch die 
 
 L["Wyvern Soul"] = "Wyvernseele"
 L["Yak Soul"] = "Yakseele"
+
+-- Tooltips on maps
+L["Spectral Feed Tooltip"] = "Spektrales Futter ist ein blau leuchtender Getreidesack auf dem Boden, der alle 1–2 Stunden für 10 Minuten erscheint. Durch Anklicken erhältst du den Gegenstand, er verbleibt dann für 10 Minuten in der Tasche und wird bei Benutzung verbraucht."
