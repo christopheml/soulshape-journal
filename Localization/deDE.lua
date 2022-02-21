@@ -31,7 +31,11 @@ L["TAB_TITLE"] = "Seelengestalten"
 L["COUNT_LABEL"] = "Seelengestalten"
 L["UNTRACKABLE_TOOLTIP_TITLE"] = "Diese Seelengestalt kann nicht automatisch erkannt werden."
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Klicke hier, um %s als gesammelt zu markieren."
-L["WARNING_NOT_NIGHT_FAE"] = "Du bist kein Mitglied der Nachtfae,\ndu kannst daher derzeit keine weiteren Seelengestalten sammeln."
+L["WARNING_NOT_NIGHT_FAE"] = "Du bist kein Mitglied der Nachtfae, du kannst daher\nderzeit keine weiteren Seelengestalten sammeln."
+L["Available since"] = "Verfügbar seit"
+L["Soulshape Journal"] = true -- Addon title, you may translate it but it's not necessary
+L["BLIZZARD_MAP_PIN_TOOLTIP"] = "<Strg+Linksklick um eine Kartenmarkierung für diese Position hinzuzufügen>"
+L["TOMTOM_WAYPOINT_TOOLTIP"] = "<Shift+Linksklick um einen TomTom-Wegpunkt für diese Position hinzuzufügen>"
 
 -- Labels
 L["Loot"] = "Beute"
@@ -85,6 +89,7 @@ L["Stygian Lockbox"] = "Stygische Schließkassette"
 L["Riftbound Cache"] = "Rissgebundene Truhe"
 L["Wildseed Root Grain"] = "Wildsamenwurzelfaser"
 L["Repaired Riftkey"] = "Reparierter Rissschlüssel"
+L["Spectral Feed"] = "Spektrales Futter"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "Verlorene Seele"
@@ -237,6 +242,9 @@ L["Spider Soul Guide"] = "Nutze mit %s ein Rissportal, um den Riss zu betreten. 
 L["Sporebat Soul"] = "Sporenseglerseele"
 L["Sporebat Soul Guide"] = "Kann von Endbossen beliebiger Burning Crusade-Zeitwanderungsdungeons erbeutet werden."
 
+L["Squirrel Soul"] = "Eichhörnchenseele"
+L["Squirrel Soul Guide"] = "Die Standard-Kleintiergestalt in deiner Sammlung."
+
 L["Stag Soul"] = "Hirschseele"
 L["Stag Soul Guide"] = "Gelegentliche Belohnung einer beliebigen täglichen Quest der Nachtfae in Korthia."
 
@@ -256,3 +264,6 @@ L["Wolfhawk Soul Guide"] = "Nutze die Seelengestalt bzw. Flackern, um durch die 
 
 L["Wyvern Soul"] = "Wyvernseele"
 L["Yak Soul"] = "Yakseele"
+
+-- Tooltips on maps
+L["Spectral Feed Tooltip"] = "Spektrales Futter ist ein blau leuchtender Getreidesack auf dem Boden, der alle 1–2 Stunden für 10 Minuten erscheint. Durch Anklicken erhältst du den Gegenstand, er verbleibt dann für 10 Minuten in der Tasche und wird bei Benutzung verbraucht."
