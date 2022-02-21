@@ -71,6 +71,7 @@ L["Mists of Tirna Scithe"] = "Brumes de Tirna Scithe"
 L["Tazavesh, the Veiled Market"] = "Tazavesh, le marché voilé"
 L["Castle Nathria"] = "Château Nathria"
 L["Sanctum of Domination"] = "Sanctum de Domination"
+L["Zereth Mortis"] = true
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = "De Drust et de cendres"
@@ -90,6 +91,7 @@ L["Riftbound Cache"] = "Cache liée à la faille"
 L["Wildseed Root Grain"] = "Grain de racine sauvage"
 L["Repaired Riftkey"] = "Clé de faille réparée"
 L["Spectral Feed"] = "Céréales spectrales"
+L["Lost Comb"] = true
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "Âme égarée"
@@ -110,6 +112,8 @@ L["Valfir the Unrelenting"] = "Valfir le Tenace"
 L["Spindlenose"] = "Fusenez"
 L["Shopkeeper"] = "Commerçant"
 L["Mystic Rainbowhorn"] = "Mystique Arc-en-Corne"
+L["Olea Manu"] = true
+L["Shifting Stargorger"] = true
 
 -- Others
 L["Burning Crusade Timewalking"] = "Marcheurs du temps de Burning Crusade"
@@ -264,6 +268,38 @@ L["Wolfhawk Soul Guide"] = "Vous devez utiliser votre forme d'âme pour traverse
 
 L["Wyvern Soul"] = "Âme de wyverne"
 L["Yak Soul"] = "Âme de yack"
+
+-- 9.2 Soulshapes
+
+L["Armadillo Soul"] = "Âme de tatou"
+L["Bat Soul"] = "Âme de chauve-souris"
+
+L["Bee Soul"] = "Âme d’abeille"
+L["Bee Soul Guide"] = "Les alvéoles bleues brillantes sont situées au sommet d'une ruche. Nécessite le vol."
+
+L["Brutosaur Soul"] = "Âme de brutosaure"
+L["Cervid Soul"] = "Âme de cervidé"
+L["Dragonhawk Soul"] = "Âme de faucon-dragon"
+L["Elekk Soul"] = "Âme d’elekk"
+L["Gromit Soul"] = "Âme de gronil"
+
+L["Penguin Soul"] = "Âme de pingouin"
+L["Penguin Soul Guide"] = "On top of the metal orb. Interact with the penguin Lost Soul to obtain the soulshape. Requires flying."
+
+L["Pig Soul"] = "Âme de cochon"
+L["Ray Soul"] = "Âme de raie"
+L["Scorpid Soul"] = "Âme de scorpide"
+
+L["Sheep Soul"] = "Âme de mouton"
+L["Sheep Soul Guide"] = "Multiple spawn locations. Interact with the sheep Lost Soul to obtain the soulshape."
+
+L["Silithid Soul"] = "Âme de silithide"
+L["Snail Soul"] = "Âme d’escargot"
+L["Tallstrider Soul"] = "Âme de haut-trotteur"
+
+L["Unknown Guide"] = "La source de cette forme d'âme est inconnue pour le moment."
+L["Torghast 9.2 Soulshape Guide"] = "Cette âme peut être libérée pendant une exploration de Tourment de niveau 12 ou plus."
+
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Les cérales spectrales sont un sac de grain luisant bleu posé sur le sol, qui réapparaît toutes les 1 à 2 heures. En le cliquant, vous obtenez l'objet dans vos sacs, qui dure 10 minutes et est consommé à l'utilisation."
