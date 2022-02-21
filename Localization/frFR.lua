@@ -33,6 +33,9 @@ L["UNTRACKABLE_TOOLTIP_TITLE"] = "Cette forme d’âme ne peut pas être détect
 L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "Cliquez pour marquer %s comme débloquée si vous l'avez déjà."
 L["WARNING_NOT_NIGHT_FAE"] = "Vous n'êtes pas membre des Faë nocturnes, vous ne pouvez pas\ncollecter de nouvelle forme d’âme actuellement."
 L["Available since"] = "Disponible depuis la"
+L["BLIZZARD_MAP_PIN_TOOLTIP"] = "<Ctrl + clic pour ajouter un repère cartographique pour cet emplacement>"
+L["TOMTOM_WAYPOINT_TOOLTIP"] = "<Shift + clic pour ajouter un point de passage TomTom pour cet emplacement>"
+
 
 -- Labels
 L["Loot"] = "Butin"
@@ -86,6 +89,7 @@ L["Stygian Lockbox"] = "Coffret stygien"
 L["Riftbound Cache"] = "Cache liée à la faille"
 L["Wildseed Root Grain"] = "Grain de racine sauvage"
 L["Repaired Riftkey"] = "Clé de faille réparée"
+L["Spectral Feed"] = "Céréales spectrales"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "Âme égarée"
@@ -150,7 +154,7 @@ L["Cat Soul (Well Fed)"] = "Âme de chat (bien nourri)"
 L["Cat Soul (Well Fed) Guide"] = "Disponible après avoir débloqué l'âme de chat. Récupérez d'abord les Céréales spectrales, puis revenez au Cœur de la forêt, Ma'oh est une âme de chat qui dort dans un panier près de l'entrée du Jardin d'hiver de la Reine." .. "|n" .. "Faites-lui /miaou (il vous dira qu'il a faim) puis donnez-lui les Céréales spectrales. Vous recevez directement la forme d'âme (pas de quête à rendre)."
 
 L["Chicken Soul"] = "Âme de poulet"
-L["Chicken Soul Guide"] = "Récupérez d'abord les Céréales spectrales, puis faites /poulet à l'âme de poulet et donnez-lui les Céréales spectrales."
+L["Chicken Soul Guide"] = "Récupérez d'abord les Céréales spectrales, puis faites \n/poulet à l'âme de poulet et donnez-lui les Céréales spectrales."
 
 L["Cloud Serpent Soul"] = "Âme de serpent-nuage"
 L["Cloud Serpent Soul Guide"] = "Peut-être obtenu sur le dernier boss de n’importe quel donjon des Marcheurs du temps de Mists of Pandaria."
@@ -260,3 +264,6 @@ L["Wolfhawk Soul Guide"] = "Vous devez utiliser votre forme d'âme pour traverse
 
 L["Wyvern Soul"] = "Âme de wyverne"
 L["Yak Soul"] = "Âme de yack"
+
+-- Tooltips on maps
+L["Spectral Feed Tooltip"] = "Les cérales spectrales sont un sac de grain luisant bleu posé sur le sol, qui réapparaît toutes les 1 à 2 heures. En le cliquant, vous obtenez l'objet dans vos sacs, qui dure 10 minutes et est consommé à l'utilisation."

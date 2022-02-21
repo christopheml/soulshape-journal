@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ]]
 
-local ADDON_NAME, SC = ...
+local ADDON_NAME, SJ = ...
 
 local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME, true)
 
@@ -63,7 +63,7 @@ end
 
 function DatabaseMixin:AddUntrackable(soulshape)
     if soulshape.untrackable then
-        SC.saved.char.collectedUntrackable[soulshape.untrackable] = true
+        SJ.saved.char.collectedUntrackable[soulshape.untrackable] = true
         return true
     end
     return false
@@ -73,7 +73,7 @@ function DatabaseMixin:IsCollected(soulshape)
     if soulshape.questID then
         return isQuestCompleted(soulshape.questID)
     else
-        return soulshape.untrackable and SC.saved.char.collectedUntrackable[soulshape.untrackable]
+        return soulshape.untrackable and SJ.saved.char.collectedUntrackable[soulshape.untrackable]
     end
 end
 
@@ -94,10 +94,6 @@ local function CostFormatter(cost)
         end
     end
     return table.concat(rendered, " ")
-end
-
-local function CoordinatesFormatter(coordinates)
-    return coordinates.x .. ", " .. coordinates.y
 end
 
 local function FactionFormatter(faction)
@@ -167,7 +163,6 @@ local function CreateSourceString(soulshape)
     function renderVendor(vendor)
         addLine(L["Vendor"], vendor.name)
         addLine(L["Region"], vendor.region)
-        addLine(L["Coordinates"], vendor.coordinates, CoordinatesFormatter)
         addLine(L["Cost"], vendor.cost, CostFormatter)
     end
 
@@ -185,7 +180,6 @@ local function CreateSourceString(soulshape)
     addMultiLine(soulshape.vendor, renderVendor)
     addLine(L["Covenant Feature"], soulshape.covenantFeature)
     addLine(L["Difficulty"], soulshape.difficulty, JoiningFormatter)
-    addLine(L["Coordinates"], soulshape.coordinates, CoordinatesFormatter)
     addLine(L["Renown"], soulshape.renown)
     addLine(L["Spell"], soulshape.spell)
     return table.concat(source, "\n")
@@ -225,6 +219,47 @@ local function RemoveUpcomingSoulshapes(soulshapes)
     return currentSoulshapes
 end
 
+-- Map name resolution
+local mapNames = {}
+local GetMapInfo = C_Map.GetMapInfo
+
+local function GetMapName(mapID)
+    if not mapNames[mapID] then
+        local mapInfo = GetMapInfo(mapID)
+        mapNames[mapID] = mapInfo.name
+    end
+    return mapNames[mapID]
+end
+
+local function CreateLocations(soulshape)
+    if soulshape.pinData then
+        soulshape.pins = {}
+        soulshape.maps = {}
+
+        local addedMaps = {}
+
+        for _, pin in ipairs(soulshape.pinData) do
+            local mapID = pin[1]
+
+            if not addedMaps[mapID] then
+                tinsert(soulshape.maps, { mapID, GetMapName(mapID) })
+                addedMaps[mapID] = true
+            end
+
+            tinsert(soulshape.pins, {
+                mapID = mapID,
+                x = pin[2],
+                y = pin[3],
+                creatureDisplayID = pin[4],
+                iconID = pin[5],
+                label = pin[6],
+                details = pin[7],
+            })
+        end
+        soulshape.pinData = nil
+    end
+end
+
 local function CreateDatabase()
     local soulshapes = {
         {
@@ -234,7 +269,7 @@ local function CreateDatabase()
             icon = 2061352,
             model = 103074,
             scale = 3.5,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Ardenmoth Soul"],
@@ -245,7 +280,7 @@ local function CreateDatabase()
             icon = 3255388,
             model = 96511,
             modelSceneID = 34,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Boar Soul"],
@@ -255,7 +290,7 @@ local function CreateDatabase()
             icon = 1044799,
             model = 103082,
             scale = 3,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Bunny Soul"],
@@ -267,44 +302,57 @@ local function CreateDatabase()
             icon = 2399274,
             model = 102364,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Cat Soul"],
             npc = L["Lost Soul"],
             region = L["Ardenweald"],
             guide = L["Cat Soul Guide"],
+            pinData = {
+                { 1565, 37.6, 36.2, 103084, nil, L["Lost Soul"], nil },
+                { 1565, 51.2, 31, 103084, nil, L["Lost Soul"], nil },
+                { 1565, 65, 36.4, 103084, nil, L["Lost Soul"], nil },
+                { 1565, 60, 55, 103084, nil, L["Lost Soul"], nil },
+                { 1565, 51.8, 69.2, 103084, nil, L["Lost Soul"], nil },
+            },
             critter = true,
             questID = 64961,
             icon = 656574,
             model = 103084,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Cat Soul (Well Fed)"],
             npc = L["Ma'oh"],
             region = L["Ardenweald"],
-            coordinates = { x = 54.9, y = 45.1 },
             guide = L["Cat Soul (Well Fed) Guide"],
+            pinData = {
+                { 1702, 58, 69, 103084, nil, L["Ma'oh"], nil },
+                { 1525, 63.7, 61.6, nil, 134058, L["Spectral Feed"], L["Spectral Feed Tooltip"] }
+            },
             critter = true,
             questID = 64982,
             icon = 656577,
             model = 100636,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Chicken Soul"],
             npc = L["Lost Soul"],
             region = L["Revendreth"],
-            coordinates = { x = 63.18, y = 42.76 },
+            pinData = {
+                { 1525, 63.18, 42.76, 102363, nil, L["Lost Soul"], nil },
+                { 1525, 63.7, 61.6, nil, 134058, L["Spectral Feed"], L["Spectral Feed Tooltip"] }
+            },
             guide = L["Chicken Soul Guide"],
             critter = true,
             questID = 64941,
             icon = 2027864,
             model = 102363,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Cloud Serpent Soul"],
@@ -314,7 +362,7 @@ local function CreateDatabase()
             icon = 1247267,
             model = 103080,
             scale = 6,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Cobra Soul"],
@@ -324,7 +372,7 @@ local function CreateDatabase()
             icon = 2399271,
             model = 96525,
             scale = 4,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Corgi Soul"],
@@ -336,7 +384,7 @@ local function CreateDatabase()
             icon = 1339013,
             model = 100634,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Crane Soul"],
@@ -353,29 +401,35 @@ local function CreateDatabase()
                     cost = { id = 1813, amount = 2500 },
                 }
             },
+            pinData = {
+                { 1701, 59.6, 32.6, 99153, nil, L["Aithlyn"], nil },
+                { 1670, 47.0, 76.8, 99156, nil, L["Liawyn"], nil }
+            },
             questID = 62424,
             icon = 605484,
             model = 96519,
             scale = 4,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Cricket Soul"],
             vendor = {
                 name = L["Spindlenose"],
                 region = L["Ardenweald"],
-                coordinates = { x = 59.6, y = 52.8 },
                 cost = {
                     { id = 1813, amount = 15000 },
                     { id = 1885, amount = 25 },
                 },
+            },
+            pinData = {
+                { 1565, 59.6, 52.8, 99751, nil, L["Spindlenose"], nil },
             },
             critter = true,
             questID = 64990,
             icon = 646325,
             model = 103069,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Direhorn Soul"],
@@ -385,21 +439,23 @@ local function CreateDatabase()
             icon = 791593,
             model = 100626,
             scale = 5,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Eagle Soul"],
             vendor = {
                 name = L["Master Clerk Salorn"],
                 region = L["Ardenweald"],
-                coordinates = { x = 43.0, y = 47.0 },
                 cost = { id = 1813, amount = 20000 },
+            },
+            pinData = {
+                { 1565, 43.0, 47.0, 99767, nil, L["Master Clerk Salorn"], nil },
             },
             questID = 65021,
             icon = 132172,
             model = 103076,
             modelSceneID = 34,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Equine Soul"],
@@ -410,7 +466,7 @@ local function CreateDatabase()
             icon = 2153980,
             model = 96517,
             scale = 4.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Frog Soul"],
@@ -422,7 +478,7 @@ local function CreateDatabase()
             icon = 2399262,
             model = 100638,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Goat Soul"],
@@ -433,7 +489,7 @@ local function CreateDatabase()
             icon = 877477,
             model = 103072,
             scale = 3,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Gryphon Soul"],
@@ -443,7 +499,7 @@ local function CreateDatabase()
             icon = 537515,
             model = 96539,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Gulper Soul"],
@@ -457,7 +513,7 @@ local function CreateDatabase()
             icon = 2481372,
             model = 97394,
             scale = 3,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Hippo Soul"],
@@ -468,7 +524,7 @@ local function CreateDatabase()
             icon = 1044490,
             model = 100627,
             scale = 3.4,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Hippogryph Soul"],
@@ -479,7 +535,7 @@ local function CreateDatabase()
             icon = 1455896,
             model = 96538,
             scale = 4.5,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Hyena Soul"],
@@ -489,7 +545,7 @@ local function CreateDatabase()
             icon = 132190,
             model = 96524,
             scale = 4,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Jormungar Soul"],
@@ -499,7 +555,7 @@ local function CreateDatabase()
             icon = 1531518,
             model = 103079,
             scale = 5,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Kodo Soul"],
@@ -509,7 +565,7 @@ local function CreateDatabase()
             icon = 132243,
             model = 100629,
             scale = 5,
-            buildNumber = SC.BUILD_9_0_5,
+            buildNumber = SJ.BUILD_9_0_5,
         },
         {
             name = L["Leonine Soul"],
@@ -517,17 +573,19 @@ local function CreateDatabase()
             vendor = {
                 name = L["Spindlenose"],
                 region = L["Ardenweald"],
-                coordinates = { x = 59.6, y = 52.8 },
                 cost = {
                     { id = 1813, amount = 1500 },
                     { id = 1885, amount = 5 },
                 },
             },
+            pinData = {
+                { 1565, 59.6, 52.8, 99751, nil, L["Spindlenose"], nil },
+            },
             questID = 62429,
             icon = 464140,
             model = 96520,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Lupine Soul"],
@@ -535,17 +593,19 @@ local function CreateDatabase()
             vendor = {
                 name = L["Spindlenose"],
                 region = L["Ardenweald"],
-                coordinates = { x = 59.6, y = 52.8 },
                 cost = {
                     { id = 1813, amount = 1500 },
                     { id = 1885, amount = 5 },
                 },
             },
+            pinData = {
+                { 1565, 59.6, 52.8, 99751, nil, L["Spindlenose"], nil },
+            },
             questID = 62438,
             icon = 464162,
             model = 96534,
             scale = 5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Mammoth Soul"],
@@ -555,34 +615,38 @@ local function CreateDatabase()
             questID = 63610,
             icon = 236240,
             model = 100630,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Moose Soul"],
             vendor = {
                 name = L["Master Clerk Salorn"],
                 region = L["Ardenweald"],
-                coordinates = { x = 43.0, y = 47.0 },
                 cost = { id = 1813, amount = 1500 },
             },
             guide = L["Moose Soul Guide"],
+            pinData = {
+                { 1565, 43.0, 47.0, 99767, nil, L["Master Clerk Salorn"], nil },
+            },
             questID = 62430,
             icon = 1390637,
             model = 96533,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Otter Soul"],
             npc = L["Lost Soul"],
             region = L["Bastion"],
-            coordinates = { x = 49.8, y = 46.8 },
             guide = L["Otter Soul Guide"],
+            pinData = {
+                { 1533, 49.8, 46.8, 100637, nil, L["Lost Soul"], nil },
+            },
             critter = true,
             questID = 64959,
             icon = 645906,
             model = 100637,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Owl Soul"],
@@ -592,7 +656,7 @@ local function CreateDatabase()
             icon = 1387709,
             model = 103083,
             modelSceneID = 34,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Owlcat Soul"],
@@ -603,7 +667,7 @@ local function CreateDatabase()
             icon = 132192,
             model = 96529,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Porcupine Soul"],
@@ -614,38 +678,42 @@ local function CreateDatabase()
             questID = 64989,
             icon = 838549,
             model = 100640,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Prairie Dog Soul"],
             vendor = {
                 name = L["Master Clerk Salorn"],
                 region = L["Ardenweald"],
-                coordinates = { x = 43.0, y = 47.0 },
                 cost = { id = 1813, amount = 10000 },
+            },
+            pinData = {
+                { 1565, 43.0, 47.0, 99767, nil, L["Master Clerk Salorn"], nil },
             },
             critter = true,
             questID = 64992,
             icon = 656176,
             model = 103070,
             scale = 6.5,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Ram Soul"],
             vendor = {
                 name = L["Spindlenose"],
                 region = L["Ardenweald"],
-                coordinates = { x = 59.6, y = 52.8 },
                 cost = {
                     { id = 1813, amount = 25000 },
                     { id = 1885, amount = 50 },
                 },
             },
+            pinData = {
+                { 1565, 59.6, 52.8, 99751, nil, L["Spindlenose"], nil },
+            },
             questID = 65009,
             icon = 132248,
             model = 103075,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Raptor Soul"],
@@ -656,7 +724,7 @@ local function CreateDatabase()
             icon = 838683,
             model = 96531,
             scale = 5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Rat Soul"],
@@ -675,7 +743,7 @@ local function CreateDatabase()
             icon = 647701,
             model = 100639,
             scale = 5,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Runestag Soul"],
@@ -685,19 +753,21 @@ local function CreateDatabase()
             questID = 62434,
             icon = 3087326,
             model = 95614,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Saurid Soul"],
             npc = L["Lost Soul"],
             region = L["Maldraxxus"],
-            coordinates = { x = 44.8, y = 67.8 },
             guide = L["Saurid Soul Guide"],
+            pinData = {
+                { 1536, 44.8, 67.8, 103067, nil, L["Lost Soul"], nil },
+            },
             critter = true,
             questID = 64995,
             icon = 2399239,
             model = 103067,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Saurolisk Hatchling Soul"],
@@ -708,7 +778,7 @@ local function CreateDatabase()
             icon = 2027844,
             model = 97505,
             scale = 3,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Saurolisk Soul"],
@@ -718,18 +788,20 @@ local function CreateDatabase()
             icon = 2027929,
             model = 100624,
             scale = 5,
-            buildNumber = SC.BUILD_9_0_5,
+            buildNumber = SJ.BUILD_9_0_5,
         },
         {
             name = L["Shadowstalker Soul"],
             loot = L["Valfir the Unrelenting"],
             region = L["Ardenweald"],
-            coordinates = { x = 30.6, y = 55.0 },
+            pinData = {
+                { 1565, 30.6, 55.0, 96087, nil, L["Valfir the Unrelenting"], nil },
+            },
             questID = 62431,
             icon = 2475038,
             model = 96530,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Shoveltusk Soul"],
@@ -739,7 +811,7 @@ local function CreateDatabase()
             icon = 134060,
             model = 100623,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Shrieker Soul"],
@@ -750,7 +822,7 @@ local function CreateDatabase()
             icon = 952507,
             model = 96518,
             scale = 5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Snake Soul"],
@@ -762,7 +834,7 @@ local function CreateDatabase()
             icon = 2399227,
             model = 103068,
             scale = 4,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Snapper Soul"],
@@ -776,7 +848,7 @@ local function CreateDatabase()
             icon = 1339043,
             model = 96527,
             scale = 4,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Spider Soul"],
@@ -790,7 +862,7 @@ local function CreateDatabase()
             icon = 2027946,
             model = 100625,
             scale = 4,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Sporebat Soul"],
@@ -799,7 +871,7 @@ local function CreateDatabase()
             questID = 65022,
             icon = 132197,
             model = 103078,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Stag Soul"],
@@ -809,7 +881,7 @@ local function CreateDatabase()
             questID = 62435,
             icon = 1396983,
             model = 96528,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         },
         {
             name = L["Squirrel Soul"],
@@ -821,7 +893,7 @@ local function CreateDatabase()
             model = 100635,
             scale = 5,
             collected = true,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Tiger Soul"],
@@ -835,7 +907,7 @@ local function CreateDatabase()
             icon = 620832,
             model = 96521,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Turkey Soul"],
@@ -846,7 +918,7 @@ local function CreateDatabase()
             icon = 250626,
             model = 105220,
             scale = 3,
-            buildNumber = SC.BUILD_9_1_5,
+            buildNumber = SJ.BUILD_9_1_5,
         },
         {
             name = L["Ursine Soul"],
@@ -860,7 +932,7 @@ local function CreateDatabase()
             icon = 132183,
             model = 96532,
             scale = 4.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Veilwing Soul"],
@@ -871,7 +943,7 @@ local function CreateDatabase()
             icon = 303867,
             model = 96535,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Vulpine Soul"],
@@ -881,19 +953,21 @@ local function CreateDatabase()
             model = 93949,
             scale = 5,
             collected = true,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Wolfhawk Soul"],
             loot = L["Skuld Vit"],
             region = L["Ardenweald"],
-            coordinates = { x = 36.90, y = 60.20 },
             guide = L["Wolfhawk Soul Guide"],
+            pinData = {
+                { 1565, 36.9, 60.2, 96776, nil, L["Skuld Vit"], nil },
+            },
             questID = 62439,
             icon = 1279719,
             model = 96537,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Wyvern Soul"],
@@ -903,7 +977,7 @@ local function CreateDatabase()
             icon = 537531,
             model = 96540,
             scale = 5.5,
-            buildNumber = SC.BUILD_9_0,
+            buildNumber = SJ.BUILD_9_0,
         },
         {
             name = L["Yak Soul"],
@@ -914,7 +988,7 @@ local function CreateDatabase()
             icon = 900317,
             model = 100622,
             scale = 4,
-            buildNumber = SC.BUILD_9_1,
+            buildNumber = SJ.BUILD_9_1,
         }
     }
 
@@ -926,14 +1000,15 @@ local function CreateDatabase()
         soulshape.source = CreateSourceString(soulshape)
         soulshape.guide = CreateGuideString(soulshape)
         soulshape.searchText = CreateSearchText(soulshape)
+        CreateLocations(soulshape)
     end
 
-    SC.Database = CreateFromMixins({
+    SJ.Database = CreateFromMixins({
         soulshapes = soulshapes,
     }, DatabaseMixin)
 end
 
-SC.CreateDatabase = function()
+SJ.CreateDatabase = function()
     CreateDatabase()
-    SC.Database:Sort()
+    SJ.Database:Sort()
 end

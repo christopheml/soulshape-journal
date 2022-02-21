@@ -74,4 +74,28 @@
             </OnClick>
         </Scripts>
     </Button>
+
+    <Button name="SoulshapeJournalPinTemplate" hidden="true" enableMouse="true" mixin="SoulshapeJournalPinMixin" virtual="true">
+        <Size x="50" y="49"/>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background">
+                    <Size x="36" y="36"/>
+                    <Anchors>
+                        <Anchor point="CENTER" x="0" y="0"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+        <NormalTexture file="Interface\EncounterJournal\UI-EncounterJournalTextures">
+            <TexCoords left="0.84960938" right="0.97070313" top="0.42871094" bottom="0.48828125"/>
+        </NormalTexture>
+        <PushedTexture file="Interface\EncounterJournal\UI-EncounterJournalTextures">
+            <TexCoords left="0.77734375" right="0.89843750" top="0.26953125" bottom="0.32910156"/>
+        </PushedTexture>
+        <HighlightTexture file="Interface\EncounterJournal\UI-EncounterJournalTextures">
+            <TexCoords left="0.68945313" right="0.81054688" top="0.33300781" bottom="0.39257813"/>
+        </HighlightTexture>
+    </Button>
+
 </Ui>

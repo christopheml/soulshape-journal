@@ -30,6 +30,8 @@ Database\Filters.lua
 
 UI\Templates.xml
 UI\FilterDropDown.lua
+UI\MapPin.lua
+UI\Map.lua
 UI\SoulshapeJournal.lua
 Core.lua
 

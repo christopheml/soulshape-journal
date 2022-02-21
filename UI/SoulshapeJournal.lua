@@ -28,7 +28,8 @@ local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
 local NIGHT_FAE = Enum.CovenantType["NightFae"]
 
 local CollectionPanelMixin = {
-    selectedSoulshape = nil
+    selectedSoulshape = nil,
+    onSoulshapeChangeCallbacks = {},
 }
 
 local function CreateInsets(panel)
@@ -328,7 +329,29 @@ end
 function CollectionPanelMixin:OnButtonClick(button)
     self.selectedSoulshape = button.soulshape
     self:UpdateSoulshapeDisplay()
+
+    -- FIXME: move this to callbacks
     self.ScrollFrame:UpdateButtons()
+
+    -- callbacks for other components
+    self:SoulshapeChanged(button.soulshape)
+end
+
+--- Callback signature: callback(soulshape)
+function CollectionPanelMixin:OnSoulshapeChange(callback)
+    tinsert(self.onSoulshapeChangeCallbacks, callback)
+end
+
+function CollectionPanelMixin:SoulshapeChanged(soulshape)
+    --SJ:Print("Panel:SoulshapeChanged")
+    for _, callback in ipairs(self.onSoulshapeChangeCallbacks) do
+        callback(soulshape)
+    end
+end
+
+--- FIXME Remove this
+function CollectionPanelMixin:GetSelectedSoulshape()
+    return self.selectedSoulshape
 end
 
 function CollectionPanelMixin:AddUntrackableToCollection(addButton)
@@ -354,6 +377,8 @@ function SJ:CreateCollectionPanel()
     panel:SetPortraitToAsset(GetSpellTexture(310143))
     panel:SetTitle(L["TAB_TITLE"])
 
+    SJ.Panel = panel
+
     CreateInsets(panel)
     CreateCount(panel)
     CreateCovenantWarning(panel)
@@ -361,11 +386,20 @@ function SJ:CreateCollectionPanel()
     CreateModelView(panel)
     CreateSearchBox(panel)
     SJ.UIFactory:CreateFilterDropDown(panel)
+
+    -- Map
+    panel.Map = SJ.UIFactory:CreateMap(panel, panel.RightInset)
+    panel:OnSoulshapeChange(function(soulshape)
+        panel.Map:OnSoulshapeChange(soulshape)
+    end)
+
     CreateTab(panel)
 
     panel:SetScript("OnShow", function(self)
         self:Update()
     end)
+end
 
-    SJ.Panel = panel
+function SJ:GetSelectedSoulshape()
+    return self.Panel:GetSelectedSoulshape()
 end
