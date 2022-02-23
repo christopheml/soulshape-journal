@@ -283,14 +283,14 @@ L["Elekk Soul"] = "Âme d’elekk"
 L["Gromit Soul"] = "Âme de gronil"
 
 L["Penguin Soul"] = "Âme de pingouin"
-L["Penguin Soul Guide"] = "On top of the metal orb. Interact with the penguin Lost Soul to obtain the soulshape. Requires flying."
+L["Penguin Soul Guide"] = "Au sommet de l'orbe métallique. Interagissez avec l'âme égarée de pingouin pour obtenir la forme d'âme. Requiert le vol."
 
 L["Pig Soul"] = "Âme de cochon"
 L["Ray Soul"] = "Âme de raie"
 L["Scorpid Soul"] = "Âme de scorpide"
 
 L["Sheep Soul"] = "Âme de mouton"
-L["Sheep Soul Guide"] = "Multiple spawn locations. Interact with the sheep Lost Soul to obtain the soulshape."
+L["Sheep Soul Guide"] = "Plusieurs emplacements de spawn possibles. Interagissez avec l'âme égarée de mouton pour obtenir la forme d'âme."
 
 L["Silithid Soul"] = "Âme de silithide"
 L["Snail Soul"] = "Âme d’escargot"
