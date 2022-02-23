@@ -2,7 +2,7 @@ This file contains all keys that were added or changed by version. It is meant t
 identify keys that may be missing or are no longer correct. Keys are displayed like `this` and 
 are provided with a bit of context to make translations easier.
 
-# 0.11
+# 1.0
 
 ## Added
 
@@ -10,6 +10,10 @@ are provided with a bit of context to make translations easier.
 * `TOMTOM_WAYPOINT_TOOLTIP` (tooltip line for the map feature)
 * `Spectral Feed`
 * `Spectral Feed Tooltip` (tooltip displayed on the map)
+
+## Modified
+
+* `Gryphon Soul Guide` (Gryphon and Wyvern souls available from Comp Stomp brawls)
 
 # 0.10
 

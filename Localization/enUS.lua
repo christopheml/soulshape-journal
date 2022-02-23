@@ -180,7 +180,7 @@ L["Goat Soul"] = true
 L["Goat Soul Guide"] = "Can drop from any Covenant Calling chest, not only from Night Fae's."
 
 L["Gryphon Soul"] = true
-L["Gryphon Soul Guide"] = "Occasional reward from a win in Skirmish, Arena, Random Battleground or Rated Battleground."
+L["Gryphon Soul Guide"] = "Occasional reward from a win in Skirmish, Arena, Random Battleground, Rated Battleground or Comp Stomp Brawl."
 
 L["Gulper Soul"] = true
 L["Gulper Soul Guide"] = "Obtainable with spirits of any quality, but use only one %s."

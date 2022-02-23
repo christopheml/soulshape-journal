@@ -181,7 +181,7 @@ L["Goat Soul"] = "Âme de chèvre"
 L["Goat Soul Guide"] = "Obtenable dans les coffres de n'importe quel Appel de congrégation, pas uniquement des Faë nocturnes."
 
 L["Gryphon Soul"] = "Âme de griffon"
-L["Gryphon Soul Guide"] = "Récompense occasionnelle après une victoire en Escarmouche, Arène, Champ de bataille aléatoire ou Champ de bataille coté."
+L["Gryphon Soul Guide"] = "Récompense occasionnelle après une victoire en Escarmouche, Arène, Champ de bataille aléatoire, Champ de bataille coté ou Choc JcJ : contre l’IA."
 
 L["Gulper Soul"] = "Âme de gobeur"
 L["Gulper Soul Guide"] = "Obtenable avec des esprits de n'importe quelle qualité, mais n'utilisez qu'un seul %s."
