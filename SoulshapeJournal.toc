@@ -25,6 +25,7 @@ Localization\deDE.lua
 Localization\zhCN.lua
 Localization\zhTW.lua
 
+Database\Zones.lua
 Database\SoulshapeDatabase.lua
 Database\Filters.lua
 

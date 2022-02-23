@@ -71,7 +71,6 @@ L["Mists of Tirna Scithe"] = "Brumes de Tirna Scithe"
 L["Tazavesh, the Veiled Market"] = "Tazavesh, le marché voilé"
 L["Castle Nathria"] = "Château Nathria"
 L["Sanctum of Domination"] = "Sanctum de Domination"
-L["Zereth Mortis"] = true
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = "De Drust et de cendres"

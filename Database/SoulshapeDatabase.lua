@@ -219,18 +219,6 @@ local function RemoveUpcomingSoulshapes(soulshapes)
     return currentSoulshapes
 end
 
--- Map name resolution
-local mapNames = {}
-local GetMapInfo = C_Map.GetMapInfo
-
-local function GetMapName(mapID)
-    if not mapNames[mapID] then
-        local mapInfo = GetMapInfo(mapID)
-        mapNames[mapID] = mapInfo.name
-    end
-    return mapNames[mapID]
-end
-
 local function CreateLocations(soulshape)
     if soulshape.pinData then
         soulshape.pins = {}
@@ -242,7 +230,7 @@ local function CreateLocations(soulshape)
             local mapID = pin[1]
 
             if not addedMaps[mapID] then
-                tinsert(soulshape.maps, { mapID, GetMapName(mapID) })
+                tinsert(soulshape.maps, { mapID, SJ:GetMapName(mapID) })
                 addedMaps[mapID] = true
             end
 
@@ -257,6 +245,17 @@ local function CreateLocations(soulshape)
             })
         end
         soulshape.pinData = nil
+    end
+end
+
+local function ResolveRegion(soulshape)
+    if soulshape.zoneID then
+        soulshape.region = SJ:GetMapName(soulshape.zoneID)
+        soulshape.zoneID = nil
+    end
+    if soulshape.vendor and soulshape.vendor.zoneID then
+        soulshape.vendor.region = SJ:GetMapName(soulshape.vendor.zoneID)
+        soulshape.vendor.zoneID = nil
     end
 end
 
@@ -997,7 +996,7 @@ local function CreateDatabase()
             name = L["Armadillo Soul"],
             vendor = {
                 name = L["Olea Manu"],
-                region = L["Zereth Mortis"],
+                zoneID = 1970,
                 cost = { id = 1979, amount = 500 },
             },
             pinData = PIN_DATA_OLEA_MANU,
@@ -1021,7 +1020,7 @@ local function CreateDatabase()
         {
             name = L["Bee Soul"],
             loot = L["Lost Comb"],
-            region = L["Zereth Mortis"],
+            zoneID = 1970,
             guide = L["Bee Soul Guide"],
             pinData = {
                 { 1970, 63.3, 60.6, nil, 3066348, L["Lost Comb"], nil }
@@ -1036,7 +1035,7 @@ local function CreateDatabase()
             name = L["Brutosaur Soul"],
             vendor = {
                 name = L["Olea Manu"],
-                region = L["Zereth Mortis"],
+                zoneID = 1970,
                 cost = { id = 1979, amount = 1000 },
             },
             pinData = PIN_DATA_OLEA_MANU,
@@ -1087,8 +1086,8 @@ local function CreateDatabase()
         {
             name = L["Penguin Soul"],
             npc = L["Lost Soul"],
-            region = L["Zereth Mortis"],
             guide = L["Penguin Soul Guide"],
+            zoneID = 1970,
             pinData = {
                 { 1970, 31.48, 50.42, 105263, nil, L["Lost Soul"], nil }
             },
@@ -1121,7 +1120,7 @@ local function CreateDatabase()
         {
             name = L["Scorpid Soul"],
             loot = L["Shifting Stargorger"],
-            region = L["Zereth Mortis"],
+            zoneID = 1970,
             pinData = {
                 { 1970, 42.2, 21.6, 101916, nil, L["Shifting Stargorger"], nil }
             },
@@ -1133,8 +1132,8 @@ local function CreateDatabase()
         {
             name = L["Sheep Soul"],
             npc = L["Lost Soul"],
-            region = L["Zereth Mortis"],
             guide = L["Sheep Soul Guide"],
+            zoneID = 1970,
             pinData = {
                 { 1970, 37.2, 34.4, 105262, nil, L["Lost Soul"], nil },
                 { 1970, 37.6, 77.0, 105262, nil, L["Lost Soul"], nil },
@@ -1180,10 +1179,11 @@ local function CreateDatabase()
 
     -- Generate source and guide fields for soulshapes
     for _, soulshape in ipairs(soulshapes) do
+        ResolveRegion(soulshape)
+        CreateLocations(soulshape)
         soulshape.source = CreateSourceString(soulshape)
         soulshape.guide = CreateGuideString(soulshape)
         soulshape.searchText = CreateSearchText(soulshape)
-        CreateLocations(soulshape)
     end
 
     SJ.Database = CreateFromMixins({
