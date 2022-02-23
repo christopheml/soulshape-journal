@@ -10,6 +10,30 @@ are provided with a bit of context to make translations easier.
 * `TOMTOM_WAYPOINT_TOOLTIP` (tooltip line for the map feature)
 * `Spectral Feed`
 * `Spectral Feed Tooltip` (tooltip displayed on the map)
+* `Olea Manu` (vendor)
+* `Shifting Stargorger` (rare mob)
+* `Lost Comb` (object to interact with for Bee soul)
+* `Armadillo Soul`
+* `Bat Soul`
+* `Bee Soul`
+* `Bee Soul Guide`
+* `Brutosaur Soul`
+* `Cervid Soul`
+* `Dragonhawk Soul`
+* `Elekk Soul`
+* `Gromit Soul`
+* `Penguin Soul`
+* `Penguin Soul Guide`
+* `Pig Soul`
+* `Ray Soul`
+* `Scorpid Soul`
+* `Sheep Soul`
+* `Sheep Soul Guide`
+* `Silithid Soul`
+* `Snail Soul`
+* `Tallstrider Soul`
+* `Unknown Guide` (for soulshapes without a guide)
+* `Torghast 9.2 Soulshape Guide` (generic Torghast source for 9.2 soulshapes dropping here)
 
 ## Modified
 
