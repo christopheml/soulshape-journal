@@ -1,6 +1,6 @@
 --[[ MIT License
 
-Copyright (c) 2021 Christophe MICHEL
+Copyright (c) 2021-2022 Christophe MICHEL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,14 @@ SOFTWARE.
 
 local _, SJ = ...
 
--- Build numbers for patchs
-SJ.BUILD_9_0 = 37474
-SJ.BUILD_9_0_5 = 37862
-SJ.BUILD_9_1 = 39185
-SJ.BUILD_9_1_5 = 40871
-SJ.BUILD_9_2 = 42069
+-- Map name resolution
+local nameCache = {}
+local GetMapInfo = C_Map.GetMapInfo
+
+function SJ:GetMapName(mapID)
+    if not nameCache[mapID] then
+        local mapInfo = GetMapInfo(mapID)
+        nameCache[mapID] = mapInfo.name
+    end
+    return nameCache[mapID]
+end

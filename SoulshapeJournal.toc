@@ -1,4 +1,4 @@
-## Interface: 90105
+## Interface: 90200
 ## Version: @project-version@
 ## Title: Soulshape Journal |T3586268:0|t
 ## Notes: Displays Nightfae shoulshapes as a collection journal
@@ -25,6 +25,7 @@ Localization\deDE.lua
 Localization\zhCN.lua
 Localization\zhTW.lua
 
+Database\Zones.lua
 Database\SoulshapeDatabase.lua
 Database\Filters.lua
 

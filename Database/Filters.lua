@@ -138,6 +138,11 @@ local filters = {
                 label = "9.1.5",
                 enabled = true,
                 func = matchBuild(SJ.BUILD_9_1_5)
+            },
+            {
+                label = "9.2",
+                enabled = true,
+                func = matchBuild(SJ.BUILD_9_2)
             }
         }
     }

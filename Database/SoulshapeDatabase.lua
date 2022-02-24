@@ -219,18 +219,6 @@ local function RemoveUpcomingSoulshapes(soulshapes)
     return currentSoulshapes
 end
 
--- Map name resolution
-local mapNames = {}
-local GetMapInfo = C_Map.GetMapInfo
-
-local function GetMapName(mapID)
-    if not mapNames[mapID] then
-        local mapInfo = GetMapInfo(mapID)
-        mapNames[mapID] = mapInfo.name
-    end
-    return mapNames[mapID]
-end
-
 local function CreateLocations(soulshape)
     if soulshape.pinData then
         soulshape.pins = {}
@@ -242,7 +230,7 @@ local function CreateLocations(soulshape)
             local mapID = pin[1]
 
             if not addedMaps[mapID] then
-                tinsert(soulshape.maps, { mapID, GetMapName(mapID) })
+                tinsert(soulshape.maps, { mapID, SJ:GetMapName(mapID) })
                 addedMaps[mapID] = true
             end
 
@@ -259,6 +247,19 @@ local function CreateLocations(soulshape)
         soulshape.pinData = nil
     end
 end
+
+local function ResolveRegion(soulshape)
+    if soulshape.zoneID then
+        soulshape.region = SJ:GetMapName(soulshape.zoneID)
+        soulshape.zoneID = nil
+    end
+    if soulshape.vendor and soulshape.vendor.zoneID then
+        soulshape.vendor.region = SJ:GetMapName(soulshape.vendor.zoneID)
+        soulshape.vendor.zoneID = nil
+    end
+end
+
+local PIN_DATA_OLEA_MANU = { { 1970, 37.0, 44.6, 101851, nil, L["Olea Manu"], nil } }
 
 local function CreateDatabase()
     local soulshapes = {
@@ -989,7 +990,188 @@ local function CreateDatabase()
             model = 100622,
             scale = 4,
             buildNumber = SJ.BUILD_9_1,
-        }
+        },
+        -- 9.2 Soulshapes
+        {
+            name = L["Armadillo Soul"],
+            vendor = {
+                name = L["Olea Manu"],
+                zoneID = 1970,
+                cost = { id = 1979, amount = 500 },
+            },
+            pinData = PIN_DATA_OLEA_MANU,
+            questID = 65514,
+            icon = 464159,
+            model = 105260,
+            critter = true,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Bat Soul"],
+            npc = L["Lost Soul"],
+            region = L["Torghast"],
+            guide = L["Torghast 9.2 Soulshape Guide"],
+            questID = 65509,
+            icon = 132182,
+            model = 105256,
+            modelSceneID = 34,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Bee Soul"],
+            loot = L["Lost Comb"],
+            zoneID = 1970,
+            guide = L["Bee Soul Guide"],
+            pinData = {
+                { 1970, 63.3, 60.6, nil, 3066348, L["Lost Comb"], nil }
+            },
+            questID = 65518,
+            icon = 2027853,
+            model = 105264,
+            modelSceneID = 34,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Brutosaur Soul"],
+            vendor = {
+                name = L["Olea Manu"],
+                zoneID = 1970,
+                cost = { id = 1979, amount = 1000 },
+            },
+            pinData = PIN_DATA_OLEA_MANU,
+            questID = 65510,
+            icon = 1881827,
+            model = 105257,
+            scale = 5,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Cervid Soul"],
+            guide = L["Unknown Guide"],
+            questID = 65640,
+            icon = 3747644,
+            model = 105366,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Dragonhawk Soul"],
+            npc = L["Lost Soul"],
+            region = L["Torghast"],
+            guide = L["Torghast 9.2 Soulshape Guide"],
+            questID = 65504,
+            icon = 132188,
+            model = 105251,
+            modelSceneID = 34,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Elekk Soul"],
+            npc = L["Lost Soul"],
+            region = L["Torghast"],
+            guide = L["Torghast 9.2 Soulshape Guide"],
+            questID = 65507,
+            icon = 132254,
+            model = 105254,
+            scale = 4,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Gromit Soul"],
+            guide = L["Unknown Guide"],
+            questID = 65513,
+            icon = 2399262, -- Most likely a placeholder
+            model = 105259,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Penguin Soul"],
+            npc = L["Lost Soul"],
+            guide = L["Penguin Soul Guide"],
+            zoneID = 1970,
+            pinData = {
+                { 1970, 31.48, 50.42, 105263, nil, L["Lost Soul"], nil }
+            },
+            coordinates = { x = 31.48, y = 50.42 },
+            questID = 65517,
+            icon = 655866,
+            model = 105263,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Pig Soul"],
+            npc = L["Lost Soul"],
+            region = L["Torghast"],
+            guide = L["Torghast 9.2 Soulshape Guide"],
+            questID = 65515,
+            icon = 1721030,
+            model = 105261,
+            critter = true,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Ray Soul"],
+            guide = L["Unknown Guide"],
+            questID = 65506,
+            icon = 2620775,
+            model = 105253,
+            modelSceneID = 34,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Scorpid Soul"],
+            loot = L["Shifting Stargorger"],
+            zoneID = 1970,
+            pinData = {
+                { 1970, 42.2, 21.6, 101916, nil, L["Shifting Stargorger"], nil }
+            },
+            questID = 65505,
+            icon = 132195,
+            model = 105252,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Sheep Soul"],
+            npc = L["Lost Soul"],
+            guide = L["Sheep Soul Guide"],
+            zoneID = 1970,
+            pinData = {
+                { 1970, 37.2, 34.4, 105262, nil, L["Lost Soul"], nil },
+                { 1970, 37.6, 77.0, 105262, nil, L["Lost Soul"], nil },
+                { 1970, 44.0, 79.8, 105262, nil, L["Lost Soul"], nil },
+                { 1970, 49.9, 80.1, 105262, nil, L["Lost Soul"], nil },
+            },
+            questID = 65516,
+            icon = 136071,
+            model = 105262,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Silithid Soul"],
+            guide = L["Unknown Guide"],
+            questID = 65512,
+            icon = 1623378,
+            model = 105258,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Snail Soul"],
+            guide = L["Unknown Guide"],
+            questID = 65519,
+            icon = 2530489,
+            model = 105265,
+            critter = true,
+            buildNumber = SJ.BUILD_9_2,
+        },
+        {
+            name = L["Tallstrider Soul"],
+            npc = L["Lost Soul"],
+            region = L["Torghast"],
+            guide = L["Torghast 9.2 Soulshape Guide"],
+            questID = 65508,
+            icon = 132198,
+            model = 105255,
+            buildNumber = SJ.BUILD_9_2,
+        },
     }
 
     -- This is a safety against showing soulshapes from a future build
@@ -997,10 +1179,11 @@ local function CreateDatabase()
 
     -- Generate source and guide fields for soulshapes
     for _, soulshape in ipairs(soulshapes) do
+        ResolveRegion(soulshape)
+        CreateLocations(soulshape)
         soulshape.source = CreateSourceString(soulshape)
         soulshape.guide = CreateGuideString(soulshape)
         soulshape.searchText = CreateSearchText(soulshape)
-        CreateLocations(soulshape)
     end
 
     SJ.Database = CreateFromMixins({
