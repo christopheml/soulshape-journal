@@ -110,7 +110,7 @@ L["Valfir the Unrelenting"] = "『冷酷』瓦菲爾"
 L["Spindlenose"] = "軸鼻"
 L["Shopkeeper"] = "店員"
 L["Mystic Rainbowhorn"] = "神秘虹角"
-L["Olea Manu"] = true
+L["Olea Manu"] = "歐利亞瑪努"
 L["Shifting Stargorger"] = "變異吞星者"
 
 -- Others
