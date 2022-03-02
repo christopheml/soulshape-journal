@@ -90,6 +90,7 @@ L["Riftbound Cache"] = "Rissgebundene Truhe"
 L["Wildseed Root Grain"] = "Wildsamenwurzelfaser"
 L["Repaired Riftkey"] = "Reparierter Rissschlüssel"
 L["Spectral Feed"] = "Spektrales Futter"
+L["Lost Comb"] = "Verlorene Wabe"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "Verlorene Seele"
@@ -110,6 +111,8 @@ L["Valfir the Unrelenting"] = "Valfir der Unerbittliche"
 L["Spindlenose"] = "Spindelzinken"
 L["Shopkeeper"] = "Ladenbesitzer"
 L["Mystic Rainbowhorn"] = "Mystisches Regenbogenhorn"
+L["Olea Manu"] = true
+L["Shifting Stargorger"] = "Veränderlicher Sternfresser"
 
 -- Others
 L["Burning Crusade Timewalking"] = "Zeitwanderungen von Burning Crusade"
@@ -178,7 +181,7 @@ L["Goat Soul"] = "Ziegenseele"
 L["Goat Soul Guide"] = "Kann in jeder Belohnungstruhe enthalten sein, nicht nur in denen der Nachtfae."
 
 L["Gryphon Soul"] = "Greifenseele"
-L["Gryphon Soul Guide"] = "Gelegentliche Belohnung für einen Sieg in Arenageplänkel, Arena, zufälligem oder gewertetem Schlachtfeld."
+L["Gryphon Soul Guide"] = "Gelegentliche Belohnung für einen Sieg in Arenageplänkel, in der Arena, auf zufälligem/gewertetem Schlachtfeld oder bei einer Rauferei."
 
 L["Gulper Soul"] = "Schluckerseele"
 L["Gulper Soul Guide"] = "Gelegentliche Belohnung von Ungezähmter Geist beliebiger Qualität unter Benutzung genau einer %s."
@@ -264,6 +267,37 @@ L["Wolfhawk Soul Guide"] = "Nutze die Seelengestalt bzw. Flackern, um durch die 
 
 L["Wyvern Soul"] = "Wyvernseele"
 L["Yak Soul"] = "Yakseele"
+
+-- 9.2 Soulshapes
+
+L["Armadillo Soul"] = "Gürteltierseele"
+L["Bat Soul"] = "Fledermausseele"
+
+L["Bee Soul"] = "Bienenseele"
+L["Bee Soul Guide"] = "Die blau leuchtende Wabe liegt auf einem Bienenstock oben an einer Steinsäule. Benötigt Fliegen."
+
+L["Brutosaur Soul"] = "Brutosaurusseele"
+L["Cervid Soul"] = "Cervidseele"
+L["Dragonhawk Soul"] = "Drachenfalkenseele"
+L["Elekk Soul"] = "Elekkseele"
+L["Gromit Soul"] = "Gromitseele"
+
+L["Penguin Soul"] = "Pinguinseele"
+L["Penguin Soul Guide"] = "Oben auf der Metallkugel. Interaktion mit der Verlorenen Seele startet die Quest. Benötigt Fliegen."
+
+L["Pig Soul"] = "Schweineseele"
+L["Ray Soul"] = "Rochenseele"
+L["Scorpid Soul"] = "Skorpidenseele"
+
+L["Sheep Soul"] = "Schafseele"
+L["Sheep Soul Guide"] = "Hat verschiedene Spawnpunkte. Interaktion mit der Verlorenen Seele startet die Quest."
+
+L["Silithid Soul"] = "Silithidenseele"
+L["Snail Soul"] = "Schneckenseele"
+L["Tallstrider Soul"] = "Weitschreiterseele"
+
+L["Unknown Guide"] = "Die Quelle dieser Seelengestalt ist zurzeit noch unbekannt."
+L["Torghast 9.2 Soulshape Guide"] = "Kann als Verlorenen Seele in Torghast auf Ebene 12 und höher spawnen."
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Spektrales Futter ist ein blau leuchtender Getreidesack auf dem Boden, der alle 1–2 Stunden für 10 Minuten erscheint. Durch Anklicken erhältst du den Gegenstand, er verbleibt dann für 10 Minuten in der Tasche und wird bei Benutzung verbraucht."
