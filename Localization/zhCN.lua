@@ -34,6 +34,8 @@ L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "如果您已经拥有%s，请点击以将�
 L["WARNING_NOT_NIGHT_FAE"] = "你不是法夜成员，\n现在你不能收集新的灵魂变形。"
 L["Available since"] = "来自"
 L["Soulshape Journal"] = "灵魂变形手册" -- Addon title, you may translate it but it's not necessary
+L["BLIZZARD_MAP_PIN_TOOLTIP"] = "<Ctrl+点击添加此位置的地图别针>"
+L["TOMTOM_WAYPOINT_TOOLTIP"] = "<Shift+点击添加此位置 TomTom 路径点>"
 
 -- Labels
 L["Loot"] = "拾取"
@@ -87,6 +89,8 @@ L["Stygian Lockbox"] = "冥河保险箱"
 L["Riftbound Cache"] = "隙缚宝箱"
 L["Wildseed Root Grain"] = "灵种根粒"
 L["Repaired Riftkey"] = "修复的裂隙钥匙"
+L["Spectral Feed"] = "幽魂饲料"
+L["Lost Comb"] = "失落蜂巢"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "失落之魂"
@@ -107,6 +111,8 @@ L["Valfir the Unrelenting"] = "冷酷的瓦尔菲尔"
 L["Spindlenose"] = "纺鼻"
 L["Shopkeeper"] = "商店老板"
 L["Mystic Rainbowhorn"] = "神秘的虹角"
+L["Olea Manu"] = true
+L["Shifting Stargorger"] = true
 
 -- Others
 L["Burning Crusade Timewalking"] = "燃烧的远征时空漫游"
@@ -175,7 +181,7 @@ L["Goat Soul"] = "山羊之魂"
 L["Goat Soul Guide"] = "可以从任意盟约使命宝箱中掉落，并不只限法夜宝箱。"
 
 L["Gryphon Soul"] = "狮鹫之魂"
-L["Gryphon Soul Guide"] = "在练习赛、竞技场、随机战场或评级战场中获胜时可能会获得奖励。"
+L["Gryphon Soul Guide"] = "在练习赛、竞技场、随机战场，评级战场或人机对决乱斗中获胜时可能会获得奖励。"
 
 L["Gulper Soul"] = "巨口蟾之魂"
 L["Gulper Soul Guide"] = "可以从任何品质的精魂获得，但只用一个%s。"
@@ -261,3 +267,37 @@ L["Wolfhawk Soul Guide"] = "使用灵魂变形穿过屏障。"
 
 L["Wyvern Soul"] = "双足飞龙之魂"
 L["Yak Soul"] = "牦牛之魂"
+
+-- 9.2 Soulshapes
+
+L["Armadillo Soul"] = "犰狳之魂"
+L["Bat Soul"] = "蝙蝠之魂"
+
+L["Bee Soul"] = "蜜蜂之魂"
+L["Bee Soul Guide"] = "灵魂形状的蜂巢位于顶部。需要飞行。"
+
+L["Brutosaur Soul"] = "雷龙之魂 "
+L["Cervid Soul"] = "元鹿之魂"
+L["Dragonhawk Soul"] = "龙鹰之魂"
+L["Elekk Soul"] = "雷象之魂"
+L["Gromit Soul"] = "跃足兽之魂"
+
+L["Penguin Soul"] = "企鹅之魂"
+L["Penguin Soul Guide"] = "在金属球的顶部。与企鹅失落之魂互动以获得灵魂变形。需要飞行。"
+
+L["Pig Soul"] = "猪之魂"
+L["Ray Soul"] = "鳐鱼之魂"
+L["Scorpid Soul"] = "蝎子之魂"
+
+L["Sheep Soul"] = "绵羊之魂"
+L["Sheep Soul Guide"] = "多个刷新位置。与绵羊失落之魂互动以获得灵魂变形。需要飞行。"
+
+L["Silithid Soul"] = "异种蝎之魂"
+L["Snail Soul"] = "蜗牛之魂"
+L["Tallstrider Soul"] = "陆行鸟之魂"
+
+L["Unknown Guide"] = "此灵魂变形来源当前未知。"
+L["Torghast 9.2 Soulshape Guide"] = "此灵魂可以在托加斯特等级12或以上期间解救。"
+
+-- Tooltips on maps
+L["Spectral Feed Tooltip"] = "幽魂饲料是地上发光的蓝色谷物袋，每1-2小时刷新一次。点击它后，会在包中获得该物品，持续时间10分钟，在使用时消耗。"
