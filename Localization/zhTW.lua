@@ -22,21 +22,22 @@ SOFTWARE.
 ]]
 
 local ADDON, _ = ...
-
 local L = LibStub("AceLocale-3.0"):NewLocale(ADDON, "zhTW", false)
 if not L then return end
 
 -- UI elements
 L["TAB_TITLE"] = "靈魂幻體"
 L["COUNT_LABEL"] = "總數"
-L["UNTRACKABLE_TOOLTIP_TITLE"] = "此靈魂幻體無法經由插件偵測"
-L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "如你已經擁有，點擊圖標 %s 來標記完成。"
-L["WARNING_NOT_NIGHT_FAE"] = "你並非暗夜妖精的成員，你現在不能收集新的靈魂幻體。"
+L["UNTRACKABLE_TOOLTIP_TITLE"] = "此靈魂幻體無法經由插件自動偵測"
+L["UNTRACKABLE_TOOLTIP_CLICK_ME"] = "如你已經擁有，點擊圖標 %s 來手動標記為已收藏。"
+L["WARNING_NOT_NIGHT_FAE"] = "你現在並非暗夜妖精的成員，不能收集新的靈魂幻體。"
 L["Available since"] = "新增於"
 L["Soulshape Journal"] = "靈魂幻體手冊" -- Addon title, you may translate it but it's not necessary
+L["BLIZZARD_MAP_PIN_TOOLTIP"] = "<按下Ctrl + 滑鼠左鍵可新增一個指向此座標的地圖標記>"
+L["TOMTOM_WAYPOINT_TOOLTIP"] = "<按下Shift + 滑鼠左鍵可新增一個指向此座標的 TomTom 路徑點>"
 
 -- Labels
-L["Loot"] = "拾取"
+L["Loot"] = "掉落"
 L["Quest"] = "任務"
 L["Campaign"] = "戰役"
 L["World Event"] = "世界事件"
@@ -46,7 +47,7 @@ L["Region"] = "區域"
 L["Cost"] = "費用"
 L["Faction"] = "陣營"
 L["Profession"] = "專業技能"
-L["Covenant Feature"] = "誓盟特色建築"
+L["Covenant Feature"] = "誓盟特色"
 L["Difficulty"] = "難度"
 L["Coordinates"] = "坐標"
 L["Renown"] = "名望"
@@ -87,6 +88,8 @@ L["Stygian Lockbox"] = "冥魄帶鎖箱"
 L["Riftbound Cache"] = "隙縛寶箱"
 L["Wildseed Root Grain"] = "野性種子根粒"
 L["Repaired Riftkey"] = "修復的裂隙鑰匙"
+L["Spectral Feed"] = "幽靈雞飼料"
+L["Lost Comb"] = "失落的蜂巢"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "失落的靈魂"
@@ -107,6 +110,8 @@ L["Valfir the Unrelenting"] = "『冷酷』瓦菲爾"
 L["Spindlenose"] = "軸鼻"
 L["Shopkeeper"] = "店員"
 L["Mystic Rainbowhorn"] = "神秘虹角"
+L["Olea Manu"] = "歐利亞瑪努"
+L["Shifting Stargorger"] = "變異吞星者"
 
 -- Others
 L["Burning Crusade Timewalking"] = "燃燒的遠征時光漫遊"
@@ -261,3 +266,37 @@ L["Wolfhawk Soul Guide"] = "使用靈魂幻體來穿過屏障。"
 
 L["Wyvern Soul"] = "雙足飛龍靈魂"
 L["Yak Soul"] = "氂牛靈魂"
+
+-- 9.2 Soulshapes
+
+L["Armadillo Soul"] = "犰狳靈魂"
+L["Bat Soul"] = "蝙蝠靈魂"
+
+L["Bee Soul"] = "蜜蜂靈魂"
+L["Bee Soul Guide"] = "靈魂型態的小蜂巢坐落於大蜂巢的頂端。需要解鎖飛行。"
+
+L["Brutosaur Soul"] = "雷龍靈魂"
+L["Cervid Soul"] = "原鹿靈魂"
+L["Dragonhawk Soul"] = "龍鷹靈魂"
+L["Elekk Soul"] = "伊萊克靈魂"
+L["Gromit Soul"] = "哥羅米靈魂"
+
+L["Penguin Soul"] = "企鵝靈魂"
+L["Penguin Soul Guide"] = "金屬巨球頂端。點擊企鵝樣貌的失落靈魂以獲取之。需要解鎖飛行"
+
+L["Pig Soul"] = "豬靈魂"
+L["Ray Soul"] = "魟魚靈魂"
+L["Scorpid Soul"] = "毒蠍靈魂"
+
+L["Sheep Soul"] = "綿羊靈魂"
+L["Sheep Soul Guide"] = "多個重生點。點擊綿羊外貌的失落靈魂以獲取之。"
+
+L["Silithid Soul"] = "異種蠍靈魂"
+L["Snail Soul"] = "蝸牛靈魂"
+L["Tallstrider Soul"] = "陸行鳥靈魂"
+
+L["Unknown Guide"] = "獲取管道目前未知。"
+L["Torghast 9.2 Soulshape Guide"] = "托迦司難度 12 或更高的區域，樓層內機率出現，援救後取得。
+
+-- Tooltips on maps
+L["Spectral Feed Tooltip"] = "幽靈雞飼料是地上一袋散發藍光的穀物，每一到兩小時重生。點擊後會出現在背包裡，且持續十分鐘，使用後消耗。"
