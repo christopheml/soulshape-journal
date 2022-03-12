@@ -297,7 +297,7 @@ L["Snail Soul"] = "Schneckenseele"
 L["Tallstrider Soul"] = "Weitschreiterseele"
 
 L["Unknown Guide"] = "Die Quelle dieser Seelengestalt ist zurzeit noch unbekannt."
-L["Torghast 9.2 Soulshape Guide"] = "Kann als Verlorenen Seele in Torghast auf Ebene 12 und höher spawnen."
+L["Torghast 9.2 Soulshape Guide"] = "Kann als Verlorene Seele in Torghast spawnen."
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Spektrales Futter ist ein blau leuchtender Getreidesack auf dem Boden, der alle 1–2 Stunden für 10 Minuten erscheint. Durch Anklicken erhältst du den Gegenstand, er verbleibt dann für 10 Minuten in der Tasche und wird bei Benutzung verbraucht."
