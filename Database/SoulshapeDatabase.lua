@@ -259,7 +259,7 @@ local function ResolveRegion(soulshape)
     end
 end
 
-local PIN_DATA_OLEA_MANU = { { 1970, 37.0, 44.6, 101851, nil, L["Olea Manu"], nil } }
+local PIN_DATA_OLEA_MANU = { { 1970, 37.0, 44.6, 101851, nil, L["Olea Manu"], L["Olea Manu Tooltip"] } }
 
 local function CreateDatabase()
     local soulshapes = {
