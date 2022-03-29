@@ -296,7 +296,7 @@ L["Snail Soul"] = "蝸牛靈魂"
 L["Tallstrider Soul"] = "陸行鳥靈魂"
 
 L["Unknown Guide"] = "獲取管道目前未知。"
-L["Torghast 9.2 Soulshape Guide"] = "托迦司難度 12 或更高的區域，樓層內機率出現，援救後取得。
+L["Torghast 9.2 Soulshape Guide"] = "托迦司難度 12 或更高的區域，樓層內機率出現，援救後取得。"
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "幽靈雞飼料是地上一袋散發藍光的穀物，每一到兩小時重生。點擊後會出現在背包裡，且持續十分鐘，使用後消耗。"

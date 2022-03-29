@@ -111,8 +111,8 @@ L["Valfir the Unrelenting"] = "Valfir le Tenace"
 L["Spindlenose"] = "Fusenez"
 L["Shopkeeper"] = "Commerçant"
 L["Mystic Rainbowhorn"] = "Mystique Arc-en-Corne"
-L["Olea Manu"] = true
-L["Shifting Stargorger"] = true
+L["Olea Manu"] = "Oléa Manu"
+L["Shifting Stargorger"] = "Dévoreur d'étoile changeant"
 
 -- Others
 L["Burning Crusade Timewalking"] = "Marcheurs du temps de Burning Crusade"
@@ -302,3 +302,4 @@ L["Torghast 9.2 Soulshape Guide"] = "Cette âme peut être libérée pendant une
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Les cérales spectrales sont un sac de grain luisant bleu posé sur le sol, qui réapparaît toutes les 1 à 2 heures. En le cliquant, vous obtenez l'objet dans vos sacs, qui dure 10 minutes et est consommé à l'utilisation."
+L["Olea Manu Tooltip"] = "Pour accéder à Oléa Manu, vous devez débloquer |T4238929:0|t |cFFFFFFFFCompréhension altonienne|r et terminer la série de quêtes |A:smallquestbang:16:16|a|cFFFFFFFFDe Jiro à héros|r."
