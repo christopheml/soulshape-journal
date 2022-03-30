@@ -301,3 +301,4 @@ L["Torghast 9.2 Soulshape Guide"] = "Kann als Verlorene Seele in Torghast spawne
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Spektrales Futter ist ein blau leuchtender Getreidesack auf dem Boden, der alle 1–2 Stunden für 10 Minuten erscheint. Durch Anklicken erhältst du den Gegenstand, er verbleibt dann für 10 Minuten in der Tasche und wird bei Benutzung verbraucht."
+L["Olea Manu Tooltip"] = "Um Olea Manu freizuschalten, muss |T4238929:0| t|cFFFFFFFFVerständnis des Altesischen|r erforscht und die|A:smallquestbang:16:16|a|cFFFFFFFFJiroische Taten|r-Questreihe abgeschlossen sein."
