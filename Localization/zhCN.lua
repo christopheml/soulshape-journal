@@ -111,8 +111,8 @@ L["Valfir the Unrelenting"] = "冷酷的瓦尔菲尔"
 L["Spindlenose"] = "纺鼻"
 L["Shopkeeper"] = "商店老板"
 L["Mystic Rainbowhorn"] = "神秘的虹角"
-L["Olea Manu"] = true
-L["Shifting Stargorger"] = true
+L["Olea Manu"] = "奥利·玛努"
+L["Shifting Stargorger"] = "变换的吞星者"
 
 -- Others
 L["Burning Crusade Timewalking"] = "燃烧的远征时空漫游"
