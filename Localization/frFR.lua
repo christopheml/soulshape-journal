@@ -90,7 +90,8 @@ L["Riftbound Cache"] = "Cache liée à la faille"
 L["Wildseed Root Grain"] = "Grain de racine sauvage"
 L["Repaired Riftkey"] = "Clé de faille réparée"
 L["Spectral Feed"] = "Céréales spectrales"
-L["Lost Comb"] = true
+L["Lost Comb"] = "Rayon de miel égaré"
+L["Shrouded Cypher Cache"] = "Cache cryptique dissimulée"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "Âme égarée"
@@ -113,6 +114,9 @@ L["Shopkeeper"] = "Commerçant"
 L["Mystic Rainbowhorn"] = "Mystique Arc-en-Corne"
 L["Olea Manu"] = "Oléa Manu"
 L["Shifting Stargorger"] = "Dévoreur d'étoile changeant"
+L["Prototype Pantheon"] = "Panthéon des prototypes"
+L["The Jailer"] = "Le Geôlier"
+L["Taskmaster Xy'pro"] = "Sous-chef Xy’pro"
 
 -- Others
 L["Burning Crusade Timewalking"] = "Marcheurs du temps de Burning Crusade"
@@ -133,6 +137,7 @@ L["Soulshape"] = "Forme d’âme"
 L["Crittershape"] = "Forme de bestiole"
 L["Pilgrim's Bounty"] = "Les Bienfaits du pèlerin"
 L["Covenant Callings reward chests"] = "Coffres de récompense d'appels de congrégation"
+L["High Value Cache"] = "Cache précieuse"
 
 L["Normal"] = true
 L["Heroic"] = "Héroïque"
@@ -280,7 +285,9 @@ L["Brutosaur Soul"] = "Âme de brutosaure"
 L["Cervid Soul"] = "Âme de cervidé"
 L["Dragonhawk Soul"] = "Âme de faucon-dragon"
 L["Elekk Soul"] = "Âme d’elekk"
+
 L["Gromit Soul"] = "Âme de gronil"
+L["Gromit Soul Guide"] = "Pour voir les caches, vous devez porter une pièce d'équipement cryptique avec |cFFFFFFFFDénicheur de trésors|r et demander à Pocopoc de \"chercher des objets intéressants\" pour avoir le buff |T134442:0|t |cFFFFFFFFPocopoc perspicace|r."
 
 L["Penguin Soul"] = "Âme de pingouin"
 L["Penguin Soul Guide"] = "Au sommet de l'orbe métallique. Interagissez avec l'âme égarée de pingouin pour obtenir la forme d'âme. Requiert le vol."
@@ -293,13 +300,18 @@ L["Sheep Soul"] = "Âme de mouton"
 L["Sheep Soul Guide"] = "Plusieurs emplacements de spawn possibles. Interagissez avec l'âme égarée de mouton pour obtenir la forme d'âme."
 
 L["Silithid Soul"] = "Âme de silithide"
+
 L["Snail Soul"] = "Âme d’escargot"
+L["Snail Soul Guide"] = "Tankez le Sous-chef Xy’pro avec au moins 3 autres mobs jusqu'à ce qu'il obtienne le buff |T465877:0|t |cFFFFFFFFContrôle de la sécurité|r, tuez-le, puis utilisez |T465877:0|t |cff14b200Orbe de prise de contrôle de la sécurité|r pour accéder à la cache."
+
 L["Tallstrider Soul"] = "Âme de haut-trotteur"
 
 L["Unknown Guide"] = "La source de cette forme d'âme est inconnue pour le moment."
 L["Torghast 9.2 Soulshape Guide"] = "Cette âme peut être libérée pendant une exploration de Tourment de niveau 12 ou plus."
 
-
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Les cérales spectrales sont un sac de grain luisant bleu posé sur le sol, qui réapparaît toutes les 1 à 2 heures. En le cliquant, vous obtenez l'objet dans vos sacs, qui dure 10 minutes et est consommé à l'utilisation."
 L["Olea Manu Tooltip"] = "Pour accéder à Oléa Manu, vous devez débloquer |T4238929:0|t |cFFFFFFFFCompréhension altonienne|r et terminer la série de quêtes |A:smallquestbang:16:16|a|cFFFFFFFFDe Jiro à héros|r."
+L["Shrouded Cypher Cache Tooltip"] = "Activez |T134442:0|t |cFFFFFFFFPocopoc perspicace|r tout en portant une pièce d'équipement cryptique avec |cFFFFFFFFDénicheur de trésors|r pour voir les caches."
+L["High Value Cache Tooltip"] = "La cache peut être déverrouillée par un jour avec une |T465877:0|t |cff14b200Orbe de prise de contrôle de la sécurité|r, obtenue sur le Sous-chef Xy’pro.|n|nTous les joueurs du raid peuvent loot la cache indépendamment de qui l'a ouverte."
+L["Taskmaster Xy'pro Tooltip"] = "Donne une |T465877:0|t |cff14b200Orbe de prise de contrôle de la sécurité|r losqu'il est tué avec le buff |T465877:0|t |cFFFFFFFFContrôle de la sécurité|r buff.|n|nPour chaque mob additionnel autour de lui, Xy'pro gagne une charge de |T135740:0|t |cFFFFFFFFSynergie|r. A 3 charges, il gagne |T465877:0|t |cFFFFFFFFContrôle de la sécurité|r."

@@ -1,5 +1,6 @@
-* Added all 9.2 datamined soulshapes with available guides as of 9.2 launch
-* Added a map on many soulshapes to see exactly where things are
-* Added Comp Stomp Brawl as a source for Gryphon and Wyvern soulshapes (thanks to WuSage3)
+* Added missing 9.2 soulshapes information (thanks to covsoul)
+* Fixed Torghast souls guide (thanks to covsoul)
+* Updated French translation
 * Updated German translation (thanks to covsoul)
-* Updated Korean translation (thanks to chhanz)
+* Updated Chinese (Simplified) translation (thanks to adavak)
+* Updated Chinese (Traditional) translation (thanks to OwenFeline)

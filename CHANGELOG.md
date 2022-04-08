@@ -1,3 +1,12 @@
+# 1.1 
+
+* Added missing 9.2 soulshapes information (thanks to covsoul)
+* Fixed Torghast souls guide (thanks to covsoul)
+* Updated French translation
+* Updated German translation (thanks to covsoul)
+* Updated Chinese (Simplified) translation (thanks to adavak)
+* Updated Chinese (Traditional) translation (thanks to OwenFeline)
+
 # 1.0
 
 * Added all 9.2 datamined soulshapes with available guides as of 9.2 launch
