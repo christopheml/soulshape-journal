@@ -287,7 +287,7 @@ L["Dragonhawk Soul"] = "龍鷹靈魂"
 L["Elekk Soul"] = "伊萊克靈魂"
 
 L["Gromit Soul"] = "哥羅米靈魂"
-L["Gromit Soul Guide"] = "要想看到寶箱，你得穿上帶有|cFFFFFFFF尋寶者|r效果的暗語裝備，接著點擊波克波可要求它\「留意值得注意的物體」\"，以獲得|T134442:0|t |cFFFFFFFF感知型波克波可|r的增益效果。"
+L["Gromit Soul Guide"] = "要想看到寶箱，你得穿上帶有|cFFFFFFFF尋寶者|r效果的暗語裝備，接著點擊波克波可要求它「留意值得注意的物體」，以獲得|T134442:0|t |cFFFFFFFF感知型波克波可|r的增益效果。"
 
 L["Penguin Soul"] = "企鵝靈魂"
 L["Penguin Soul Guide"] = "金屬巨球頂端。點擊企鵝樣貌的失落靈魂以獲取之。需要解鎖飛行。"
