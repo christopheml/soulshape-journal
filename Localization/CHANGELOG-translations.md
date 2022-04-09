@@ -2,6 +2,23 @@ This file contains all keys that were added or changed by version. It is meant t
 identify keys that may be missing or are no longer correct. Keys are displayed like `this` and 
 are provided with a bit of context to make translations easier.
 
+# 1.1
+
+## Added
+
+* `Olea Manu Tooltip`
+* `Prototype Pantheon` (boss from Sepulcher raid)
+* `The Jailer` (boss from Sepulcher raid)
+* `Taskmaster Xy'pro` (NPC from Sepulcher raid)
+* `Taskmaster Xy'pro Tooltip`
+* `Shrouded Cypher Cache` (treasure in Zereth Mortis)
+* `Shrouded Cypher Cache Tooltip`
+* `Gromit Soul Guide`
+* `Snail Soul Guide`
+* `Enlightened Broker Supplies` (Enlightened paragon cache)
+* `High Value Cache` (treasure for Sepulcher raid)
+* `High Value Cache Tooltip`
+
 # 1.0
 
 ## Added

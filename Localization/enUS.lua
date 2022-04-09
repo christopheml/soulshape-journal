@@ -90,6 +90,8 @@ L["Wildseed Root Grain"] = true
 L["Repaired Riftkey"] = true
 L["Spectral Feed"] = true
 L["Lost Comb"] = true
+L["Shrouded Cypher Cache"] = true
+L["Enlightened Broker Supplies"] = true
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = true
@@ -112,6 +114,9 @@ L["Shopkeeper"] = true
 L["Mystic Rainbowhorn"] = true
 L["Olea Manu"] = true
 L["Shifting Stargorger"] = true
+L["Prototype Pantheon"] = true
+L["The Jailer"] = true
+L["Taskmaster Xy'pro"] = true
 
 -- Others
 L["Burning Crusade Timewalking"] = true
@@ -132,6 +137,7 @@ L["Soulshape"] = true
 L["Crittershape"] = true
 L["Pilgrim's Bounty"] = true
 L["Covenant Callings reward chests"] = true
+L["High Value Cache"] = true
 
 L["Normal"] = true
 L["Heroic"] = true
@@ -279,7 +285,9 @@ L["Brutosaur Soul"] = true
 L["Cervid Soul"] = true
 L["Dragonhawk Soul"] = true
 L["Elekk Soul"] = true
+
 L["Gromit Soul"] = true
+L["Gromit Soul Guide"] = "To see the caches, you'll need to wear a piece of Cypher Equipment with |cFFFFFFFFTreasure Finder|r and ask Pocopoc to \"look out for noteworthy objects\" to get the |T134442:0|t |cFFFFFFFFPerceptive Pocopoc|r buff."
 
 L["Penguin Soul"] = true
 L["Penguin Soul Guide"] = "On top of the metal orb. Interact with the penguin Lost Soul to obtain the soulshape. Requires flying."
@@ -292,7 +300,10 @@ L["Sheep Soul"] = true
 L["Sheep Soul Guide"] = "Multiple spawn locations. Interact with the sheep Lost Soul to obtain the soulshape."
 
 L["Silithid Soul"] = true
+
 L["Snail Soul"] = true
+L["Snail Soul Guide"] = "Tank Taskmaster Xy'pro with at least 3 other mobs until he gets the |T465877:0|t |cFFFFFFFFSecurity Override|r buff, kill him, then use the |T465877:0|t |cff14b200Security Override Orb|r to access the cache."
+
 L["Tallstrider Soul"] = true
 
 L["Unknown Guide"] = "Source of this soulshape is currently unknown."
@@ -300,4 +311,7 @@ L["Torghast 9.2 Soulshape Guide"] = "This soul can be freed during a Torghast ru
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Spectral Feed is a glowing blue sack of grain on the ground, respawning every 1-2 hours. Upon clicking it, you get the item in your bags, with a 10 minutes duration, that is consumed on use."
-L["Olea Manu Tooltip"] = "To access Olea Manu, you'll need to unlock |T4238929:0| t|cFFFFFFFFAltonian Understanding|r and complete the|A:smallquestbang:16:16|a|cFFFFFFFFJiro to Hero|r questline."
+L["Olea Manu Tooltip"] = "To access Olea Manu, you'll need to unlock |T4238929:0|t |cFFFFFFFFAltonian Understanding|r and complete the|A:smallquestbang:16:16|a|cFFFFFFFFJiro to Hero|r questline."
+L["Shrouded Cypher Cache Tooltip"] = "Activate Pocopoc's |T134442:0|t |cFFFFFFFFPerceptive Pocopoc|r buff while wearing a piece of Cypher Equipment with |cFFFFFFFFTreasure Finder|r to see the caches."
+L["High Value Cache Tooltip"] = "The cache can be unlocked by a player with |T465877:0|t |cff14b200Security Override Orb|r, dropped by Taskmaster Xy'pro.|n|nAll players in the raid can loot the cache regardless of who opened it."
+L["Taskmaster Xy'pro Tooltip"] = "Drops |T465877:0|t |cff14b200Security Override Orb|r when killed with the |T465877:0|t |cFFFFFFFFSecurity Override|r buff.|n|nFor every additional mob around him, Xy'pro gets a stack of |T135740:0|t |cFFFFFFFFSynergy|r. At 3 stacks he gets |T465877:0|t |cFFFFFFFFSecurity Override|r."
