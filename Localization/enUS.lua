@@ -55,21 +55,7 @@ L["Spell"] = true
 L["Vendor"] = true
 
 -- Zone Names
-L["Shadowlands"] = true
-L["Ardenweald"] = true
-L["Bastion"] = true
-L["Revendreth"] = true
-L["Maldraxxus"] = true
-L["Oribos"] = true
-L["The Maw"] = true
-L["Torghast"] = true
 L["The Adamant Vaults"] = true
-L["Korthia"] = true
-L["De Other Side"] = true
-L["Mists of Tirna Scithe"] = true
-L["Tazavesh, the Veiled Market"] = true
-L["Castle Nathria"] = true
-L["Sanctum of Domination"] = true
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = true

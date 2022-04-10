@@ -55,21 +55,7 @@ L["Spell"] = "法術"
 L["Vendor"] = "商人"
 
 -- Zone Names
-L["Shadowlands"] = "暗影之境"
-L["Ardenweald"] = "亞登曠野"
-L["Bastion"] = "昇靈堡"
-L["Revendreth"] = "瑞文崔斯"
-L["Maldraxxus"] = "瑪卓薩斯"
-L["Oribos"] = "奧睿博斯"
-L["The Maw"] = "淵喉"
-L["Torghast"] = "托迦司"
 L["The Adamant Vaults"] = "不滅寶庫"
-L["Korthia"] = "科西亞"
-L["De Other Side"] = "彼界境地"
-L["Mists of Tirna Scithe"] = "特那希迷霧"
-L["Tazavesh, the Veiled Market"] = "塔札維許，帷幕市集"
-L["Castle Nathria"] = "納薩亞城"
-L["Sanctum of Domination"] = "統御聖所"
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = "佐司特的惡意"

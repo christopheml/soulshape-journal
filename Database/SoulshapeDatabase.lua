@@ -249,13 +249,24 @@ local function CreateLocations(soulshape)
 end
 
 local function ResolveRegion(soulshape)
+    local function ResolveRegionForVendor(vendor)
+        if vendor and vendor.zoneID then
+            vendor.region = SJ:GetMapName(vendor.zoneID)
+            vendor.zoneID = nil
+        end
+    end
+
     if soulshape.zoneID then
         soulshape.region = SJ:GetMapName(soulshape.zoneID)
         soulshape.zoneID = nil
     end
-    if soulshape.vendor and soulshape.vendor.zoneID then
-        soulshape.vendor.region = SJ:GetMapName(soulshape.vendor.zoneID)
-        soulshape.vendor.zoneID = nil
+
+    if isarray(soulshape.vendor) then
+        for _,v in ipairs(soulshape.vendor) do
+            ResolveRegionForVendor(v)
+        end
+    else
+        ResolveRegionForVendor(soulshape.vendor)
     end
 end
 
@@ -296,7 +307,7 @@ local function CreateDatabase()
         {
             name = L["Bunny Soul"],
             worldQuest = L["Pet Battle"],
-            region = L["Shadowlands"],
+            zoneID = 1550,
             guide = L["Bunny Soul Guide"],
             critter = true,
             questID = 64984,
@@ -308,7 +319,7 @@ local function CreateDatabase()
         {
             name = L["Cat Soul"],
             npc = L["Lost Soul"],
-            region = L["Ardenweald"],
+            zoneID = 1565,
             guide = L["Cat Soul Guide"],
             pinData = {
                 { 1565, 37.6, 36.2, 103084, nil, L["Lost Soul"], nil },
@@ -326,7 +337,7 @@ local function CreateDatabase()
         {
             name = L["Cat Soul (Well Fed)"],
             npc = L["Ma'oh"],
-            region = L["Ardenweald"],
+            zoneID = 1565,
             guide = L["Cat Soul (Well Fed) Guide"],
             pinData = {
                 { 1702, 58, 69, 103084, nil, L["Ma'oh"], nil },
@@ -342,7 +353,7 @@ local function CreateDatabase()
         {
             name = L["Chicken Soul"],
             npc = L["Lost Soul"],
-            region = L["Revendreth"],
+            zoneID = 1525,
             pinData = {
                 { 1525, 63.18, 42.76, 102363, nil, L["Lost Soul"], nil },
                 { 1525, 63.7, 61.6, nil, 134058, L["Spectral Feed"], L["Spectral Feed Tooltip"] }
@@ -378,7 +389,7 @@ local function CreateDatabase()
         {
             name = L["Corgi Soul"],
             npc = L["Sparkle"],
-            region = L["Ardenweald"],
+            zoneID = 1565,
             guide = L["Corgi Soul Guide"],
             critter = true,
             questID = 64938,
@@ -393,12 +404,12 @@ local function CreateDatabase()
             vendor = {
                 {
                     name = L["Aithlyn"],
-                    region = L["Ardenweald"],
+                    zoneID = 1565,
                     cost = { id = 1813, amount = 2500 },
                 },
                 {
                     name = L["Liawyn"],
-                    region = L["Oribos"],
+                    zoneID = 1670,
                     cost = { id = 1813, amount = 2500 },
                 }
             },
@@ -416,7 +427,7 @@ local function CreateDatabase()
             name = L["Cricket Soul"],
             vendor = {
                 name = L["Spindlenose"],
-                region = L["Ardenweald"],
+                zoneID = 1565,
                 cost = {
                     { id = 1813, amount = 15000 },
                     { id = 1885, amount = 25 },
@@ -435,7 +446,7 @@ local function CreateDatabase()
         {
             name = L["Direhorn Soul"],
             loot = L["The Grand Menagerie"],
-            region = L["Tazavesh, the Veiled Market"],
+            zoneID = 1990,
             questID = 63607,
             icon = 791593,
             model = 100626,
@@ -446,7 +457,7 @@ local function CreateDatabase()
             name = L["Eagle Soul"],
             vendor = {
                 name = L["Master Clerk Salorn"],
-                region = L["Ardenweald"],
+                zoneID = 1565,
                 cost = { id = 1813, amount = 20000 },
             },
             pinData = {
@@ -472,7 +483,7 @@ local function CreateDatabase()
         {
             name = L["Frog Soul"],
             profession = PROFESSIONS_FISHING,
-            region = L["Shadowlands"],
+            zoneID = 1550,
             guide = L["Frog Soul Guide"],
             critter = true,
             questID = 64994,
@@ -484,7 +495,7 @@ local function CreateDatabase()
         {
             name = L["Goat Soul"],
             loot = L["Covenant Callings reward chests"],
-            region = L["Shadowlands"],
+            zoneID = 1550,
             guide = L["Goat Soul Guide"],
             questID = 65008,
             icon = 877477,
@@ -519,7 +530,7 @@ local function CreateDatabase()
         {
             name = L["Hippo Soul"],
             loot = Item(3753378, L["War Chest of the Wild Hunt"], RARE_BLUE_COLOR),
-            region = L["The Maw"],
+            zoneID = 1543,
             guide = L["Hippo Soul Guide"],
             questID = 63608,
             icon = 1044490,
@@ -573,7 +584,7 @@ local function CreateDatabase()
             faction = { id = 2464, level = 5 },
             vendor = {
                 name = L["Spindlenose"],
-                region = L["Ardenweald"],
+                zoneID = 1565,
                 cost = {
                     { id = 1813, amount = 1500 },
                     { id = 1885, amount = 5 },
@@ -593,7 +604,7 @@ local function CreateDatabase()
             faction = { id = 2464, level = 5 },
             vendor = {
                 name = L["Spindlenose"],
-                region = L["Ardenweald"],
+                zoneID = 1565,
                 cost = {
                     { id = 1813, amount = 1500 },
                     { id = 1885, amount = 5 },
@@ -622,7 +633,7 @@ local function CreateDatabase()
             name = L["Moose Soul"],
             vendor = {
                 name = L["Master Clerk Salorn"],
-                region = L["Ardenweald"],
+                zoneID = 1565,
                 cost = { id = 1813, amount = 1500 },
             },
             guide = L["Moose Soul Guide"],
@@ -637,7 +648,7 @@ local function CreateDatabase()
         {
             name = L["Otter Soul"],
             npc = L["Lost Soul"],
-            region = L["Bastion"],
+            zoneID = 1533,
             guide = L["Otter Soul Guide"],
             pinData = {
                 { 1533, 49.8, 46.8, 100637, nil, L["Lost Soul"], nil },
@@ -662,7 +673,7 @@ local function CreateDatabase()
         {
             name = L["Owlcat Soul"],
             loot = L["Lady Sylvanas Windrunner"],
-            region = L["Sanctum of Domination"],
+            zoneID = 2002,
             difficulty = L["Heroic"],
             questID = 62432,
             icon = 132192,
@@ -685,7 +696,7 @@ local function CreateDatabase()
             name = L["Prairie Dog Soul"],
             vendor = {
                 name = L["Master Clerk Salorn"],
-                region = L["Ardenweald"],
+                zoneID = 1565,
                 cost = { id = 1813, amount = 10000 },
             },
             pinData = {
@@ -702,7 +713,7 @@ local function CreateDatabase()
             name = L["Ram Soul"],
             vendor = {
                 name = L["Spindlenose"],
-                region = L["Ardenweald"],
+                zoneID = 1565,
                 cost = {
                     { id = 1813, amount = 25000 },
                     { id = 1885, amount = 50 },
@@ -719,7 +730,7 @@ local function CreateDatabase()
         {
             name = L["Raptor Soul"],
             loot = L["Mueh'Zala"],
-            region = L["De Other Side"],
+            zoneID = 1680,
             difficulty = L["Any"],
             questID = 62433,
             icon = 838683,
@@ -731,7 +742,7 @@ local function CreateDatabase()
             name = L["Rat Soul"],
             vendor = {
                 name = L["Shopkeeper"],
-                region = L["Tazavesh, the Veiled Market"],
+                zoneID = 1989,
                 cost = {
                     { gold = 750 },
                     { custom = Item(1542861, L["Synvir Lockbox"], UNCOMMON_GREEN_COLOR), amount = 2 },
@@ -749,7 +760,7 @@ local function CreateDatabase()
         {
             name = L["Runestag Soul"],
             loot = L["Mystic Rainbowhorn"],
-            region = L["Ardenweald"],
+            zoneID = 1565,
             guide = L["Runestag Soul Guide"],
             questID = 62434,
             icon = 3087326,
@@ -759,7 +770,7 @@ local function CreateDatabase()
         {
             name = L["Saurid Soul"],
             npc = L["Lost Soul"],
-            region = L["Maldraxxus"],
+            zoneID = 1536,
             guide = L["Saurid Soul Guide"],
             pinData = {
                 { 1536, 44.8, 67.8, 103067, nil, L["Lost Soul"], nil },
@@ -773,7 +784,7 @@ local function CreateDatabase()
         {
             name = L["Saurolisk Hatchling Soul"],
             loot = L["The Adamant Vaults"],
-            region = L["Torghast"],
+            zoneID = 1833,
             critter = true,
             questID = 64993,
             icon = 2027844,
@@ -784,7 +795,7 @@ local function CreateDatabase()
         {
             name = L["Saurolisk Soul"],
             loot = L["The Adamant Vaults"],
-            region = L["Torghast"],
+            zoneID = 1833,
             questID = 63605,
             icon = 2027929,
             model = 100624,
@@ -794,7 +805,7 @@ local function CreateDatabase()
         {
             name = L["Shadowstalker Soul"],
             loot = L["Valfir the Unrelenting"],
-            region = L["Ardenweald"],
+            zoneID = 1565,
             pinData = {
                 { 1565, 30.6, 55.0, 96087, nil, L["Valfir the Unrelenting"], nil },
             },
@@ -817,7 +828,7 @@ local function CreateDatabase()
         {
             name = L["Shrieker Soul"],
             loot = L["Mistcaller"],
-            region = L["Mists of Tirna Scithe"],
+            zoneID = 1669,
             difficulty = L["Any"],
             questID = 62436,
             icon = 952507,
@@ -828,7 +839,7 @@ local function CreateDatabase()
         {
             name = L["Snake Soul"],
             loot = L["Covenant Callings reward chests"],
-            region = L["Shadowlands"],
+            zoneID = 1550,
             guide = L["Goat Soul Guide"],
             critter = true,
             questID = 64988,
@@ -854,7 +865,7 @@ local function CreateDatabase()
         {
             name = L["Spider Soul"],
             loot = L["Riftbound Cache"],
-            region = L["Korthia"],
+            zoneID = 1961,
             guide = {
                 text = L["Spider Soul Guide"],
                 args = { Item(528693, L["Repaired Riftkey"], UNCOMMON_GREEN_COLOR) },
@@ -877,7 +888,7 @@ local function CreateDatabase()
         {
             name = L["Stag Soul"],
             quest = L["Night Fae dailies"],
-            region = L["Korthia"],
+            zoneID = 1961,
             guide = L["Stag Soul Guide"],
             questID = 62435,
             icon = 1396983,
@@ -887,7 +898,7 @@ local function CreateDatabase()
         {
             name = L["Squirrel Soul"],
             spell = L["Soulshape"],
-            region = L["Ardenweald"],
+            zoneID = 1565,
             guide = L["Squirrel Soul Guide"],
             critter = true,
             icon = 3749003,
@@ -901,7 +912,7 @@ local function CreateDatabase()
             faction = { name = L["Marasmius"], level = 5 },
             vendor = {
                 name = L["Cortinarius"],
-                region = L["Mushroom Network"],
+                zoneID = 1819,
                 cost = { id = 1813, amount = 1500 },
             },
             questID = 62437,
@@ -926,7 +937,7 @@ local function CreateDatabase()
             faction = { name = L["Marasmius"], level = 5 },
             vendor = {
                 name = L["Cortinarius"],
-                region = L["Mushroom Network"],
+                zoneID = 1819,
                 cost = { id = 1813, amount = 1500 },
             },
             questID = 62423,
@@ -938,7 +949,7 @@ local function CreateDatabase()
         {
             name = L["Veilwing Soul"],
             loot = L["Sire Denathrius"],
-            region = L["Castle Nathria"],
+            zoneID = 1747,
             difficulty = { L["Heroic"], L["Mythic"] },
             questID = 62425,
             icon = 303867,
@@ -959,7 +970,7 @@ local function CreateDatabase()
         {
             name = L["Wolfhawk Soul"],
             loot = L["Skuld Vit"],
-            region = L["Ardenweald"],
+            zoneID = 1565,
             guide = L["Wolfhawk Soul Guide"],
             pinData = {
                 { 1565, 36.9, 60.2, 96776, nil, L["Skuld Vit"], nil },
@@ -983,7 +994,7 @@ local function CreateDatabase()
         {
             name = L["Yak Soul"],
             loot = L["So'leah"],
-            region = L["Tazavesh, the Veiled Market"],
+            zoneID = 1993,
             difficulty = L["Hardmode"],
             questID = 63603,
             icon = 900317,
@@ -1009,7 +1020,7 @@ local function CreateDatabase()
         {
             name = L["Bat Soul"],
             npc = L["Lost Soul"],
-            region = L["Torghast"],
+            zoneID = 1833,
             guide = L["Torghast 9.2 Soulshape Guide"],
             questID = 65509,
             icon = 132182,
@@ -1058,7 +1069,7 @@ local function CreateDatabase()
         {
             name = L["Dragonhawk Soul"],
             npc = L["Lost Soul"],
-            region = L["Torghast"],
+            zoneID = 1833,
             guide = L["Torghast 9.2 Soulshape Guide"],
             questID = 65504,
             icon = 132188,
@@ -1069,7 +1080,7 @@ local function CreateDatabase()
         {
             name = L["Elekk Soul"],
             npc = L["Lost Soul"],
-            region = L["Torghast"],
+            zoneID = 1833,
             guide = L["Torghast 9.2 Soulshape Guide"],
             questID = 65507,
             icon = 132254,
@@ -1110,7 +1121,7 @@ local function CreateDatabase()
         {
             name = L["Pig Soul"],
             npc = L["Lost Soul"],
-            region = L["Torghast"],
+            zoneID = 1833,
             guide = L["Torghast 9.2 Soulshape Guide"],
             questID = 65515,
             icon = 1721030,
@@ -1192,7 +1203,7 @@ local function CreateDatabase()
         {
             name = L["Tallstrider Soul"],
             npc = L["Lost Soul"],
-            region = L["Torghast"],
+            zoneID = 1833,
             guide = L["Torghast 9.2 Soulshape Guide"],
             questID = 65508,
             icon = 132198,

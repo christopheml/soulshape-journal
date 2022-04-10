@@ -54,21 +54,7 @@ L["Spell"] = "Заклинание"
 L["Vendor"] = "Торговец"
 
 -- Zone Names
-L["Shadowlands"] = "Темные земли"
-L["Ardenweald"] = "Арденвельд"
-L["Bastion"] = "Бастион"
-L["Revendreth"] = "Ревендрет"
-L["Maldraxxus"] = "Малдраксус"
-L["Oribos"] = "Орибос"
-L["The Maw"] = "Утроба"
-L["Torghast"] = "Торгаст"
 L["The Adamant Vaults"] = "Адамантовые хранилища"
-L["Korthia"] = "Кортия"
-L["De Other Side"] = "Та Сторона"
-L["Mists of Tirna Scithe"] = "Туманы Тирна Скитта"
-L["Tazavesh, the Veiled Market"] = "Тайный рынок Тазавеш"
-L["Castle Nathria"] = "Замок Нафрия"
-L["Sanctum of Domination"] = "Святилище Господства"
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = "Друсты и пепел"
