@@ -55,21 +55,7 @@ L["Spell"] = "法術"
 L["Vendor"] = "商人"
 
 -- Zone Names
-L["Shadowlands"] = "暗影之境"
-L["Ardenweald"] = "亞登曠野"
-L["Bastion"] = "昇靈堡"
-L["Revendreth"] = "瑞文崔斯"
-L["Maldraxxus"] = "瑪卓薩斯"
-L["Oribos"] = "奧睿博斯"
-L["The Maw"] = "淵喉"
-L["Torghast"] = "托迦司"
 L["The Adamant Vaults"] = "不滅寶庫"
-L["Korthia"] = "科西亞"
-L["De Other Side"] = "彼界境地"
-L["Mists of Tirna Scithe"] = "特那希迷霧"
-L["Tazavesh, the Veiled Market"] = "塔札維許，帷幕市集"
-L["Castle Nathria"] = "納薩亞城"
-L["Sanctum of Domination"] = "統御聖所"
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = "佐司特的惡意"
@@ -90,6 +76,8 @@ L["Wildseed Root Grain"] = "野性種子根粒"
 L["Repaired Riftkey"] = "修復的裂隙鑰匙"
 L["Spectral Feed"] = "幽靈雞飼料"
 L["Lost Comb"] = "失落的蜂巢"
+L["Shrouded Cypher Cache"] = "隱蔽的暗語寶箱"
+L["Enlightened Broker Supplies"] = "受啟迪的仲介者物資"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "失落的靈魂"
@@ -112,6 +100,9 @@ L["Shopkeeper"] = "店員"
 L["Mystic Rainbowhorn"] = "神秘虹角"
 L["Olea Manu"] = "歐利亞瑪努"
 L["Shifting Stargorger"] = "變異吞星者"
+L["Prototype Pantheon"] = "原型萬神殿"
+L["The Jailer"] = "閻獄之主"
+L["Taskmaster Xy'pro"] = "監工希普羅"
 
 -- Others
 L["Burning Crusade Timewalking"] = "燃燒的遠征時光漫遊"
@@ -127,11 +118,12 @@ L["Mythic+ dungeons"] = "傳奇鑰石地城"
 L["Night Fae dailies"] = "暗夜妖精每日任務"
 L["Mushroom Network"] = "蘑菇網路"
 L["Marasmius"] = "瑪拉茲莫斯"
-L["Paragon reward."] = "聲望巔峰獎勵"
+L["Paragon reward."] = "聲望巔峰獎勵。"
 L["Soulshape"] = "靈魂幻體"
 L["Crittershape"] = "小動物型態"
 L["Pilgrim's Bounty"] = "旅人豐年祭"
 L["Covenant Callings reward chests"] = "誓盟使命任務獎勵寶箱"
+L["High Value Cache"] = "高價值儲物箱"
 
 L["Normal"] = "普通"
 L["Heroic"] = "英雄"
@@ -186,7 +178,7 @@ L["Gulper Soul"] = "大嘴蟾靈魂"
 L["Gulper Soul Guide"] = "不羈魂靈 + 一個%s"
 
 L["Hippo Soul"] = "河馬靈魂"
-L["Hippo Soul Guide"] = "暗夜妖精進攻戰的獎勵"
+L["Hippo Soul Guide"] = "暗夜妖精進攻戰的獎勵。"
 
 L["Hippogryph Soul"] = "角鷹獸靈魂"
 
@@ -279,10 +271,12 @@ L["Brutosaur Soul"] = "雷龍靈魂"
 L["Cervid Soul"] = "原鹿靈魂"
 L["Dragonhawk Soul"] = "龍鷹靈魂"
 L["Elekk Soul"] = "伊萊克靈魂"
+
 L["Gromit Soul"] = "哥羅米靈魂"
+L["Gromit Soul Guide"] = "要想看到寶箱，你得穿上帶有|cFFFFFFFF尋寶者|r效果的暗語裝備，接著點擊波克波可要求它「留意值得注意的物體」，以獲得|T134442:0|t |cFFFFFFFF感知型波克波可|r的增益效果。"
 
 L["Penguin Soul"] = "企鵝靈魂"
-L["Penguin Soul Guide"] = "金屬巨球頂端。點擊企鵝樣貌的失落靈魂以獲取之。需要解鎖飛行"
+L["Penguin Soul Guide"] = "金屬巨球頂端。點擊企鵝樣貌的失落靈魂以獲取之。需要解鎖飛行。"
 
 L["Pig Soul"] = "豬靈魂"
 L["Ray Soul"] = "魟魚靈魂"
@@ -292,7 +286,10 @@ L["Sheep Soul"] = "綿羊靈魂"
 L["Sheep Soul Guide"] = "多個重生點。點擊綿羊外貌的失落靈魂以獲取之。"
 
 L["Silithid Soul"] = "異種蠍靈魂"
+
 L["Snail Soul"] = "蝸牛靈魂"
+L["Snail Soul Guide"] = "同時拉住監工希莫斯與至少三隻其它小怪，直到監工身上出現|T465877:0|t |cFFFFFFFF防護撤銷|r的增益效果，將之擊殺，然後使用撿到的|T465877:0|t |cff14b200防護撤銷球體|r來解鎖寶箱。"
+
 L["Tallstrider Soul"] = "陸行鳥靈魂"
 
 L["Unknown Guide"] = "獲取管道目前未知。"
@@ -300,3 +297,7 @@ L["Torghast 9.2 Soulshape Guide"] = "托迦司難度 12 或更高的區域，樓
 
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "幽靈雞飼料是地上一袋散發藍光的穀物，每一到兩小時重生。點擊後會出現在背包裡，且持續十分鐘，使用後消耗。"
+L["Olea Manu Tooltip"] = "為了與歐利亞瑪努交易，你得研究完 |T4238929:0|t |cFFFFFFFF低音語理解|r 且完成|A:smallquestbang:16:16|a|cFFFFFFFF機諾化身英雄|r 的任務線。"
+L["Shrouded Cypher Cache Tooltip"] = "啟動波克波可的 |T134442:0|t |cFFFFFFFF感知型波克波可|r 功能並穿著帶有 |cFFFFFFFF尋寶者|r 效果的暗語裝備來看見隱藏的寶箱。"
+L["High Value Cache Tooltip"] = "儲物箱可經由拾獲了 |T465877:0|t |cff14b200防護撤銷球體|r 的玩家來解鎖，掉落自監工希普羅。|n|n 所有身處團隊副本的玩家，在儲物箱解鎖之後，均能拾取寶箱。"
+L["Taskmaster Xy'pro Tooltip"] = "於身上存在 |T465877:0|t |cFFFFFFFF防護撤銷|r 的增益效果時將掉落 |T465877:0|t |cff14b200防護撤銷球體|r 。|n|n 每有一隻小怪靠近他，希普羅便會獲得一層 |T135740:0|t |cFFFFFFFF協力|r 的增益效果。堆疊至少三層後他會追加 |T465877:0|t |cFFFFFFFF防護撤銷|r 的增益效果。"

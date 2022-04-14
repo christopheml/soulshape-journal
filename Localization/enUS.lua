@@ -55,21 +55,7 @@ L["Spell"] = true
 L["Vendor"] = true
 
 -- Zone Names
-L["Shadowlands"] = true
-L["Ardenweald"] = true
-L["Bastion"] = true
-L["Revendreth"] = true
-L["Maldraxxus"] = true
-L["Oribos"] = true
-L["The Maw"] = true
-L["Torghast"] = true
 L["The Adamant Vaults"] = true
-L["Korthia"] = true
-L["De Other Side"] = true
-L["Mists of Tirna Scithe"] = true
-L["Tazavesh, the Veiled Market"] = true
-L["Castle Nathria"] = true
-L["Sanctum of Domination"] = true
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = true
@@ -287,7 +273,7 @@ L["Dragonhawk Soul"] = true
 L["Elekk Soul"] = true
 
 L["Gromit Soul"] = true
-L["Gromit Soul Guide"] = "To see the caches, you'll need to wear a piece of Cypher Equipment with |cFFFFFFFFTreasure Finder|r and ask Pocopoc to \"look out for noteworthy objects\" to get the |T134442:0|t |cFFFFFFFFPerceptive Pocopoc|r buff."
+L["Gromit Soul Guide"] = "To see the caches, you'll need to wear a piece of Cypher Equipment with |cFFFFFFFFTreasurefinder|r and ask Pocopoc to \"look out for noteworthy objects\" to get the |T134442:0|t |cFFFFFFFFPerceptive Pocopoc|r buff."
 
 L["Penguin Soul"] = true
 L["Penguin Soul Guide"] = "On top of the metal orb. Interact with the penguin Lost Soul to obtain the soulshape. Requires flying."
@@ -312,6 +298,6 @@ L["Torghast 9.2 Soulshape Guide"] = "This soul can be freed during a Torghast ru
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Spectral Feed is a glowing blue sack of grain on the ground, respawning every 1-2 hours. Upon clicking it, you get the item in your bags, with a 10 minutes duration, that is consumed on use."
 L["Olea Manu Tooltip"] = "To access Olea Manu, you'll need to unlock |T4238929:0|t |cFFFFFFFFAltonian Understanding|r and complete the|A:smallquestbang:16:16|a|cFFFFFFFFJiro to Hero|r questline."
-L["Shrouded Cypher Cache Tooltip"] = "Activate Pocopoc's |T134442:0|t |cFFFFFFFFPerceptive Pocopoc|r buff while wearing a piece of Cypher Equipment with |cFFFFFFFFTreasure Finder|r to see the caches."
+L["Shrouded Cypher Cache Tooltip"] = "Activate Pocopoc's |T134442:0|t |cFFFFFFFFPerceptive Pocopoc|r buff while wearing a piece of Cypher Equipment with |cFFFFFFFFTreasurefinder|r to see the caches."
 L["High Value Cache Tooltip"] = "The cache can be unlocked by a player with |T465877:0|t |cff14b200Security Override Orb|r, dropped by Taskmaster Xy'pro.|n|nAll players in the raid can loot the cache regardless of who opened it."
 L["Taskmaster Xy'pro Tooltip"] = "Drops |T465877:0|t |cff14b200Security Override Orb|r when killed with the |T465877:0|t |cFFFFFFFFSecurity Override|r buff.|n|nFor every additional mob around him, Xy'pro gets a stack of |T135740:0|t |cFFFFFFFFSynergy|r. At 3 stacks he gets |T465877:0|t |cFFFFFFFFSecurity Override|r."

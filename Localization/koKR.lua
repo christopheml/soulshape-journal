@@ -53,21 +53,7 @@ L["Spell"] = "주문"
 L["Vendor"] = "상인"
 
 -- Zone Names
-L["Shadowlands"] = "어둠땅"
-L["Ardenweald"] = "몽환숲"
-L["Bastion"] = "승천의 보루"
-L["Revendreth"] = "레벤드레스"
-L["Maldraxxus"] = "말드락서스"
-L["Oribos"] = "오리보스"
-L["The Maw"] = "나락"
-L["Torghast"] = "토르가스트"
 L["The Adamant Vaults"] = "철화의 석실"
-L["Korthia"] = "코르시아"
-L["De Other Side"] = "저편"
-L["Mists of Tirna Scithe"] = "티르너 사이드의 안개"
-L["Tazavesh, the Veiled Market"] = "미지의 시장 타자베쉬"
-L["Castle Nathria"] = "나스리아 성채"
-L["Sanctum of Domination"] = "지배의 성소"
 
 -- Quest and Campaign Names (could be translated automatically through the API?)
 L["Drust and Ashes"] = "드러스트와 재"

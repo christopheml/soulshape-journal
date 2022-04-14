@@ -85,6 +85,13 @@ function SoulshapeMapMixin:Setup()
     self:SetScript("OnHide", self.OnHide)
 end
 
+function SoulshapeMapMixin:GetMapID()
+    -- Blizzard's implementation makes sure to never return nil and will return the mapID of the
+    -- area the player currently is. We don't need this, and this avoids a bug if the first map
+    -- a Soulshape Journal's user is opening is the map of the current area.
+    return self.mapID
+end
+
 function SoulshapeMapMixin:OnSoulshapeChange(soulshape)
     local maps = soulshape.maps
 
