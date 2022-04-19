@@ -77,6 +77,8 @@ L["Wildseed Root Grain"] = "Wildsamenwurzelfaser"
 L["Repaired Riftkey"] = "Reparierter Rissschlüssel"
 L["Spectral Feed"] = "Spektrales Futter"
 L["Lost Comb"] = "Verlorene Wabe"
+L["Shrouded Cypher Cache"] = "Verhüllte Chiffrentruhe"
+L["Enlightened Broker Supplies"] = "Truhe des Erleuchteten Mittlers"
 
 -- NPC Names (could be translated automatically through the API?)
 L["Lost Soul"] = "Verlorene Seele"
@@ -99,6 +101,9 @@ L["Shopkeeper"] = "Ladenbesitzer"
 L["Mystic Rainbowhorn"] = "Mystisches Regenbogenhorn"
 L["Olea Manu"] = true
 L["Shifting Stargorger"] = "Veränderlicher Sternfresser"
+L["Prototype Pantheon"] = "Prototypenpantheon"
+L["The Jailer"] = "Der Kerkermeister"
+L["Taskmaster Xy'pro"] = "Zuchtmeister Xy'pro"
 
 -- Others
 L["Burning Crusade Timewalking"] = "Zeitwanderungen von Burning Crusade"
@@ -119,6 +124,7 @@ L["Soulshape"] = "Seelengestalt"
 L["Crittershape"] = "Kleintiergestalt"
 L["Pilgrim's Bounty"] = "Pilgerfreudenfest"
 L["Covenant Callings reward chests"] = "Belohnungstruhen der Pakt-Berufungen"
+L["High Value Cache"] = "Sehr wertvoller Schatz"
 
 L["Normal"] = "normal"
 L["Heroic"] = "heroisch"
@@ -266,7 +272,9 @@ L["Brutosaur Soul"] = "Brutosaurusseele"
 L["Cervid Soul"] = "Cervidseele"
 L["Dragonhawk Soul"] = "Drachenfalkenseele"
 L["Elekk Soul"] = "Elekkseele"
+
 L["Gromit Soul"] = "Gromitseele"
+L["Gromit Soul Guide"] = "Um die verhüllten Truhen sehen zu können, aktiviere Pocopocs |T134442:0|t |cFFFFFFFFAufmerksamer Pocopoc|r-Buff, während du Chiffrenausrüstung mit |cFFFFFFFFVerbessert Pocopocs Wahrnehmungsfähigkeiten|r-Effekt trägst."
 
 L["Penguin Soul"] = "Pinguinseele"
 L["Penguin Soul Guide"] = "Oben auf der Metallkugel. Interaktion mit der Verlorenen Seele startet die Quest. Benötigt Fliegen."
@@ -279,7 +287,10 @@ L["Sheep Soul"] = "Schafseele"
 L["Sheep Soul Guide"] = "Hat verschiedene Spawnpunkte. Interaktion mit der Verlorenen Seele startet die Quest."
 
 L["Silithid Soul"] = "Silithidenseele"
+
 L["Snail Soul"] = "Schneckenseele"
+L["Snail Soul Guide"] = "Bekämpfe Zuchtmeister Xy'pro mit mindestens drei weiteren Mobs in seiner Nähe, damit er den |T465877:0|t |cFFFFFFFFSicherheitsüberbrückung|r-Buff erhält. Nach seinem Ableben hinterlässt er dann eine |T465877:0|t |cff14b200Sicherheitsüberbrückungskugel|r. Benutze sie, um Zugriff auf die Truhe zu erhalten."
+
 L["Tallstrider Soul"] = "Weitschreiterseele"
 
 L["Unknown Guide"] = "Die Quelle dieser Seelengestalt ist zurzeit noch unbekannt."
@@ -288,3 +299,6 @@ L["Torghast 9.2 Soulshape Guide"] = "Kann als Verlorene Seele in Torghast spawne
 -- Tooltips on maps
 L["Spectral Feed Tooltip"] = "Spektrales Futter ist ein blau leuchtender Getreidesack auf dem Boden, der alle 1–2 Stunden für 10 Minuten erscheint. Durch Anklicken erhältst du den Gegenstand, er verbleibt dann für 10 Minuten in der Tasche und wird bei Benutzung verbraucht."
 L["Olea Manu Tooltip"] = "Um Olea Manu freizuschalten, muss |T4238929:0| t|cFFFFFFFFVerständnis des Altesischen|r erforscht und die|A:smallquestbang:16:16|a|cFFFFFFFFJiroische Taten|r-Questreihe abgeschlossen sein."
+L["Shrouded Cypher Cache Tooltip"] = "Um die verhüllten Truhen sehen zu können, aktiviere Pocopocs |T134442:0|t |cFFFFFFFFAufmerksamer Pocopoc|r-Buff, während du Chiffrenausrüstung mit |cFFFFFFFFVerbessert Pocopocs Wahrnehmungsfähigkeiten|r-Effekt trägst."
+L["High Value Cache Tooltip"] = "Die Schutzvorrichtung kann mithilfe der |T465877:0|t |cff14b200Sicherheitsüberbrückungskugel|r von Zuchtmeister Xy'pro deaktiviert werden.|n|nAlle Spieler des Raids können auf die Truhe zugreifen – unabhängig davon, wer den Schutz deaktiviert hat."
+L["Taskmaster Xy'pro Tooltip"] = "Wird der Zuchtmeister mit |T465877:0|t |cFFFFFFFFSicherheitsüberbrückung|r-Buff getötet, hinterlässt er eine |T465877:0|t |cff14b200Sicherheitsüberbrückungskugel|r.|n|nFür jeden zusätzlichen Mob in seiner unmittelbaren Nähe erhält er einen Stack |T135740:0|t |cFFFFFFFFSynergie|r. Bei drei Stacks bekommt er den |T465877:0|t |cFFFFFFFFcFFFFFFFFSicherheitsüberbrückung|r-Buff."
