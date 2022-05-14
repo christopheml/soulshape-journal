@@ -1,3 +1,8 @@
+# 1.2.1
+
+* Updated German translation (thanks to covsoul)
+* Updated Readme to clarify installation instructions for WowUp
+
 # 1.2 
 
 * Fixed a bug causing many Lua errors and breaking the addon's map when trying to open it in specific circumstances
