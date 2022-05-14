@@ -3,7 +3,7 @@
 ## Title: Soulshape Journal |T3586268:0|t
 ## Notes: Displays Nightfae shoulshapes as a collection journal
 ## Notes-frFR: Affiche les formes d'âme des Faë nocturnes dans un journal de collection
-## Author: Christophe Michel
+## Author: 0xAFFFF
 ## X-Website: https://github.com/christopheml/SoulshapeJournal/
 ## X-Curse-Project-ID: 550045
 ## SavedVariables: SoulshapeJournalDB

@@ -18,9 +18,19 @@ Adds a tab in the Collections Journal to track your soulshape collection and pro
 
 Soulshape Journal has been [added to Curseforge](https://www.curseforge.com/wow/addons/soulshape-journal) and should be available from your Curse/Overwolf client.
 
-### Using Ajour
+### Using a third party client and Github
 
-Click "Install from an URL", paste `https://github.com/christopheml/soulshape-journal` and follow instructions. Ajour should pickup up updates when they're published.
+Most third-party clients allow installing addons directly from Github.
+
+#### Ajour
+
+Click "Install from an URL", paste `https://github.com/christopheml/soulshape-journal` and follow instructions. 
+Ajour should pick up updates when they're published.
+
+#### WowUp
+
+Select "Get Addons", then on the top-right corner, click "Install from URL", paste `https://github.com/christopheml/soulshape-journal` and click "Import". 
+WowUp should pick up updates when they're published.
 
 ### Manual installation from Github
 
