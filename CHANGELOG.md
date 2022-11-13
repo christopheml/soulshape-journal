@@ -1,3 +1,7 @@
+# 1.2.2
+
+* Fixed compatibility for patch 10.0 (thanks to reiyooki, dblanch369, crackityjo and everyone reporting issues)
+
 # 1.2.1
 
 * Updated German translation (thanks to covsoul)

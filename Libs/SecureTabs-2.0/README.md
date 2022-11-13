@@ -6,7 +6,7 @@ As such, you should create a frame that covers the original content. When your t
 
 
 ## Usage Example
-This code adds a tab to the `MerchantFrame` and manages displaying a custom `MyFrame` whenever the tab is selected:
+This code adds a tab to the `MerchantFrame`, which manages displaying a custom `MyFrame` whenever the tab is selected:
 
 ```
 local tab = LibStub('SecureTabs-2.0'):Add(MerchantFrame)
@@ -22,4 +22,7 @@ tab.OnDeselect = function()
 end
 ```
 
-`MyFrame` is optional. You can manage behaviour yourself using `.OnSelect` and `OnDeselect`. Just make sure to not cause taint.
+`MyFrame` is optional. You can manage behaviour yourself using `.OnSelect` and `OnDeselect`. Just make sure to not cause taint if you do.
+
+## To Devs
+If you use this library, please list it as one of your dependencies in the CurseForge admin system. It's a big help! :+1:

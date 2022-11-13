@@ -182,17 +182,17 @@ local function CreateModelView(panel)
     soulshapeInfo:SetPoint("BOTTOMRIGHT", -20, 20)
 
     -- FIXME: extract this
-    local bannerLeft = soulshapeInfo:CreateTexture(nil, "LOW")
+    local bannerLeft = soulshapeInfo:CreateTexture(nil, "ARTWORK")
     bannerLeft:SetPoint("TOPLEFT", 0, 5)
     bannerLeft:SetAtlas("UI-Frame-NightFae-TitleLeft", false)
     bannerLeft:SetSize(100, 42)
 
-    local bannerRight = soulshapeInfo:CreateTexture(nil, "LOW")
+    local bannerRight = soulshapeInfo:CreateTexture(nil, "ARTWORK")
     bannerRight:SetPoint("TOPRIGHT", soulshapeInfo, "TOPRIGHT", 0, 5)
     bannerRight:SetAtlas("UI-Frame-NightFae-TitleRight", false)
     bannerRight:SetSize(100, 42)
 
-    local bannerMid = soulshapeInfo:CreateTexture(nil, "LOW")
+    local bannerMid = soulshapeInfo:CreateTexture(nil, "ARTWORK")
     bannerMid:SetPoint("TOPLEFT", bannerLeft, "TOPRIGHT")
     bannerMid:SetPoint("BOTTOMRIGHT", bannerRight, "BOTTOMLEFT")
     bannerMid:SetAtlas("_UI-Frame-NightFae-TitleMiddle", false)
