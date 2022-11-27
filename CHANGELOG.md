@@ -1,3 +1,8 @@
+# 1.2.3
+
+* Fixed Bee, Gromit, Penguin and Sheep souls not correctly flagged as crittershapes (thanks to 619hadoken)
+* Fixed Penguin soul location being slightly off (thanks to Kenshineuh)
+
 # 1.2.2
 
 * Fixed compatibility for patch 10.0 (thanks to reiyooki, dblanch369, crackityjo and everyone reporting issues)
