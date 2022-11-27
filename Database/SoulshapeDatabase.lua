@@ -1112,9 +1112,9 @@ local function CreateDatabase()
             guide = L["Penguin Soul Guide"],
             zoneID = 1970,
             pinData = {
-                { 1970, 31.48, 50.42, 105263, nil, L["Lost Soul"], nil }
+                { 1970, 34.4, 71.2, 105263, nil, L["Lost Soul"], nil }
             },
-            coordinates = { x = 31.48, y = 50.42 },
+            coordinates = { x = 34.4, y = 71.2 },
             questID = 65517,
             icon = 655866,
             model = 105263,
