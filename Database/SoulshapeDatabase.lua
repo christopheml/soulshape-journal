@@ -1039,6 +1039,7 @@ local function CreateDatabase()
             questID = 65518,
             icon = 2027853,
             model = 105264,
+            critter = true,
             modelSceneID = 34,
             buildNumber = SJ.BUILD_9_2,
         },
@@ -1102,6 +1103,7 @@ local function CreateDatabase()
             questID = 65513,
             icon = 3931157,
             model = 105259,
+            critter = true,
             buildNumber = SJ.BUILD_9_2,
         },
         {
@@ -1116,6 +1118,7 @@ local function CreateDatabase()
             questID = 65517,
             icon = 655866,
             model = 105263,
+            critter = true,
             buildNumber = SJ.BUILD_9_2,
         },
         {
@@ -1172,6 +1175,7 @@ local function CreateDatabase()
             questID = 65516,
             icon = 136071,
             model = 105262,
+            critter = true,
             buildNumber = SJ.BUILD_9_2,
         },
         {
