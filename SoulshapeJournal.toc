@@ -1,4 +1,4 @@
-## Interface: 100000
+## Interface: 100002
 ## Version: @project-version@
 ## Title: Soulshape Journal |T3586268:0|t
 ## Notes: Displays Nightfae shoulshapes as a collection journal
