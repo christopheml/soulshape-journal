@@ -1,3 +1,7 @@
+# 1.2.4
+
+* Bumped TOC for 10.0.5
+
 # 1.2.3
 
 * Fixed Bee, Gromit, Penguin and Sheep souls not correctly flagged as crittershapes (thanks to 619hadoken)
