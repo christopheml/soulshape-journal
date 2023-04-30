@@ -1,4 +1,4 @@
-## Interface: 100005
+## Interface: 100007
 ## Version: @project-version@
 ## Title: Soulshape Journal |T3586268:0|t
 ## Notes: Displays Nightfae shoulshapes as a collection journal
@@ -7,6 +7,8 @@
 ## X-Website: https://github.com/christopheml/SoulshapeJournal/
 ## X-Curse-Project-ID: 550045
 ## SavedVariables: SoulshapeJournalDB
+## LoadOnDemand: 1
+## LoadWith: Blizzard_Collections
 
 Libs\LibStub\LibStub.lua
 Libs\AceLocale-3.0\AceLocale-3.0.xml
