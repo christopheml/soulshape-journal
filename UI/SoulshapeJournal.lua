@@ -85,7 +85,7 @@ local function CreateScrollFrame(panel)
 
     function ScrollFrameMixin:ResetButton(button)
         button.name:SetText("")
-        button.icon:SetTexture(GetSpellTexture(310143))
+        button.icon:SetTexture(C_Spell.GetSpellTexture(310143))
         button.critterIcon:Hide()
         button.untrackableAddButton:Hide()
         button.selectedTexture:Hide()
@@ -374,7 +374,7 @@ function SJ:CreateCollectionPanel()
     local panel = Mixin(CreateFrame("Frame", "SoulshapeCollectionPanel", CollectionsJournal, "PortraitFrameTemplate"), CollectionPanelMixin)
     panel:Hide()
     panel:SetAllPoints()
-    panel:SetPortraitToAsset(GetSpellTexture(310143))
+    panel:SetPortraitToAsset(C_Spell.GetSpellTexture(310143))
     panel:SetTitle(L["TAB_TITLE"])
 
     SJ.Panel = panel

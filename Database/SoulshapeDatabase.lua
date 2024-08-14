@@ -99,7 +99,7 @@ end
 local function FactionFormatter(faction)
     local name
     if faction.id then
-        name, _ = GetFactionInfoByID(faction.id)
+	name = C_Reputation.GetFactionDataByID(faction.id).name
     else
         -- We can't fetch all factions by id because GetFactionInfoByID will return nil
         -- on convenant-specific factions when the player has currently chosen another covenant
