@@ -97,11 +97,12 @@ local function CostFormatter(cost)
 end
 
 local function FactionFormatter(faction)
-    local name = "Unknown Faction #"..faction.id
+    local name = "Unknown Faction"
 
     if faction.id then
         local factionData = C_Reputation.GetFactionDataByID(faction.id)
-        name = factionData and factionData.name or name
+        name = factionData and factionData.name 
+            or name .. faction.id
     end
 
     if faction.level then
