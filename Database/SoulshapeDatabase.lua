@@ -97,14 +97,13 @@ local function CostFormatter(cost)
 end
 
 local function FactionFormatter(faction)
-    local name
+    local name = "Unknown Faction #"..faction.id
+
     if faction.id then
-        name, _ = GetFactionInfoByID(faction.id)
-    else
-        -- We can't fetch all factions by id because GetFactionInfoByID will return nil
-        -- on convenant-specific factions when the player has currently chosen another covenant
-        name = faction.name
+        local factionData = C_Reputation.GetFactionDataByID(faction.id)
+        name = factionData and factionData.name or name
     end
+
     if faction.level then
         local genderSuffix = UnitSex("player") == 3 and "_FEMALE" or ""
         local levelString = _G["FACTION_STANDING_LABEL" .. faction.level .. genderSuffix]
