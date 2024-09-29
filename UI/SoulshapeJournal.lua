@@ -254,6 +254,7 @@ local function CreateTab(panel)
     tab.frame = panel
 
     tab.OnSelect = function()
+        if InCombatLockdown() then return end
         -- Some addons aren't aware that we exist and won't hide themselves correctly when
         -- we show up. We'll circumvent this by telling the UI we're selecting another tab
         -- from the CollectionsJournal immediately before switching to ours, which causes
