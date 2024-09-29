@@ -1,6 +1,7 @@
-## Interface: 100007
+## Interface: 110002
 ## Version: @project-version@
-## Title: Soulshape Journal |T3586268:0|t
+## IconTexture: 3586268
+## Title: Soulshape Journal
 ## Notes: Displays Nightfae shoulshapes as a collection journal
 ## Notes-frFR: Affiche les formes d'âme des Faë nocturnes dans un journal de collection
 ## Author: 0xAFFFF

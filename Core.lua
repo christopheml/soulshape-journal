@@ -40,7 +40,7 @@ function SoulshapeJournal:OnEnable()
 
     -- Fixes an issue when our addon loads before Blizzard_Collections
     if not CollectionsJournal then
-        LoadAddOn("Blizzard_Collections")
+        C_AddOns.LoadAddOn("Blizzard_Collections")
     end 
 
     self:CreateCollectionPanel()
