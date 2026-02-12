@@ -1,4 +1,4 @@
-## Interface: 110002
+## Interface: 120001
 ## Version: @project-version@
 ## IconTexture: 3586268
 ## Title: Soulshape Journal
