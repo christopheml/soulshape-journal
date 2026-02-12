@@ -88,7 +88,7 @@ function SoulshapeJournalPinMixin:OnAcquired(pinData)
     if pinData.creatureDisplayID then
         SetPortraitTextureFromCreatureDisplayID(self.Background, pinData.creatureDisplayID)
     elseif pinData.iconID then
-        SetPortraitToTexture(self.Background, pinData.iconID)
+        self.Background:SetTexture(pinData.iconID)
     end
 end
 
