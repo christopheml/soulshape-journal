@@ -27,19 +27,6 @@ local ADDON_NAME, SJ = ...
 local Debug = SJ:NewModule("DebugTools", "AceConsole-3.0")
 
 function Debug:OnInitialize()
-    -- Allows fishing for SpellVisualKit ids
-    self:RegisterChatCommand("sj_kit", function(input)
-        if input == "+" then
-            self.lastID = self.lastID + 1
-        elseif input == "-" then
-            self.lastID = self.lastID - 1
-        else
-            self.lastID = tonumber(input)
-        end
-        self:Print("CreatureDisplayInfoID = " .. (self.lastID or "<nil>"))
-        CharacterModelFrame:SetDisplayInfo(self.lastID)
-    end)
-
     -- Sets the ModelSceneID in the 3D view
     self:RegisterChatCommand("sj_msi", function(input)
         local modelSceneID = tonumber(input)
