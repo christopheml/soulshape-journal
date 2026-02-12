@@ -25,6 +25,8 @@ local _, SJ = ...
 
 local SoulshapeMapNavigationMixin = { }
 
+local PerformEmote, CancelEmote = C_ChatInfo.PerformEmote, C_ChatInfo.CancelEmote
+
 function SoulshapeMapNavigationMixin:OnLoad()
     UIDropDownMenu_SetWidth(self, 130)
 end
@@ -67,7 +69,7 @@ local SoulshapeMapMixin = {
 
 function SoulshapeMapMixin:OnShow()
     MapCanvasMixin.OnShow(self)
-    DoEmote("READ", nil, true)
+    PerformEmote("READ", nil, true)
     PlaySound(SOUNDKIT.IG_QUEST_LOG_OPEN)
 end
 
