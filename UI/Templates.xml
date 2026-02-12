@@ -80,11 +80,22 @@
         <Layers>
             <Layer level="BACKGROUND">
                 <Texture parentKey="Background">
-                    <Size x="32" y="32"/>
+                    <Size x="40" y="40" />
                     <Anchors>
-                        <Anchor point="CENTER" x="0" y="0"/>
+                        <Anchor point="CENTER" />
                     </Anchors>
                 </Texture>
+                <MaskTexture parentKey="CircleMask"
+                    file="Interface\CharacterFrame\TempPortraitAlphaMask"
+                    hWrapMode="CLAMPTOBLACKADDITIVE" vWrapMode="CLAMPTOBLACKADDITIVE">
+                    <Size x="34" y="34" />
+                    <Anchors>
+                        <Anchor point="CENTER" />
+                    </Anchors>
+                    <MaskedTextures>
+                        <MaskedTexture childKey="Background" />
+                    </MaskedTextures>
+                </MaskTexture>
             </Layer>
         </Layers>
         <NormalTexture file="Interface\EncounterJournal\UI-EncounterJournalTextures">
