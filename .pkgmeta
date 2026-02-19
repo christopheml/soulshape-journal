@@ -4,6 +4,36 @@ ignore:
     - Debug.lua
     - *.txt
     - *.md
+    - Libs/
+
+externals:
+    Libs/LibStub:
+        url: https://svn.wowace.com/wow/libstub/mainline/trunk
+        tag: 1.0
+        curse-slug: libstub
+    Libs/AceAddon-3.0:
+        url: https://repos.wowace.com/wow/ace3/trunk/AceAddon-3.0
+        tag: Release-r1390
+        curse-slug: ace3
+    Libs/AceConsole-3.0:
+        url: https://repos.wowace.com/wow/ace3/trunk/AceConsole-3.0
+        tag: Release-r1390
+    Libs/AceDB-3.0:
+        url: https://repos.wowace.com/wow/ace3/trunk/AceDB-3.0
+        tag: Release-r1390
+    Libs/AceHook-3.0:
+        url: https://repos.wowace.com/wow/ace3/trunk/AceHook-3.0
+        tag: Release-r1390
+    Libs/AceLocale-3.0:
+        url: https://repos.wowace.com/wow/ace3/trunk/AceLocale-3.0
+        tag: Release-r1390
+    Libs/CallbackHandler-1.0:
+        url: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
+        tag: 1.0.9
+    Libs/SecureTabs-2.0:
+        url: https://github.com/Jaliborc/SecureTabs-2.0.git
+        tag: 2.0.15-060d98b
+        curse-slug: securetabs
 
 embedded-libraries:
   - securetabs
