@@ -16,18 +16,14 @@ Adds a tab in the Collections Journal to track your soulshape collection and pro
 
 ### Using Curse/Overwolf
 
-Soulshape Journal has been [added to Curseforge](https://www.curseforge.com/wow/addons/soulshape-journal) and should be available from your Curse/Overwolf client.
+Soulshape Journal has been [added to Curseforge](https://www.curseforge.com/wow/addons/soulshape-journal) and should be available from your Curse/Overwolf client,
+or the WowUp-CF client.
 
 ### Using a third party client and Github
 
 Most third-party clients allow installing addons directly from Github.
 
-#### Ajour
-
-Click "Install from an URL", paste `https://github.com/christopheml/soulshape-journal` and follow instructions. 
-Ajour should pick up updates when they're published.
-
-#### WowUp
+#### WowUp (non-CF version)
 
 Select "Get Addons", then on the top-right corner, click "Install from URL", paste `https://github.com/christopheml/soulshape-journal` and click "Import". 
 WowUp should pick up updates when they're published.
@@ -40,7 +36,9 @@ WowUp should pick up updates when they're published.
 
 ## Licensing
 
-The project is released under the [MIT License](LICENSE.txt).
+The project is released under the [GPL v3 License](LICENSE.txt).
+
+Third-party libraries distributed with this addon are licenced under [their respective licences](LICENCE-3RD-PARTY.txt)
 
 ## Reporting issues
 
@@ -88,7 +86,7 @@ If you want to contribute a new translation, please open a pull-request with the
 
 The new locale file must contain all the keys from [enUS.lua](Localization/enUS.lua), which is the default locale. If a key doesn't need to be translated, set its value to `true`. If you need more information about how locales are handled in Soulshape Journal, please check [AceLocale's documentation](https://www.wowace.com/projects/ace3/pages/api/ace-locale-3-0?comment=1).
 
-Your translation must be provided under a license compatible with the [MIT License](LICENSE.txt), ideally the MIT License itself, but some other copyleft licenses can work.
+Your translation must be provided under a license compatible with the [GPL v3 License](LICENSE.txt).
 
 There is a [translation changelog](Localization/CHANGELOG-translations.md) intended to help you identify translations that have been added, removed or modified.
 
