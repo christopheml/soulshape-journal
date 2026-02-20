@@ -17,6 +17,11 @@ jobs:
 
     steps:
 
+      - name: Install Subversion
+        run: |
+          sudo apt update
+          sudo apt install -y subversion zip
+
       - name: Clone project
         uses: actions/checkout@v6
 
